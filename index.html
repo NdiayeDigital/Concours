@@ -942,15 +942,15 @@
     <!-- VANILLA JAVASCRIPT CODE                                 -->
     <!-- ======================================================== -->
     <script>
-      // 1. SUPABASE CLIENT CONFIGURATION (Obfuscated)
-      const _0xUrl = atob('aHR0cHM6Ly94dG55bGthY3duZHNrd2V3dGl2ay5zdXBhYmFzZS5jbw==');
-      const _0xKey = atob('ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW5oMGJubHNhMkZqZDI1a2MydDNaWGQwYVhacklpd2ljbTlzWlNJNkltRnViMjRpTENKcFlYUWlPakUzTVRnek1URXpNemszT1N3aVpYaHdJam95TURNek9EZzVNVGM1ZlEuS0NxOGstbTRzTTQ5bjFuNUoybzVyOC1GOC0wMTFuNW4tbjVyOC1uNXI4');
+      // 1. SUPABASE CLIENT CONFIGURATION
+      const supabaseUrl = 'https://xtnylkacwndskwewtivk.supabase.co';
+      const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bnlsa2Fjd25kc2t3ZXd0aXZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzMTMxNzksImV4cCI6MjAzMzg4OTE3OX0.kCq8k-m4sM49n1n5J2o5r8-F8-011n5n-n5r8-n5r8';
       
       let supabaseClient;
       try {
-        supabaseClient = supabase.createClient(_0xUrl, _0xKey);
+        supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
       } catch (err) {
-        console.error("Erreur de chargement du noyau:", err);
+        console.error("Supabase load error:", err);
       }
 
       // Local State Cache
