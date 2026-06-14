@@ -272,32 +272,8 @@
             <div class="relative group select-none">
               <div class="absolute inset-0 bg-brand-gold-premium/10 rounded-full blur-[40px] transition-all duration-700"></div>
               
-              <svg viewBox="0 0 200 200" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] animate-[spin_25s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.25)]">
-                <path id="sealTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
-                <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="1.5" />
-                <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3" />
-                <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5" />
-                <circle cx="100" cy="100" r="70" fill="#0A1F5C" stroke="#C9A84C" stroke-width="2" />
-                
-                <!-- Scales of Justice -->
-                <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
-                <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
-                <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="2.5" />
-                <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
-                <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
-                <polygon points="100,70 102,74 106,75 103,78 104,82 100,80 96,82 97,78 94,75 98,74" fill="#E8C96A" />
-
-                <text fill="#C9A84C" class="font-serif font-bold tracking-widest text-[9.8px]">
-                  <textPath href="#sealTextPath" startOffset="0%">
-                    • UNIVERSITÉ IBA DER THIAM DE THIÈS • CLUB CE DEAO • 2026
-                  </textPath>
-                </text>
-              </svg>
-              <div class="absolute inset-0 border border-brand-gold-premium/15 rounded-full scale-110 pointer-events-none"></div>
+              <!-- User Logo -->
+              <img src="./Logo.png" alt="Logo Concours Plaidoirie" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] object-contain drop-shadow-[0_10px_20px_rgba(201,168,76,0.25)] relative z-10 hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>
@@ -815,11 +791,16 @@
           <div class="space-y-4">
             <div class="space-y-1.5">
               <label for="admin-username" class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom d'administrateur</label>
-              <input type="text" id="admin-username" required placeholder="Ex: Mouhamadou Al Amin Ndiaye" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              <input type="text" id="admin-username" required autocomplete="off" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
             </div>
             <div class="space-y-1.5">
               <label for="admin-password" class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Mot de passe</label>
-              <input type="password" id="admin-password" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              <div class="relative">
+                <input type="password" id="admin-password" required autocomplete="off" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 pl-4 pr-10 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-blue-dark/50 hover:text-brand-blue-dark transition-colors cursor-pointer">
+                  <i data-lucide="eye" id="password-eye-icon" class="w-4 h-4"></i>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -937,15 +918,15 @@
     <!-- VANILLA JAVASCRIPT CODE                                 -->
     <!-- ======================================================== -->
     <script>
-      // 1. SUPABASE CLIENT CONFIGURATION
-      const supabaseUrl = 'https://xtnylkacwndskwewtivk.supabase.co';
-      const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bnlsa2Fjd25kc2t3ZXd0aXZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzMTMxNzksImV4cCI6MjAzMzg4OTE3OX0.kCq8k-m4sM49n1n5J2o5r8-F8-011n5n-n5r8-n5r8';
+      // 1. SUPABASE CLIENT CONFIGURATION (Obfuscated)
+      const _0xUrl = atob('aHR0cHM6Ly94dG55bGthY3duZHNrd2V3dGl2ay5zdXBhYmFzZS5jbw==');
+      const _0xKey = atob('ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW5oMGJubHNhMkZqZDI1a2MydDNaWGQwYVhacklpd2ljbTlzWlNJNkltRnViMjRpTENKcFlYUWlPakUzTVRnek1URXpNemszT1N3aVpYaHdJam95TURNek9EZzVNVGM1ZlEuS0NxOGstbTRzTTQ5bjFuNUoybzVyOC1GOC0wMTFuNW4tbjVyOC1uNXI4');
       
       let supabaseClient;
       try {
-        supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+        supabaseClient = supabase.createClient(_0xUrl, _0xKey);
       } catch (err) {
-        console.error("Supabase load error:", err);
+        console.error("Erreur de chargement du noyau:", err);
       }
 
       // Local State Cache
@@ -1191,6 +1172,19 @@
         document.getElementById('admin-login-modal').classList.add('hidden');
         document.getElementById('login-error-banner').classList.add('hidden');
         document.getElementById('admin-password').value = '';
+      }
+
+      function togglePasswordVisibility() {
+        const passInput = document.getElementById('admin-password');
+        const eyeIcon = document.getElementById('password-eye-icon');
+        if (passInput.type === 'password') {
+          passInput.type = 'text';
+          eyeIcon.setAttribute('data-lucide', 'eye-off');
+        } else {
+          passInput.type = 'password';
+          eyeIcon.setAttribute('data-lucide', 'eye');
+        }
+        lucide.createIcons();
       }
 
       async function handleAdminLogin(e) {
