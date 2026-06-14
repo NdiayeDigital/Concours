@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://concours.vercel.app/sitemap.xml

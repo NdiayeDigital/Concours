@@ -92,6 +92,31 @@
   <body>
 
     <!-- ======================================================== -->
+    <!-- PRELOADER (ANIMATION DE CHARGEMENT)                      -->
+    <!-- ======================================================== -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-brand-blue-dark flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
+      <svg viewBox="0 0 200 200" class="w-24 h-24 sm:w-32 sm:h-32 animate-[spin_4s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.5)]">
+        <path id="preloaderTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
+        <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="2" />
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 4" />
+        <!-- Balance de la justice -->
+        <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" />
+        <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
+        <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="3" />
+        <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+      </svg>
+      <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest animate-pulse uppercase">
+        UIDT 2026
+      </div>
+      <div class="mt-2 text-white/50 font-sans text-xs uppercase tracking-[0.3em]">
+        Concours de Plaidoirie
+      </div>
+    </div>
     <!-- NAVBAR                                                   -->
     <!-- ======================================================== -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent py-5">
@@ -930,6 +955,15 @@
 
       // 2. INITIALIZATION ON PAGE LOAD
       window.addEventListener('DOMContentLoaded', () => {
+        // Preloader Logic
+        setTimeout(() => {
+          const preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.classList.add('opacity-0');
+            setTimeout(() => preloader.remove(), 700);
+          }
+        }, 1200);
+
         // Initialize Lucide Icons
         lucide.createIcons();
 
