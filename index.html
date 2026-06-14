@@ -914,6 +914,29 @@
           </div>
         </div>
 
+        <!-- Detailed Stats (UFR & Filières) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- UFR Stats -->
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par UFR
+            </h3>
+            <div id="stats-ufr-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+              <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
+            </div>
+          </div>
+
+          <!-- Filière Stats -->
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Filière
+            </h3>
+            <div id="stats-filiere-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+              <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
+            </div>
+          </div>
+        </div>
+
         <!-- Filter and Action Bar -->
         <div class="bg-white border border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="relative w-full md:max-w-md">
@@ -1429,13 +1452,69 @@
       function calculateDashboardStatistics(list) {
         document.getElementById('stat-total').innerText = list.length;
 
-        const uniqueUfrs = new Set(list.map(item => item.ufr));
-        document.getElementById('stat-ufr').innerText = uniqueUfrs.size;
+        const ufrStats = {};
+        const filiereStats = {};
+
+        list.forEach(item => {
+          // Count UFR
+          const ufr = item.ufr || 'Non renseigné';
+          ufrStats[ufr] = (ufrStats[ufr] || 0) + 1;
+
+          // Normalize and count Filière (handle abbreviations)
+          let filiere = (item.filiere || 'Non renseignée').trim().toUpperCase();
+          // Remove extra spaces and special chars for grouping
+          filiere = filiere.replace(/[^A-Z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
+          if (filiere === '') filiere = 'NON RENSEIGNÉE';
+          filiereStats[filiere] = (filiereStats[filiere] || 0) + 1;
+        });
+
+        // Update Unique UFR count
+        document.getElementById('stat-ufr').innerText = Object.keys(ufrStats).length;
 
         const startOfToday = new Date();
         startOfToday.setHours(0,0,0,0);
         const todayCount = list.filter(item => new Date(item.created_at) >= startOfToday).length;
         document.getElementById('stat-today').innerText = todayCount;
+
+        // Render UFR Stats
+        const ufrContainer = document.getElementById('stats-ufr-list');
+        ufrContainer.innerHTML = '';
+        Object.entries(ufrStats)
+          .sort((a, b) => b[1] - a[1]) // sort descending by count
+          .forEach(([ufr, count]) => {
+            const percentage = Math.round((count / list.length) * 100) || 0;
+            ufrContainer.innerHTML += `
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs font-medium text-brand-blue-dark">
+                  <span class="truncate pr-2">${ufr}</span>
+                  <span class="font-bold">${count} (${percentage}%)</span>
+                </div>
+                <div class="w-full bg-brand-blue-dark/5 rounded-full h-1.5">
+                  <div class="bg-brand-gold-premium h-1.5 rounded-full" style="width: ${percentage}%"></div>
+                </div>
+              </div>
+            `;
+          });
+
+        // Render Filiere Stats
+        const filiereContainer = document.getElementById('stats-filiere-list');
+        filiereContainer.innerHTML = '';
+        Object.entries(filiereStats)
+          .sort((a, b) => b[1] - a[1])
+          .forEach(([filiere, count]) => {
+            const percentage = Math.round((count / list.length) * 100) || 0;
+            filiereContainer.innerHTML += `
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs font-medium text-brand-blue-dark">
+                  <span class="truncate pr-2">${filiere}</span>
+                  <span class="font-bold">${count}</span>
+                </div>
+                <div class="w-full bg-brand-blue-dark/5 rounded-full h-1.5">
+                  <div class="bg-brand-blue-medium h-1.5 rounded-full" style="width: ${percentage}%"></div>
+                </div>
+              </div>
+            `;
+          });
       }
 
       function filterInscriptionsTable() {
