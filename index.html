@@ -665,7 +665,7 @@
               </div>
             </div>
             <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="https://wa.me/221784799882" target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 flex items-center justify-center space-x-2">
+              <a href="https://wa.me/221784799882" id="whatsapp-button" target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 flex items-center justify-center space-x-2">
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                 <span>Contacter sur WhatsApp</span>
               </a>
@@ -1163,6 +1163,17 @@
           document.getElementById('success-email').innerText = email;
           document.getElementById('success-ufr').innerText = ufr;
           document.getElementById('success-niveau').innerText = niveau;
+
+          // Auto-redirect to WhatsApp
+          const whatsappMsg = `Bonjour ! Je viens de valider mon inscription au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n📞 Contact : ${telephone}`;
+          const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
+          
+          document.getElementById('whatsapp-button').href = whatsappUrl;
+          
+          // Try to open in a new tab (might be blocked by popup blocker, but we have the button fallback in the UI)
+          setTimeout(() => {
+            window.open(whatsappUrl, '_blank') || (window.location.href = whatsappUrl);
+          }, 500);
 
         } catch (err) {
           errorBanner.classList.remove('hidden');
