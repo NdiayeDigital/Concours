@@ -689,11 +689,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-1.5">
                 <label for="prenom" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Prénom <span class="text-red-500">*</span></label>
-                <input type="text" id="prenom" required placeholder="Ex: Seydou" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <input type="text" id="prenom" required placeholder="Ex: Seydou" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
               </div>
               <div class="space-y-1.5">
                 <label for="nom" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom <span class="text-red-500">*</span></label>
-                <input type="text" id="nom" required placeholder="Ex: Ndiaye" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <input type="text" id="nom" required placeholder="Ex: Ndiaye" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
               </div>
             </div>
 
@@ -701,11 +701,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-1.5">
                 <label for="telephone" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Téléphone <span class="text-red-500">*</span></label>
-                <input type="tel" id="telephone" required placeholder="Ex: +221 77 000 00 00" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <input type="tel" id="telephone" required placeholder="Ex: +221 77 000 00 00" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
               </div>
               <div class="space-y-1.5">
                 <label for="email" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Email Universitaire <span class="text-red-500">*</span></label>
-                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: prenom.nom@univ-thies.sn" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: prenom.nom@univ-thies.sn" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
                 <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email doit obligatoirement se terminer par '@univ-thies.sn'</span>
                 <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Doit obligatoirement se terminer par @univ-thies.sn</span>
               </div>
@@ -715,7 +715,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-1.5">
                 <label for="ufr" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">UFR / Institut <span class="text-red-500">*</span></label>
-                <select id="ufr" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-all cursor-pointer">
+                <select id="ufr" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
                   <option value="" disabled selected>Sélectionnez votre UFR</option>
                   <option value="UFR-SET">UFR-SET (Sciences et Environnement et Technologie)</option>
                   <option value="UFR-SES">UFR-SES (Sciences Économiques et Sociales)</option>
@@ -726,14 +726,14 @@
               </div>
               <div class="space-y-1.5">
                 <label for="filiere" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Filière <span class="text-red-500">*</span></label>
-                <input type="text" id="filiere" required placeholder="Ex: Sciences Juridiques, Génie Civil..." class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <input type="text" id="filiere" required placeholder="Ex: Sciences Juridiques, Génie Civil..." class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
               </div>
             </div>
 
             <!-- Study Level -->
             <div class="space-y-1.5">
               <label for="niveau" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Niveau d'études <span class="text-red-500">*</span></label>
-              <select id="niveau" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-all cursor-pointer">
+              <select id="niveau" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
                 <option value="" disabled selected>Sélectionnez votre niveau</option>
                 <option value="Licence 1 (L1)">Licence 1 (L1)</option>
                 <option value="Licence 2 (L2)">Licence 2 (L2)</option>
@@ -749,7 +749,7 @@
               <p class="text-[9px] font-sans text-brand-blue-dark/50 leading-relaxed">
                 En soumettant ce formulaire, vous acceptez que le Club CE DEAO de l'UIDT traite vos données personnelles aux fins d'organisation de ce concours. Aucune donnée ne sera partagée à des tiers.
               </p>
-              <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-brand-gold-premium/20 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5 cursor-pointer">
+              <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-brand-gold-premium/20 transition-colors duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5 cursor-pointer">
                 <i data-lucide="scale" class="w-5 h-5"></i>
                 <span id="submit-btn-text">⚖️ Je participe au concours</span>
               </button>
@@ -816,12 +816,12 @@
           <div class="space-y-4">
             <div class="space-y-1.5">
               <label for="admin-username" class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom d'administrateur</label>
-              <input type="text" id="admin-username" required autocomplete="off" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              <input type="text" id="admin-username" required autocomplete="off" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
             </div>
             <div class="space-y-1.5">
               <label for="admin-password" class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Mot de passe</label>
               <div class="relative">
-                <input type="password" id="admin-password" required autocomplete="off" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 pl-4 pr-10 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <input type="password" id="admin-password" required autocomplete="off" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 pl-4 pr-10 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
                 <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-blue-dark/50 hover:text-brand-blue-dark transition-colors cursor-pointer w-4 h-4 flex items-center justify-center">
                   <div id="password-eye-open"><i data-lucide="eye" class="w-4 h-4"></i></div>
                   <div id="password-eye-close" class="hidden"><i data-lucide="eye-off" class="w-4 h-4"></i></div>
@@ -830,7 +830,7 @@
             </div>
           </div>
 
-          <button type="submit" id="login-btn" class="w-full bg-brand-blue-dark hover:bg-brand-blue-medium text-white font-sans font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2.5 cursor-pointer">
+          <button type="submit" id="login-btn" class="w-full bg-brand-blue-dark hover:bg-brand-blue-medium text-white font-sans font-bold py-3.5 px-6 rounded-xl shadow-lg transition-colors duration-300 flex items-center justify-center space-x-2.5 cursor-pointer">
             <i data-lucide="log-in" class="w-4 h-4"></i>
             <span id="login-btn-text">Se connecter</span>
           </button>
@@ -1168,16 +1168,11 @@
           document.getElementById('success-ufr').innerText = ufr;
           document.getElementById('success-niveau').innerText = niveau;
 
-          // Auto-redirect to WhatsApp
+          // Configure WhatsApp button
           const whatsappMsg = `Bonjour ! Je viens de valider mon inscription au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n📞 Contact : ${telephone}`;
           const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
           
           document.getElementById('whatsapp-button').href = whatsappUrl;
-          
-          // Try to open in a new tab (might be blocked by popup blocker, but we have the button fallback in the UI)
-          setTimeout(() => {
-            window.open(whatsappUrl, '_blank') || (window.location.href = whatsappUrl);
-          }, 500);
 
         } catch (err) {
           errorBanner.classList.remove('hidden');
