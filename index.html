@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="./Logo.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#0A1F5C" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Concours de Plaidoirie Universitaire 2026 — Club CE DEAO UIDT Thiès</title>
     <meta name="description" content="Inscrivez-vous au Concours de Plaidoirie Universitaire 2026 de l'Université Iba Der Thiam de Thiès (UIDT), organisé par le Club CE DEAO. Participez aux joutes oratoires et faites briller votre UFR." />
@@ -744,6 +746,11 @@
               </select>
             </div>
 
+            <div class="space-y-1.5 mt-4">
+              <label for="sujet" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Sujet de prédilection (Thème à plaider) <span class="text-red-500">*</span></label>
+              <textarea id="sujet" required placeholder="Ex: Le rôle de l'étudiant dans le développement de l'Afrique..." rows="2" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors resize-none"></textarea>
+            </div>
+
             <!-- Submit -->
             <div class="pt-4 space-y-4">
               <p class="text-[9px] font-sans text-brand-blue-dark/50 leading-relaxed">
@@ -1115,6 +1122,7 @@
         const ufr = document.getElementById('ufr').value;
         const filiere = document.getElementById('filiere').value.trim();
         const niveau = document.getElementById('niveau').value;
+        const sujet = document.getElementById('sujet').value.trim();
 
         const errorBanner = document.getElementById('form-error-banner');
         const errorText = document.getElementById('form-error-text');
@@ -1147,10 +1155,10 @@
             throw new Error("Cet email est déjà enregistré pour le concours.");
           }
 
-          // Insert record
+          // Insert record (NOTE: requires a 'sujet' column in Supabase)
           const { error: insertError } = await supabaseClient
             .from('inscriptions')
-            .insert([{ nom, prenom, telephone, email, ufr, filiere, niveau }]);
+            .insert([{ nom, prenom, telephone, email, ufr, filiere, niveau, sujet }]);
 
           if (insertError) {
             if (insertError.code === '23505') {
@@ -1179,12 +1187,14 @@
         document.getElementById('inscription-success').classList.remove('hidden');
         
         document.getElementById('success-name').innerText = `${prenom} ${nom}`;
-        document.getElementById('success-email').innerText = email;
         document.getElementById('success-ufr').innerText = ufr;
-        document.getElementById('success-niveau').innerText = niveau;
+
+        // Generate QR Code Ticket Data
+        const qrData = `Candidat: ${prenom} ${nom} | UFR: ${ufr} | Sujet: ${sujet}`;
+        document.getElementById('ticket-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
 
         // Configure WhatsApp button
-        const whatsappMsg = `Bonjour ! Je viens de m'inscrire au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
+        const whatsappMsg = `Bonjour ! Je viens de m'inscrire au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n💡 Sujet : ${sujet}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
         const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
         
         document.getElementById('whatsapp-button').href = whatsappUrl;
@@ -1201,6 +1211,7 @@
         document.getElementById('ufr').value = '';
         document.getElementById('filiere').value = '';
         document.getElementById('niveau').value = '';
+        document.getElementById('sujet').value = '';
 
         document.getElementById('inscription-success').classList.add('hidden');
         document.getElementById('inscription-form').classList.remove('hidden');
@@ -1465,6 +1476,17 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+      }
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker PWA enregistré');
+          }).catch(err => {
+            console.log('Erreur PWA ServiceWorker: ', err);
+          });
+        });
       }
     </script>
   </body>
