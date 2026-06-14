@@ -96,7 +96,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="select-none" style="-webkit-user-select: none; -ms-user-select: none; user-select: none;">
 
     <!-- ======================================================== -->
     <!-- PRELOADER (ANIMATION DE CHARGEMENT)                      -->
@@ -680,8 +680,8 @@
                 <div class="flex-1 space-y-2 text-center sm:text-left">
                   <h4 class="font-serif font-bold text-brand-blue-dark text-lg uppercase tracking-wide">Billet Officiel</h4>
                   <p class="text-xs font-sans text-brand-blue-dark/80">Ce code sera scanné à l'entrée.</p>
-                  <button type="button" onclick="window.print()" class="mt-3 text-xs text-brand-gold-premium font-bold hover:underline flex items-center justify-center sm:justify-start gap-1 w-full print:hidden cursor-pointer">
-                    <i data-lucide="printer" class="w-3.5 h-3.5"></i> Imprimer le Billet
+                  <button type="button" onclick="downloadQRCode()" class="mt-3 text-xs text-brand-gold-premium font-bold hover:underline flex items-center justify-center sm:justify-start gap-1 w-full print:hidden cursor-pointer">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Télécharger le QR Code
                   </button>
                 </div>
               </div>
@@ -1267,6 +1267,26 @@
         }
       }
 
+      async function downloadQRCode() {
+        try {
+          const img = document.getElementById('ticket-qr');
+          if (!img.src) return;
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.style.display = 'none';
+          a.href = url;
+          a.download = `Billet_QR_${currentCandidateData ? currentCandidateData.prenom : ''}_${currentCandidateData ? currentCandidateData.nom : ''}.png`;
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+        } catch (error) {
+          console.error("Erreur lors du téléchargement du QR Code:", error);
+          alert("Impossible de télécharger le QR Code directement. Veuillez essayer avec un autre navigateur.");
+        }
+      }
+
       function resetInscriptionForm() {
         document.getElementById('prenom').value = '';
         document.getElementById('nom').value = '';
@@ -1607,6 +1627,18 @@
           });
         });
       }
+      // Script Anti-Capture / Anti-Copie
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('keydown', e => {
+        if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'p' || e.key === 's' || e.key === 'c' || e.key === 'u'))) {
+          e.preventDefault();
+        }
+      });
+      document.addEventListener('keyup', e => {
+        if (e.key === 'PrintScreen') {
+          navigator.clipboard.writeText('');
+        }
+      });
     </script>
   </body>
 </html>
