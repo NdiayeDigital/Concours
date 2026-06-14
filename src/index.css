@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue-dark: #0A1F5C;
+  --color-brand-blue-medium: #1A3A8F;
+  --color-brand-gold-premium: #C9A84C;
+  --color-brand-gold-light: #E8C96A;
+  --color-brand-cream: #F8F6F0;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --animate-spin-slow: spin 25s linear infinite;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-blue-dark);
+    margin: 0;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    max-width: none;
+    text-align: left;
+    border-inline: none;
+  }
+}
+
+/* Custom scrollbar to match the premium gold/blue theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0A1F5C;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8C96A;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(10, 31, 92, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 31, 92, 0.08);
+}
