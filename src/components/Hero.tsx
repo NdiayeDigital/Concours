@@ -43,10 +43,10 @@ export default function Hero() {
 
             {/* Title */}
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight tracking-wide">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight tracking-wide">
                 Concours de <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium">Plaidoirie</span> Universitaire
               </h1>
-              <p className="text-white/80 text-lg md:text-xl font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-white/80 text-base sm:text-lg md:text-xl font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 Rejoignez l'arène de l'éloquence, défendez vos convictions avec rigueur, et faites briller l'art oratoire de votre UFR devant un jury prestigieux.
               </p>
             </div>

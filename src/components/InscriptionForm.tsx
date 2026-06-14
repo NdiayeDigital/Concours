@@ -103,14 +103,14 @@ export default function InscriptionForm() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Title */}
-        <div className="text-center mb-12 space-y-3">
-          <span className="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">
+        <div className="text-center mb-8 md:mb-12 space-y-3">
+          <span className="text-brand-gold-premium font-sans font-semibold tracking-widest text-[10px] sm:text-xs uppercase block">
             FORMULAIRE D'INSCRIPTION
           </span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark">
             Prenez votre place dans l'arène
           </h2>
-          <p className="text-brand-blue-dark/65 font-sans text-sm md:text-base max-w-md mx-auto">
+          <p className="text-brand-blue-dark/65 font-sans text-xs sm:text-sm md:text-base max-w-md mx-auto px-2">
             Remplissez le formulaire ci-dessous pour valider votre candidature officielle.
           </p>
         </div>
