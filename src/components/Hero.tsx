@@ -82,7 +82,7 @@ export default function Hero() {
                 </div>
                 <div className="text-left">
                   <span className="text-white/50 text-xs block font-sans">🏆 Grand Prix</span>
-                  <span className="text-white text-sm font-semibold block font-sans leading-tight">75 000 FCFA + Lot</span>
+                  <span className="text-white text-sm font-semibold block font-sans leading-tight">50 000 FCFA + Lot</span>
                 </div>
               </div>
             </div>
