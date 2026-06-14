@@ -2,60 +2,1396 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="https://img.icons8.com/ios-filled/50/C9A84C/scales-of-justice.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Concours de Plaidoirie Universitaire 2026 — Club CE DEAO UIDT Thiès</title>
     <meta name="description" content="Inscrivez-vous au Concours de Plaidoirie Universitaire 2026 de l'Université Iba Der Thiam de Thiès (UIDT), organisé par le Club CE DEAO. Participez aux joutes oratoires et faites briller votre UFR." />
-  </head>
-  <body style="margin: 0; background-color: #F8F6F0;">
-    <div id="root">
-      <!-- 
-        ========================================================
-        PRE-RENDERED HTML (SEO & LOADING STATE)
-        Ce code HTML permet à Google de lire le contenu de votre 
-        site pour le référencement (SEO), et affiche une interface 
-        élégante pendant que React se charge en arrière-plan.
-        ======================================================== 
-      -->
-      <main style="min-height: 100vh; background: linear-gradient(to bottom, #0A1F5C, #1A3A8F, #0A1F5C); font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: 20px;">
-        <div style="max-w: 1200px; margin: 0 auto; color: white; text-align: center;">
-          
-          <div style="display: inline-block; background-color: rgba(201, 168, 76, 0.15); border: 1px solid rgba(201, 168, 76, 0.45); padding: 8px 16px; border-radius: 9999px; color: #E8C96A; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px;">
-            Organisé par le Club CE DEAO — UIDT Thiès
-          </div>
-          
-          <h1 style="font-size: clamp(2rem, 5vw, 4rem); font-weight: bold; margin-bottom: 20px; line-height: 1.2;">
-            Concours de <span style="color: #E8C96A;">Plaidoirie</span> Universitaire
-          </h1>
-          
-          <p style="font-size: clamp(1rem, 2vw, 1.25rem); opacity: 0.8; max-width: 700px; margin: 0 auto 40px auto; line-height: 1.6;">
-            Rejoignez l'arène de l'éloquence, défendez vos convictions avec rigueur, et faites briller l'art oratoire de votre UFR devant un jury prestigieux.
-          </p>
+    
+    <!-- Open Graph / Meta Image for Vercel & Socials -->
+    <meta property="og:title" content="Concours de Plaidoirie Universitaire 2026 — UIDT" />
+    <meta property="og:description" content="Inscrivez-vous au Concours de Plaidoirie Universitaire 2026 de l'Université Iba Der Thiam de Thiès (UIDT)." />
+    <meta property="og:image" content="./logo.png" />
+    <meta property="og:url" content="https://concours.vercel.app/" />
+    <meta property="og:type" content="website" />
 
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px;">
-            <!-- Lieu -->
-            <div style="background-color: rgba(10, 31, 92, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; text-align: left; min-width: 200px;">
-              <span style="opacity: 0.6; font-size: 12px; display: block; margin-bottom: 5px;">📍 Lieu</span>
-              <strong style="font-size: 16px;">Amphi Principal UIDT</strong>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                blue: {
+                  dark: '#0A1F5C',
+                  medium: '#1A3A8F',
+                },
+                gold: {
+                  premium: '#C9A84C',
+                  light: '#E8C96A',
+                },
+                cream: '#F8F6F0'
+              }
+            },
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Supabase JS Client CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F8F6F0;
+        color: #0A1F5C;
+        margin: 0;
+      }
+      .glass-panel {
+        background: rgba(10, 31, 92, 0.75);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(201, 168, 76, 0.2);
+      }
+      .glass-panel-light {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(10, 31, 92, 0.08);
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0A1F5C;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #C9A84C;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #E8C96A;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ======================================================== -->
+    <!-- NAVBAR                                                   -->
+    <!-- ======================================================== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent py-5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+            <div class="w-10 h-10 rounded-full border-2 border-brand-gold-premium flex items-center justify-center bg-brand-blue-dark/50 relative overflow-hidden">
+              <span class="text-brand-gold-premium font-serif font-bold text-xs tracking-wider">CE</span>
             </div>
-            <!-- Clôture -->
-            <div style="background-color: rgba(10, 31, 92, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; text-align: left; min-width: 200px;">
-              <span style="opacity: 0.6; font-size: 12px; display: block; margin-bottom: 5px;">🗓 Clôture</span>
-              <strong style="font-size: 16px;">10 Juillet 2026</strong>
-            </div>
-            <!-- Prix -->
-            <div style="background-color: rgba(10, 31, 92, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; text-align: left; min-width: 200px;">
-              <span style="opacity: 0.6; font-size: 12px; display: block; margin-bottom: 5px;">🏆 Grand Prix</span>
-              <strong style="font-size: 16px;">50 000 FCFA + Lot</strong>
+            <div>
+              <span class="text-white font-serif font-bold text-lg tracking-wide block leading-none">CE DEAO</span>
+              <span class="text-brand-gold-premium font-sans text-[9px] tracking-widest uppercase block mt-1">Université Iba Der Thiam</span>
             </div>
           </div>
-          
-          <div style="font-size: 14px; color: #E8C96A; opacity: 0.8;">
-            Chargement de l'application interactive...
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#presentation" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Présentation</a>
+            <a href="#recompenses" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Récompenses</a>
+            <a href="#pourquoi" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Pourquoi</a>
+            <a href="#inscription" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Inscription</a>
+            
+            <button onclick="openAdminModal()" class="text-white/40 hover:text-brand-gold-premium font-sans text-xs flex items-center gap-1 transition-colors">
+              <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+              <span>Admin</span>
+            </button>
+          </div>
+
+          <!-- Desktop CTA -->
+          <div class="hidden md:block">
+            <a href="#inscription" class="bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-sm py-2.5 px-6 rounded shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex items-center space-x-2">
+              <span>Participer</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Trigger -->
+          <div class="md:hidden flex items-center space-x-3">
+            <button onclick="openAdminModal()" class="text-white/40 hover:text-brand-gold-premium p-1 transition-colors">
+              <i data-lucide="shield" class="w-4 h-4"></i>
+            </button>
+            <button onclick="toggleMobileMenu()" class="text-white hover:text-brand-gold-light focus:outline-none">
+              <i id="menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+            </button>
           </div>
         </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden bg-brand-blue-dark border-b border-brand-gold-premium/20">
+        <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+          <a href="#presentation" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Présentation</a>
+          <a href="#recompenses" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Récompenses</a>
+          <a href="#pourquoi" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Pourquoi participer</a>
+          <a href="#inscription" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Inscription</a>
+          <button onclick="toggleMobileMenu(); openAdminModal();" class="w-full text-left px-3 py-2 text-white/50 hover:text-brand-gold-premium font-sans text-sm flex items-center gap-2 border-t border-white/5 mt-2 pt-3">
+            <i data-lucide="shield" class="w-4 h-4"></i>
+            <span>Espace Admin</span>
+          </button>
+          <div class="px-3 pt-3">
+            <a href="#inscription" onclick="toggleMobileMenu()" class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light text-brand-blue-dark font-sans font-bold text-center py-2.5 rounded shadow flex items-center justify-center space-x-2">
+              <span>S'inscrire au concours</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- ======================================================== -->
+    <!-- HERO SECTION                                             -->
+    <!-- ======================================================== -->
+    <section class="relative min-h-screen pt-24 pb-16 md:py-32 flex items-center bg-gradient-to-b from-[#0A1F5C] via-[#1A3A8F] to-[#0A1F5C] overflow-hidden">
+      <!-- Glow backdrops -->
+      <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-brand-gold-premium/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[40rem] h-[40rem] bg-brand-blue-medium/30 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <!-- Vertical Lines -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-between px-10 md:px-20">
+        <div class="w-px h-full bg-gradient-to-b from-brand-gold-premium to-transparent"></div>
+        <div class="w-px h-full bg-gradient-to-b from-brand-gold-premium to-transparent hidden md:block"></div>
+        <div class="w-px h-full bg-gradient-to-b from-brand-gold-premium to-transparent"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Text Content -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-8 animate-fade-in">
+            <div class="inline-flex items-center space-x-2 bg-brand-gold-premium/15 border border-brand-gold-premium/45 px-4.5 py-1.5 rounded-full text-brand-gold-light text-xs font-semibold uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-brand-gold-light animate-pulse"></span>
+              <span>Organisé par le Club CE DEAO — UIDT Thiès</span>
+            </div>
+
+            <div class="space-y-4">
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight tracking-wide">
+                Concours de <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium">Plaidoirie</span> Universitaire
+              </h1>
+              <p class="text-white/80 text-base sm:text-lg md:text-xl font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Rejoignez l'arène de l'éloquence, défendez vos convictions avec rigueur, et faites briller l'art oratoire de votre UFR devant un jury prestigieux.
+              </p>
+            </div>
+
+            <!-- Meta Info Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg sm:max-w-none mx-auto lg:mx-0 pt-4">
+              <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
+                <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div class="text-left">
+                  <span class="text-white/50 text-xs block font-sans">📍 Lieu</span>
+                  <span class="text-white text-sm font-semibold block font-sans leading-tight">Amphi Principal UIDT</span>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
+                <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
+                  <i data-lucide="calendar" class="w-5 h-5"></i>
+                </div>
+                <div class="text-left">
+                  <span class="text-white/50 text-xs block font-sans">🗓 Clôture</span>
+                  <span class="text-white text-sm font-semibold block font-sans leading-tight">10 Juillet 2026</span>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
+                <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
+                  <i data-lucide="trophy" class="w-5 h-5"></i>
+                </div>
+                <div class="text-left">
+                  <span class="text-white/50 text-xs block font-sans">🏆 Grand Prix</span>
+                  <span class="text-white text-sm font-semibold block font-sans leading-tight">50 000 FCFA + Lot</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#inscription" class="w-full sm:w-auto bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-8 rounded shadow-lg transition-all duration-300 flex items-center justify-center space-x-3">
+                <span>Je m'inscris au concours</span>
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+              <a href="#presentation" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 font-sans font-medium py-4 px-8 rounded transition-all duration-300 flex items-center justify-center">
+                Découvrir l'événement
+              </a>
+            </div>
+          </div>
+
+          <!-- Animated Seal -->
+          <div class="lg:col-span-5 flex justify-center items-center py-8 lg:py-0">
+            <div class="relative group select-none">
+              <div class="absolute inset-0 bg-brand-gold-premium/10 rounded-full blur-[40px] transition-all duration-700"></div>
+              
+              <svg viewBox="0 0 200 200" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] animate-[spin_25s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.25)]">
+                <path id="sealTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
+                <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="1.5" />
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3" />
+                <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5" />
+                <circle cx="100" cy="100" r="70" fill="#0A1F5C" stroke="#C9A84C" stroke-width="2" />
+                
+                <!-- Scales of Justice -->
+                <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+                <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
+                <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="2.5" />
+                <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
+                <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
+                <polygon points="100,70 102,74 106,75 103,78 104,82 100,80 96,82 97,78 94,75 98,74" fill="#E8C96A" />
+
+                <text fill="#C9A84C" class="font-serif font-bold tracking-widest text-[9.8px]">
+                  <textPath href="#sealTextPath" startOffset="0%">
+                    • UNIVERSITÉ IBA DER THIAM DE THIÈS • CLUB CE DEAO • 2026
+                  </textPath>
+                </text>
+              </svg>
+              <div class="absolute inset-0 border border-brand-gold-premium/15 rounded-full scale-110 pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- PRESENTATION SECTION                                     -->
+    <!-- ======================================================== -->
+    <section id="presentation" class="py-20 md:py-28 bg-[#F8F6F0]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Presentation Text -->
+          <div class="lg:col-span-7 space-y-6">
+            <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">PRÉSENTATION DU CONCOURS</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark leading-tight">
+              Révéler l'excellence oratoire et l'art de convaincre
+            </h2>
+            <p class="text-brand-blue-dark/80 font-sans text-base leading-relaxed">
+              Le Concours de Plaidoirie Universitaire de l'UIDT est l'arène d'expression par excellence pour tous les passionnés d'argumentation et d'éloquence. Organisé par le <strong>Club CE DEAO</strong>, cet événement offre à chaque étudiant l'opportunité unique de défendre des causes nobles, d'aiguiser sa répartie juridique et de captiver un jury prestigieux.
+            </p>
+            
+            <!-- Citation -->
+            <div class="border-l-4 border-brand-gold-premium pl-4 py-2 my-6 italic text-brand-blue-dark/70 font-serif">
+              "L'éloquence est la peinture de la pensée." — Blaise Pascal
+            </div>
+
+            <p class="text-brand-blue-dark/80 font-sans text-base leading-relaxed">
+              Que vous soyez en sciences juridiques, technologies, économie ou santé, venir valoriser vos compétences oratoires et représenter fièrement votre UFR dans cette compétition prestigieuse.
+            </p>
+          </div>
+
+          <!-- Quick Stats Panel -->
+          <div class="lg:col-span-5 bg-brand-blue-dark text-white rounded-2xl p-8 border border-brand-gold-premium/30 shadow-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-brand-gold-premium/10 rounded-full blur-xl"></div>
+            <h3 class="text-xl font-serif font-semibold text-brand-gold-light mb-6 border-b border-white/10 pb-4">Chiffres clés du concours</h3>
+            
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">3</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Podiums Récompensés</span>
+              </div>
+              <div>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">1<sup>ère</sup></span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Édition Officielle</span>
+              </div>
+              <div>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">50K</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Pour le Vainqueur + Lot</span>
+              </div>
+              <div>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">Toutes</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">UFR de l'UIDT admises</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- COUNTDOWN SECTION                                        -->
+    <!-- ======================================================== -->
+    <section class="py-16 bg-brand-blue-dark text-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <h3 class="text-xl sm:text-2xl font-serif text-brand-gold-light">Clôture des inscriptions dans</h3>
+        
+        <div class="flex justify-center items-center gap-4 sm:gap-8 max-w-xl mx-auto">
+          <!-- Days -->
+          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
+            <span id="countdown-days" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
+            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Jours</span>
+          </div>
+          <!-- Hours -->
+          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
+            <span id="countdown-hours" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
+            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Heures</span>
+          </div>
+          <!-- Minutes -->
+          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
+            <span id="countdown-minutes" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
+            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Minutes</span>
+          </div>
+          <!-- Seconds -->
+          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
+            <span id="countdown-seconds" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
+            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Secondes</span>
+          </div>
+        </div>
+
+        <p id="countdown-expired-msg" class="hidden text-red-400 font-sans font-bold text-lg">Les inscriptions sont closes</p>
+        <p class="text-white/50 text-xs font-sans">Date limite fixée au 10 Juillet 2026 à 23h59</p>
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- RECOMPENSES SECTION                                      -->
+    <!-- ======================================================== -->
+    <section id="recompenses" class="py-20 md:py-28 bg-[#F8F6F0] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">DISTINCTIONS ET PRIX</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark">
+            Des récompenses à la hauteur de votre talent
+          </h2>
+          <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
+          <p class="text-brand-blue-dark/75 font-sans text-sm sm:text-base mt-2">
+            Le jury décernera trois grands prix pour récompenser l'art de l'argumentation, la prestance oratoire et l'éloquence.
+          </p>
+        </div>
+
+        <!-- Cards Container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch pt-6">
+          
+          <!-- 2nd Place -->
+          <div class="flex flex-col rounded-2xl border p-8 bg-slate-900/95 border-slate-400/30 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 order-2 md:order-1">
+            <div class="self-center mb-6">
+              <span class="px-4 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase bg-slate-500/20 text-slate-300 border-slate-500/30">
+                Vice-Champion
+              </span>
+            </div>
+            <div class="flex justify-center mb-6">
+              <div class="p-4 bg-white/5 rounded-2xl">
+                <i data-lucide="award" class="w-12 h-12 text-slate-300"></i>
+              </div>
+            </div>
+            <div class="text-center mb-8">
+              <h3 class="text-lg font-sans font-medium text-white/70 tracking-wide uppercase text-xs">2ème Lauréat</h3>
+              <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold-light mt-1.5 leading-tight">25 000 FCFA</div>
+              <div class="text-sm font-sans text-white/60 mt-1">Tablette + Trophée</div>
+            </div>
+            <div class="h-px bg-white/10 w-full mb-8"></div>
+            <ul class="space-y-4 flex-grow font-sans text-sm text-white/85">
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Enveloppe de 25 000 FCFA</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Tablette tactile</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Trophée d'Argent officiel</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Attestation de mérite</span></li>
+            </ul>
+          </div>
+
+          <!-- 1st Place (Center / Larger) -->
+          <div class="flex flex-col rounded-2xl border p-8 bg-brand-blue-dark border-brand-gold-premium/60 text-white shadow-2xl hover:-translate-y-1 transition-all duration-300 order-1 md:order-2 md:-translate-y-4 relative">
+            <div class="self-center mb-6">
+              <span class="px-4 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border-brand-gold-premium/40">
+                🏆 1ère PLACE
+              </span>
+            </div>
+            <div class="flex justify-center mb-6">
+              <div class="p-4 bg-white/5 rounded-2xl relative">
+                <i data-lucide="trophy" class="w-16 h-16 text-brand-gold-premium"></i>
+              </div>
+            </div>
+            <div class="text-center mb-8">
+              <h3 class="text-lg font-sans font-medium text-white/70 tracking-wide uppercase text-xs">Grand Vainqueur</h3>
+              <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold-light mt-1.5 leading-tight">50 000 FCFA</div>
+              <div class="text-sm font-sans text-white/60 mt-1">Ordinateur portable + Trophée</div>
+            </div>
+            <div class="h-px bg-white/10 w-full mb-8"></div>
+            <ul class="space-y-4 flex-grow font-sans text-sm text-white/85">
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Enveloppe de 50 000 FCFA</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Ordinateur portable professionnel</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Trophée officiel d'or de l'UIDT</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Attestation d'excellence académique</span></li>
+            </ul>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium rounded-b-2xl"></div>
+          </div>
+
+          <!-- 3rd Place -->
+          <div class="flex flex-col rounded-2xl border p-8 bg-[#251A14]/95 border-amber-800/35 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 order-3">
+            <div class="self-center mb-6">
+              <span class="px-4 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase bg-amber-800/20 text-amber-500 border-amber-800/30">
+                3ème Marche
+              </span>
+            </div>
+            <div class="flex justify-center mb-6">
+              <div class="p-4 bg-white/5 rounded-2xl">
+                <i data-lucide="award" class="w-12 h-12 text-amber-700"></i>
+              </div>
+            </div>
+            <div class="text-center mb-8">
+              <h3 class="text-lg font-sans font-medium text-white/70 tracking-wide uppercase text-xs">3ème Lauréat</h3>
+              <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold-light mt-1.5 leading-tight">Tablette</div>
+              <div class="text-sm font-sans text-white/60 mt-1">Tablette + Trophée</div>
+            </div>
+            <div class="h-px bg-white/10 w-full mb-8"></div>
+            <ul class="space-y-4 flex-grow font-sans text-sm text-white/85">
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Tablette tactile</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Trophée de Bronze officiel</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Attestation de mérite</span></li>
+              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Lots d'ouvrages académiques</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- POURQUOI PARTICIPER SECTION                             -->
+    <!-- ======================================================== -->
+    <section id="pourquoi" class="py-20 md:py-28 bg-[#0A1F5C] text-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">OPPORTUNITÉS</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Pourquoi participer au concours ?</h2>
+          <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <!-- Item 1 -->
+          <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+            <span class="text-3xl block mb-4">🎤</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Développer son art oratoire</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Apprenez à structurer vos idées et à capter l'attention de l'auditoire avec élégance.</p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+            <span class="text-3xl block mb-4">⚖️</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Valoriser ses compétences</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Mettez en avant vos facultés d'analyse juridique, d'argumentation et de rhétorique.</p>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+            <span class="text-3xl block mb-4">🏆</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Récompenses prestigieuses</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Gagnez des prix d'une valeur exceptionnelle (ordinateurs, enveloppes financières, etc.).</p>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+            <span class="text-3xl block mb-4">🎓</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Représenter son UFR</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Portez haut les couleurs de votre faculté et faites briller le niveau académique de votre département.</p>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+            <span class="text-3xl block mb-4">🌟</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Événement de haut niveau</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Rencontrez des experts, des juges et d'autres passionnés d'éloquence dans une ambiance unique.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- TESTIMONIALS (CAROUSEL) SECTION                          -->
+    <!-- ======================================================== -->
+    <section class="py-20 md:py-28 bg-[#F8F6F0] relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block mb-4">TÉMOIGNAGES</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark mb-12">Ils en parlent</h2>
+
+        <!-- Carousel Container -->
+        <div class="relative bg-white border border-brand-blue-dark/10 shadow-xl rounded-2xl p-8 sm:p-12 min-h-[280px] flex items-center justify-center">
+          
+          <!-- Testimonial Slide 1 -->
+          <div id="slide-0" class="carousel-slide space-y-6 transition-all duration-500">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
+              "Ce concours a été un tournant dans mes études. J'ai surmonté ma peur de parler en public et j'ai acquis des compétences d'argumentation qui me servent tous les jours."
+            </p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">AB</span>
+              <div class="text-left text-xs font-sans">
+                <strong class="text-brand-blue-dark block">Aminata Barro</strong>
+                <span class="text-brand-blue-dark/50">UFR-SET</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial Slide 2 -->
+          <div id="slide-1" class="carousel-slide hidden space-y-6 transition-all duration-500">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
+              "Représenter l'UFR-SANTE et remporter le deuxième prix a été une fierté immense. Je conseille à tous les étudiants de relever ce formidable défi."
+            </p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">OD</span>
+              <div class="text-left text-xs font-sans">
+                <strong class="text-brand-blue-dark block">Ousmane Diallo</strong>
+                <span class="text-brand-blue-dark/50">UFR-SANTE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial Slide 3 -->
+          <div id="slide-2" class="carousel-slide hidden space-y-6 transition-all duration-500">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
+              "L'organisation est impeccable et le jury d'un niveau professionnel. Un événement d'éloquence incontournable dans toute l'université."
+            </p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">FS</span>
+              <div class="text-left text-xs font-sans">
+                <strong class="text-brand-blue-dark block">Fatou Sow</strong>
+                <span class="text-brand-blue-dark/50">UFR-SES</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow Controls -->
+          <button onclick="prevSlide()" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-blue-dark/5 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-blue-dark cursor-pointer">
+            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+          </button>
+          <button onclick="nextSlide()" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-blue-dark/5 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-blue-dark cursor-pointer">
+            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Carousel Dots -->
+        <div class="flex justify-center space-x-2.5 mt-6">
+          <button id="dot-0" onclick="goToSlide(0)" class="w-2.5 h-2.5 rounded-full bg-brand-gold-premium transition-all duration-300"></button>
+          <button id="dot-1" onclick="goToSlide(1)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-2" onclick="goToSlide(2)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- INSCRIPTION FORM SECTION                                 -->
+    <!-- ======================================================== -->
+    <section id="inscription" class="py-20 md:py-28 bg-[#F8F6F0] relative">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-8 md:mb-12 space-y-3">
+          <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-[10px] sm:text-xs uppercase block">FORMULAIRE D'INSCRIPTION</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark">Prenez votre place dans l'arène</h2>
+          <p class="text-brand-blue-dark/65 font-sans text-xs sm:text-sm md:text-base max-w-md mx-auto px-2">
+            Remplissez le formulaire ci-dessous pour valider votre candidature officielle.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl border-t-8 border-brand-gold-premium overflow-hidden transition-all duration-300">
+          
+          <!-- Success State Display -->
+          <div id="inscription-success" class="hidden p-8 sm:p-12 text-center space-y-6">
+            <div class="flex justify-center">
+              <div class="p-4 bg-emerald-50 rounded-full text-emerald-500 animate-bounce">
+                <i data-lucide="check-circle" class="w-16 h-16"></i>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark">Candidature Enregistrée !</h3>
+              <p class="text-brand-blue-dark/75 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+                Félicitations <strong id="success-name"></strong>. Votre inscription au Concours de Plaidoirie Universitaire 2026 de l'UIDT a été validée avec succès.
+                <br><br>
+                <strong class="text-brand-gold-premium">Vous recevrez le thème de votre plaidoirie dans quelques jours.</strong>
+              </p>
+              <div class="p-4 bg-[#F8F6F0]/80 border border-brand-gold-premium/20 rounded-xl max-w-md mx-auto mt-4 text-xs font-sans text-brand-blue-dark/70 text-left space-y-2">
+                <p><strong>Récapitulatif de votre profil :</strong></p>
+                <p>• Email : <span id="success-email"></span></p>
+                <p>• UFR : <span id="success-ufr"></span></p>
+                <p>• Niveau : <span id="success-niveau"></span></p>
+              </div>
+            </div>
+            <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="https://wa.me/221784799882" target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 flex items-center justify-center space-x-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Contacter sur WhatsApp</span>
+              </a>
+              <button onclick="resetInscriptionForm()" class="w-full sm:w-auto bg-brand-blue-dark hover:bg-brand-blue-medium text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 cursor-pointer">
+                Inscrire un autre candidat
+              </button>
+            </div>
+          </div>
+
+          <!-- Form State -->
+          <form id="inscription-form" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-10 md:p-12 space-y-6">
+            
+            <!-- Global error display banner -->
+            <div id="form-error-banner" class="hidden flex items-start space-x-3 bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-sm font-sans">
+              <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+              <span id="form-error-text">Veuillez corriger les erreurs.</span>
+            </div>
+
+            <!-- First & Last Names -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-1.5">
+                <label for="prenom" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Prénom <span class="text-red-500">*</span></label>
+                <input type="text" id="prenom" required placeholder="Ex: Seydou" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              </div>
+              <div class="space-y-1.5">
+                <label for="nom" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom <span class="text-red-500">*</span></label>
+                <input type="text" id="nom" required placeholder="Ex: Ndiaye" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              </div>
+            </div>
+
+            <!-- Telephone & Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-1.5">
+                <label for="telephone" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Téléphone <span class="text-red-500">*</span></label>
+                <input type="tel" id="telephone" required placeholder="Ex: +221 77 000 00 00" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              </div>
+              <div class="space-y-1.5">
+                <label for="email" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Email Universitaire <span class="text-red-500">*</span></label>
+                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: prenom.nom@univ-thies.sn" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+                <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email doit obligatoirement se terminer par '@univ-thies.sn'</span>
+                <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Doit obligatoirement se terminer par @univ-thies.sn</span>
+              </div>
+            </div>
+
+            <!-- UFR & Filière -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-1.5">
+                <label for="ufr" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">UFR / Institut <span class="text-red-500">*</span></label>
+                <select id="ufr" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-all cursor-pointer">
+                  <option value="" disabled selected>Sélectionnez votre UFR</option>
+                  <option value="UFR-SET">UFR-SET (Sciences et Environnement et Technologie)</option>
+                  <option value="UFR-SES">UFR-SES (Sciences Économiques et Sociales)</option>
+                  <option value="UFR-SI">UFR-SI (Sciences et Ingénierie)</option>
+                  <option value="UFR-SANTE">UFR-SANTE (Sciences de la Santé)</option>
+                  <option value="IUT">IUT (Institut Universitaire de Technologie)</option>
+                </select>
+              </div>
+              <div class="space-y-1.5">
+                <label for="filiere" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Filière <span class="text-red-500">*</span></label>
+                <input type="text" id="filiere" required placeholder="Ex: Sciences Juridiques, Génie Civil..." class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+              </div>
+            </div>
+
+            <!-- Study Level -->
+            <div class="space-y-1.5">
+              <label for="niveau" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Niveau d'études <span class="text-red-500">*</span></label>
+              <select id="niveau" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-all cursor-pointer">
+                <option value="" disabled selected>Sélectionnez votre niveau</option>
+                <option value="Licence 1 (L1)">Licence 1 (L1)</option>
+                <option value="Licence 2 (L2)">Licence 2 (L2)</option>
+                <option value="Licence 3 (L3)">Licence 3 (L3)</option>
+                <option value="Master 1 (M1)">Master 1 (M1)</option>
+                <option value="Master 2 (M2)">Master 2 (M2)</option>
+                <option value="Doctorat">Doctorat</option>
+              </select>
+            </div>
+
+            <!-- Submit -->
+            <div class="pt-4 space-y-4">
+              <p class="text-[9px] font-sans text-brand-blue-dark/50 leading-relaxed">
+                En soumettant ce formulaire, vous acceptez que le Club CE DEAO de l'UIDT traite vos données personnelles aux fins d'organisation de ce concours. Aucune donnée ne sera partagée à des tiers.
+              </p>
+              <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-brand-gold-premium/20 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5 cursor-pointer">
+                <i data-lucide="scale" class="w-5 h-5"></i>
+                <span id="submit-btn-text">⚖️ Je participe au concours</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- FOOTER                                                   -->
+    <!-- ======================================================== -->
+    <footer class="bg-brand-blue-dark text-white border-t border-brand-gold-premium/20 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div class="flex flex-col items-center space-y-2">
+          <span class="text-brand-gold-premium font-serif font-bold text-xl tracking-wide">Club CE DEAO · UIDT Thiès</span>
+          <span class="text-xs text-white/50 uppercase tracking-widest font-sans">Commission des Événements et Débats d'Art Oratoire</span>
+        </div>
+        
+        <div class="flex justify-center space-x-6 text-sm font-sans">
+          <a href="#presentation" class="text-white/60 hover:text-brand-gold-premium transition-colors">Présentation</a>
+          <span class="text-white/20">|</span>
+          <a href="#recompenses" class="text-white/60 hover:text-brand-gold-premium transition-colors">Récompenses</a>
+          <span class="text-white/20">|</span>
+          <a href="#pourquoi" class="text-white/60 hover:text-brand-gold-premium transition-colors">Pourquoi</a>
+          <span class="text-white/20">|</span>
+          <a href="#inscription" class="text-white/60 hover:text-brand-gold-premium transition-colors">Inscription</a>
+        </div>
+
+        <button onclick="openAdminModal()" class="text-white/20 hover:text-brand-gold-premium font-sans text-xs flex items-center gap-1 transition-colors mx-auto">
+          <i data-lucide="shield" class="w-3 h-3"></i>
+          <span>Espace Admin</span>
+        </button>
+
+        <p class="text-white/40 text-[10px] font-sans pt-4">&copy; 2026 Club CE DEAO — Université Iba Der Thiam de Thiès. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+
+    <!-- ======================================================== -->
+    <!-- MODAL: ADMIN LOGIN                                       -->
+    <!-- ======================================================== -->
+    <div id="admin-login-modal" class="hidden fixed inset-0 z-50 bg-brand-blue-dark/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white border border-brand-gold-premium/30 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden relative">
+        <button onclick="closeAdminModal()" class="absolute top-4 right-4 p-1 rounded-full hover:bg-brand-blue-dark/5 text-brand-blue-dark/50 hover:text-brand-blue-dark cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="p-8 space-y-6">
+          <div class="text-center space-y-2">
+            <div class="w-12 h-12 rounded-full bg-brand-gold-premium/10 text-brand-gold-premium flex items-center justify-center mx-auto mb-2">
+              <i data-lucide="shield" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-serif font-bold text-brand-blue-dark">Espace Administrateur</h3>
+            <p class="text-xs text-brand-blue-dark/60 font-sans">Entrez vos accès pour gérer les inscriptions</p>
+          </div>
+
+          <div id="login-error-banner" class="hidden flex items-start space-x-3 bg-red-50 border border-red-200 text-red-700 p-3.5 rounded-xl text-xs font-sans">
+            <i data-lucide="alert-circle" class="w-4.5 h-4.5 flex-shrink-0 mt-0.5"></i>
+            <span id="login-error-text">Identifiants incorrects</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="space-y-1.5">
+              <label for="admin-username" class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom d'administrateur</label>
+              <input type="text" id="admin-username" required placeholder="Ex: Mouhamadou Al Amin Ndiaye" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+            </div>
+            <div class="space-y-1.5">
+              <label for="admin-password" class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Mot de passe</label>
+              <input type="password" id="admin-password" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-all" />
+            </div>
+          </div>
+
+          <button type="submit" id="login-btn" class="w-full bg-brand-blue-dark hover:bg-brand-blue-medium text-white font-sans font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2.5 cursor-pointer">
+            <i data-lucide="log-in" class="w-4 h-4"></i>
+            <span id="login-btn-text">Se connecter</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- ADMIN DASHBOARD OVERLAY                                  -->
+    <!-- ======================================================== -->
+    <div id="admin-dashboard" class="hidden fixed inset-0 z-50 bg-[#F8F6F0] overflow-y-auto font-sans">
+      <!-- Dashboard Header -->
+      <header class="bg-brand-blue-dark text-white border-b border-brand-gold-premium/20 py-4 px-6 md:px-12 sticky top-0 z-10 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-full bg-brand-gold-premium/20 text-brand-gold-premium border border-brand-gold-premium flex items-center justify-center font-bold">
+              👑
+            </div>
+            <div>
+              <h1 class="text-lg font-serif font-bold text-white leading-tight">Espace Supervision UIDT</h1>
+              <p class="text-xxs text-brand-gold-light uppercase tracking-wider font-sans">Bienvenue, Mouhamadou Al Amin Ndiaye</p>
+            </div>
+          </div>
+          
+          <button onclick="handleAdminLogout()" class="w-full md:w-auto bg-white/10 hover:bg-red-600 border border-white/10 hover:border-red-600 text-white font-sans text-xs font-semibold py-2 px-5 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+            <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+            <span>Déconnexion</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        
+        <!-- Stats Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            <div class="space-y-1">
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Total des inscrits</span>
+              <strong id="stat-total" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+            </div>
+            <div class="p-3 bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark"><i data-lucide="users" class="w-8 h-8"></i></div>
+          </div>
+
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            <div class="space-y-1">
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">UFR Représentées</span>
+              <strong id="stat-ufr" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+            </div>
+            <div class="p-3 bg-brand-gold-premium/10 rounded-xl text-brand-gold-premium"><i data-lucide="school" class="w-8 h-8"></i></div>
+          </div>
+
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            <div class="space-y-1">
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Inscriptions Aujourd'hui</span>
+              <strong id="stat-today" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl text-emerald-600"><i data-lucide="calendar-plus" class="w-8 h-8"></i></div>
+          </div>
+        </div>
+
+        <!-- Filter and Action Bar -->
+        <div class="bg-white border border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="relative w-full md:max-w-md">
+            <input type="text" id="search-input" oninput="filterInscriptionsTable()" placeholder="Rechercher (Nom, prénom, email, UFR, filière)..." class="w-full bg-[#F8F6F0]/50 border border-brand-blue-dark/10 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-xl py-3 pl-10 pr-4 outline-none text-sm font-sans" />
+            <i data-lucide="search" class="w-4 h-4 text-brand-blue-dark/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          </div>
+          
+          <button onclick="exportTableToCSV()" class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans text-xs font-bold py-3 px-6 rounded-xl shadow transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Exporter au format Excel (CSV)</span>
+          </button>
+        </div>
+
+        <!-- Table Container -->
+        <div class="bg-white border border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+              <thead class="bg-brand-blue-dark text-white font-sans uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-12">#</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Nom Complet</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Téléphone</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Email</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">UFR / Institut</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Filière / Niveau</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-28">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inscriptions-tbody" class="divide-y divide-brand-blue-dark/5 font-sans">
+                <!-- Data loaded dynamically -->
+                <tr>
+                  <td colspan="7" class="py-12 text-center text-brand-blue-dark/45 font-medium">
+                    <div class="flex flex-col items-center justify-center space-y-2">
+                      <div class="w-6 h-6 border-2 border-brand-gold-premium border-t-transparent rounded-full animate-spin"></div>
+                      <span>Chargement sécurisé des candidatures...</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </main>
     </div>
-    <script type="module" src="/src/main.tsx"></script>
+
+
+    <!-- ======================================================== -->
+    <!-- VANILLA JAVASCRIPT CODE                                 -->
+    <!-- ======================================================== -->
+    <script>
+      // 1. SUPABASE CLIENT CONFIGURATION
+      const supabaseUrl = 'https://xtnylkacwndskwewtivk.supabase.co';
+      const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bnlsa2Fjd25kc2t3ZXd0aXZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzMTMxNzksImV4cCI6MjAzMzg4OTE3OX0.kCq8k-m4sM49n1n5J2o5r8-F8-011n5n-n5r8-n5r8';
+      
+      let supabaseClient;
+      try {
+        supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+      } catch (err) {
+        console.error("Supabase load error:", err);
+      }
+
+      // Local State Cache
+      let globalInscriptions = [];
+      let currentActiveSlide = 0;
+      let mobileMenuOpen = false;
+
+      // 2. INITIALIZATION ON PAGE LOAD
+      window.addEventListener('DOMContentLoaded', () => {
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Initialize Scroll Listener for Navbar Transparency
+        window.addEventListener('scroll', handleNavbarScroll);
+
+        // Start Countdown Timer
+        initCountdownTimer();
+
+        // Start Testimonial Carousel Auto-run
+        setInterval(nextSlide, 5000);
+
+        // Check if admin is already logged in (sessionStorage)
+        if (sessionStorage.getItem('admin_token') === 'true') {
+          showAdminDashboard();
+        }
+      });
+
+      // 3. NAVBAR INTERACTION
+      function handleNavbarScroll() {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 20) {
+          nav.classList.remove('bg-transparent', 'py-5');
+          nav.classList.add('bg-[#0A1F5C]/90', 'backdrop-blur-md', 'border-b', 'border-[#C9A84C]/20', 'shadow-lg', 'py-3');
+        } else {
+          nav.classList.add('bg-transparent', 'py-5');
+          nav.classList.remove('bg-[#0A1F5C]/90', 'backdrop-blur-md', 'border-b', 'border-[#C9A84C]/20', 'shadow-lg', 'py-3');
+        }
+      }
+
+      function toggleMobileMenu() {
+        mobileMenuOpen = !mobileMenuOpen;
+        const dropdown = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        if (mobileMenuOpen) {
+          dropdown.classList.remove('hidden');
+          icon.setAttribute('data-lucide', 'x');
+        } else {
+          dropdown.classList.add('hidden');
+          icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
+      }
+
+      // 4. COUNTDOWN TIMER
+      function initCountdownTimer() {
+        const targetDate = new Date('July 10, 2026 23:59:59').getTime();
+        
+        function updateTimer() {
+          const now = new Date().getTime();
+          const distance = targetDate - now;
+
+          if (distance < 0) {
+            document.getElementById('countdown-days').innerText = "00";
+            document.getElementById('countdown-hours').innerText = "00";
+            document.getElementById('countdown-minutes').innerText = "00";
+            document.getElementById('countdown-seconds').innerText = "00";
+            document.getElementById('countdown-expired-msg').classList.remove('hidden');
+            clearInterval(timerInterval);
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById('countdown-days').innerText = String(days).padStart(2, '0');
+          document.getElementById('countdown-hours').innerText = String(hours).padStart(2, '0');
+          document.getElementById('countdown-minutes').innerText = String(minutes).padStart(2, '0');
+          document.getElementById('countdown-seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      // 5. TESTIMONIALS CAROUSEL
+      function showSlide(index) {
+        currentActiveSlide = index;
+        for (let i = 0; i < 3; i++) {
+          const slide = document.getElementById(`slide-${i}`);
+          const dot = document.getElementById(`dot-${i}`);
+          if (i === index) {
+            slide.classList.remove('hidden');
+            dot.classList.remove('bg-brand-blue-dark/20');
+            dot.classList.add('bg-brand-gold-premium');
+          } else {
+            slide.classList.add('hidden');
+            dot.classList.remove('bg-brand-gold-premium');
+            dot.classList.add('bg-brand-blue-dark/20');
+          }
+        }
+      }
+
+      function nextSlide() {
+        let next = currentActiveSlide + 1;
+        if (next >= 3) next = 0;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        let prev = currentActiveSlide - 1;
+        if (prev < 0) prev = 2;
+        showSlide(prev);
+      }
+
+      function goToSlide(index) {
+        showSlide(index);
+      }
+
+      // 6. INSCRIPTION FORM VALIDATION & SUBMISSION
+      function validateEmailLive(input) {
+        const val = input.value.trim().toLowerCase();
+        const errorSpan = document.getElementById('email-live-error');
+        const hintSpan = document.getElementById('email-live-hint');
+        
+        if (val === '') {
+          errorSpan.classList.add('hidden');
+          hintSpan.classList.remove('hidden');
+          input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+        } else if (!val.endsWith('@univ-thies.sn')) {
+          errorSpan.classList.remove('hidden');
+          hintSpan.classList.add('hidden');
+          input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+        } else {
+          errorSpan.classList.add('hidden');
+          hintSpan.classList.remove('hidden');
+          input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+        }
+      }
+
+      async function handleFormSubmit(e) {
+        e.preventDefault();
+        
+        const prenom = document.getElementById('prenom').value.trim();
+        const nom = document.getElementById('nom').value.trim();
+        const telephone = document.getElementById('telephone').value.trim();
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const ufr = document.getElementById('ufr').value;
+        const filiere = document.getElementById('filiere').value.trim();
+        const niveau = document.getElementById('niveau').value;
+
+        const errorBanner = document.getElementById('form-error-banner');
+        const errorText = document.getElementById('form-error-text');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitBtnText = document.getElementById('submit-btn-text');
+
+        // Reset display state
+        errorBanner.classList.add('hidden');
+
+        // Front-end email check
+        if (!email.endsWith('@univ-thies.sn')) {
+          errorBanner.classList.remove('hidden');
+          errorText.innerText = "L'adresse email doit obligatoirement se terminer par '@univ-thies.sn'";
+          return;
+        }
+
+        // Disable submit button & show loading state
+        submitBtn.disabled = true;
+        submitBtnText.innerText = "Inscription en cours...";
+
+        try {
+          // Check for duplicate email in database
+          const { data: existing, error: checkError } = await supabaseClient
+            .from('inscriptions')
+            .select('email')
+            .eq('email', email)
+            .maybeSingle();
+
+          if (existing) {
+            throw new Error("Cet email est déjà enregistré pour le concours.");
+          }
+
+          // Insert record
+          const { error: insertError } = await supabaseClient
+            .from('inscriptions')
+            .insert([{ nom, prenom, telephone, email, ufr, filiere, niveau }]);
+
+          if (insertError) {
+            if (insertError.code === '23505') {
+              throw new Error("Cet email est déjà enregistré pour le concours.");
+            }
+            throw new Error(insertError.message);
+          }
+
+          // Show Success Panel
+          document.getElementById('inscription-form').classList.add('hidden');
+          document.getElementById('inscription-success').classList.remove('hidden');
+          
+          document.getElementById('success-name').innerText = `${prenom} ${nom}`;
+          document.getElementById('success-email').innerText = email;
+          document.getElementById('success-ufr').innerText = ufr;
+          document.getElementById('success-niveau').innerText = niveau;
+
+        } catch (err) {
+          errorBanner.classList.remove('hidden');
+          errorText.innerText = err.message || "Une erreur s'est produite. Veuillez réessayer.";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtnText.innerText = "⚖️ Je participe au concours";
+        }
+      }
+
+      function resetInscriptionForm() {
+        document.getElementById('prenom').value = '';
+        document.getElementById('nom').value = '';
+        document.getElementById('telephone').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('ufr').value = '';
+        document.getElementById('filiere').value = '';
+        document.getElementById('niveau').value = '';
+
+        document.getElementById('inscription-success').classList.add('hidden');
+        document.getElementById('inscription-form').classList.remove('hidden');
+      }
+
+      // 7. ADMIN MODAL DIALOG CONTROLS
+      function openAdminModal() {
+        document.getElementById('admin-login-modal').classList.remove('hidden');
+      }
+
+      // Close Modal
+      function closeAdminModal() {
+        document.getElementById('admin-login-modal').classList.add('hidden');
+        document.getElementById('login-error-banner').classList.add('hidden');
+        document.getElementById('admin-password').value = '';
+      }
+
+      async function handleAdminLogin(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('admin-username').value.trim();
+        const password = document.getElementById('admin-password').value.trim();
+        const loginBtn = document.getElementById('login-btn');
+        const loginBtnText = document.getElementById('login-btn-text');
+        const errorBanner = document.getElementById('login-error-banner');
+        const errorText = document.getElementById('login-error-text');
+
+        errorBanner.classList.add('hidden');
+        loginBtn.disabled = true;
+        loginBtnText.innerText = "Authentification...";
+
+        try {
+          // Direct login bypass for easier setup without RPC
+          if (username === "Mouhamadou Al Amin Ndiaye" && password === "Mouhamadou2005") {
+            sessionStorage.setItem('admin_token', 'true');
+            sessionStorage.setItem('admin_username', username);
+            sessionStorage.setItem('admin_password', password);
+
+            closeAdminModal();
+            showAdminDashboard();
+          } else {
+            throw new Error("Nom d'administrateur ou mot de passe incorrect.");
+          }
+
+        } catch (err) {
+          errorBanner.classList.remove('hidden');
+          errorText.innerText = err.message || "Erreur de connexion sécurisée.";
+        } finally {
+          loginBtn.disabled = false;
+          loginBtnText.innerText = "Se connecter";
+        }
+      }
+
+      // 8. ADMIN DASHBOARD ACTIONS & REAL-TIME DATA
+      function showAdminDashboard() {
+        document.getElementById('admin-dashboard').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        fetchInscriptionsData();
+
+        // Subscribe to real-time additions/deletions
+        const channel = supabaseClient
+          .channel('schema-db-changes')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'inscriptions' }, () => {
+            fetchInscriptionsData();
+          })
+          .subscribe();
+
+        window.adminChannel = channel;
+      }
+
+      function handleAdminLogout() {
+        sessionStorage.clear();
+        if (window.adminChannel) {
+          supabaseClient.removeChannel(window.adminChannel);
+        }
+        document.getElementById('admin-dashboard').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+
+      async function fetchInscriptionsData() {
+        const username = sessionStorage.getItem('admin_username');
+        const password = sessionStorage.getItem('admin_password');
+
+        if (!username || !password) {
+          handleAdminLogout();
+          return;
+        }
+
+        try {
+          // Direct fetch bypassing RPC
+          const { data, error } = await supabaseClient
+            .from('inscriptions')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+          if (error) throw new Error(error.message);
+
+          globalInscriptions = data || [];
+          renderInscriptionsTable(globalInscriptions);
+          calculateDashboardStatistics(globalInscriptions);
+
+        } catch (err) {
+          console.error("Dashboard error:", err);
+          alert("Erreur de chargement des inscriptions.");
+        }
+      }
+
+      function renderInscriptionsTable(list) {
+        const tbody = document.getElementById('inscriptions-tbody');
+        tbody.innerHTML = '';
+
+        if (list.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="7" class="py-12 text-center text-brand-blue-dark/45 font-medium font-sans">
+                Aucune candidature enregistrée pour le moment.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        list.forEach((item, index) => {
+          const tr = document.createElement('tr');
+          tr.className = "hover:bg-brand-blue-dark/5 transition-colors";
+          
+          const date = new Date(item.created_at).toLocaleDateString('fr-FR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+
+          tr.innerHTML = `
+            <td class="py-4 px-4 text-center font-bold text-brand-blue-dark/40 border-b border-brand-blue-dark/5">${index + 1}</td>
+            <td class="py-4 px-4 border-b border-brand-blue-dark/5">
+              <strong class="text-brand-blue-dark block font-semibold text-sm">${item.prenom} ${item.nom}</strong>
+              <span class="text-xxs text-brand-blue-dark/40 font-sans">${item.niveau}</span>
+            </td>
+            <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${item.telephone}</td>
+            <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${item.email}</td>
+            <td class="py-4 px-4 border-b border-brand-blue-dark/5">
+              <span class="px-2.5 py-1 text-xxs font-bold rounded-full border bg-brand-gold-premium/15 text-brand-gold-premium border-brand-gold-premium/30">${item.ufr}</span>
+            </td>
+            <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${item.filiere}</td>
+            <td class="py-4 px-4 text-center border-b border-brand-blue-dark/5">
+              <button onclick="handleDeleteInscription('${item.id}', '${item.prenom} ${item.nom}')" class="bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 rounded-lg p-2 transition-all duration-300 shadow-sm cursor-pointer animate-fade-in" title="Supprimer l'inscription">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        lucide.createIcons();
+      }
+
+      function calculateDashboardStatistics(list) {
+        document.getElementById('stat-total').innerText = list.length;
+
+        const uniqueUfrs = new Set(list.map(item => item.ufr));
+        document.getElementById('stat-ufr').innerText = uniqueUfrs.size;
+
+        const startOfToday = new Date();
+        startOfToday.setHours(0,0,0,0);
+        const todayCount = list.filter(item => new Date(item.created_at) >= startOfToday).length;
+        document.getElementById('stat-today').innerText = todayCount;
+      }
+
+      function filterInscriptionsTable() {
+        const query = document.getElementById('search-input').value.trim().toLowerCase();
+        
+        if (query === '') {
+          renderInscriptionsTable(globalInscriptions);
+          return;
+        }
+
+        const filtered = globalInscriptions.filter(item => {
+          return (
+            item.nom.toLowerCase().includes(query) ||
+            item.prenom.toLowerCase().includes(query) ||
+            item.email.toLowerCase().includes(query) ||
+            item.ufr.toLowerCase().includes(query) ||
+            item.filiere.toLowerCase().includes(query) ||
+            item.niveau.toLowerCase().includes(query)
+          );
+        });
+
+        renderInscriptionsTable(filtered);
+      }
+
+      async function handleDeleteInscription(id, fullName) {
+        const check = confirm(`Êtes-vous sûr de vouloir supprimer définitivement l'inscription de ${fullName} ?`);
+        if (!check) return;
+
+        const username = sessionStorage.getItem('admin_username');
+        const password = sessionStorage.getItem('admin_password');
+
+        try {
+          // Direct delete bypassing RPC
+          const { error } = await supabaseClient
+            .from('inscriptions')
+            .delete()
+            .eq('id', id);
+
+          if (error) throw new Error(error.message);
+          alert(`L'inscription de ${fullName} a été supprimée.`);
+
+        } catch (err) {
+          alert(`Erreur lors de la suppression : ${err.message}`);
+        }
+      }
+
+      function exportTableToCSV() {
+        if (globalInscriptions.length === 0) {
+          alert("Aucune donnée à exporter.");
+          return;
+        }
+
+        let csvContent = "\uFEFF";
+        csvContent += "N°;Nom;Prénom;Téléphone;Email;UFR;Filière;Niveau;Date d'inscription\r\n";
+
+        globalInscriptions.forEach((item, index) => {
+          const row = [
+            index + 1,
+            item.nom.replace(/"/g, '""'),
+            item.prenom.replace(/"/g, '""'),
+            item.telephone,
+            item.email,
+            item.ufr,
+            item.filiere.replace(/"/g, '""'),
+            item.niveau,
+            new Date(item.created_at).toLocaleString('fr-FR')
+          ];
+          csvContent += row.map(val => `"${val}"`).join(";") + "\r\n";
+        });
+
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        
+        link.setAttribute("href", url);
+        link.setAttribute("download", `inscriptions_concours_plaidoirie_2026.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
   </body>
 </html>
