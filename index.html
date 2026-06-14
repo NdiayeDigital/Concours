@@ -95,7 +95,21 @@
     <!-- PRELOADER (ANIMATION DE CHARGEMENT)                      -->
     <!-- ======================================================== -->
     <div id="preloader" class="fixed inset-0 z-[100] bg-brand-blue-dark flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
-      <img src="./Logo.png" alt="Logo Concours" class="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-[0_10px_20px_rgba(201,168,76,0.5)] animate-pulse" />
+      <svg viewBox="0 0 200 200" class="w-24 h-24 sm:w-32 sm:h-32 animate-[spin_4s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.5)]">
+        <path id="preloaderTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
+        <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="2" />
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 4" />
+        <!-- Balance de la justice -->
+        <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" />
+        <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
+        <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="3" />
+        <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1.5" />
+        <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+      </svg>
       <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest animate-pulse uppercase">
         UIDT 2026
       </div>
@@ -109,8 +123,14 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-            <img src="./Logo.png" alt="Logo CE DEAO UIDT" class="h-12 w-auto object-contain drop-shadow-md" />
+          <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+            <div class="w-10 h-10 rounded-full border-2 border-brand-gold-premium flex items-center justify-center bg-brand-blue-dark/50 relative overflow-hidden">
+              <span class="text-brand-gold-premium font-serif font-bold text-xs tracking-wider">CE</span>
+            </div>
+            <div>
+              <span class="text-white font-serif font-bold text-lg tracking-wide block leading-none">CE DEAO</span>
+              <span class="text-brand-gold-premium font-sans text-[9px] tracking-widest uppercase block mt-1">Université Iba Der Thiam</span>
+            </div>
           </div>
 
           <!-- Desktop Navigation -->
@@ -252,8 +272,32 @@
             <div class="relative group select-none">
               <div class="absolute inset-0 bg-brand-gold-premium/10 rounded-full blur-[40px] transition-all duration-700"></div>
               
-              <!-- User Logo -->
-              <img src="./Logo.png" alt="Logo Concours Plaidoirie" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] object-contain drop-shadow-[0_10px_20px_rgba(201,168,76,0.25)] relative z-10 hover:scale-105 transition-transform duration-500" />
+              <svg viewBox="0 0 200 200" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] animate-[spin_25s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.25)]">
+                <path id="sealTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
+                <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="1.5" />
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3" />
+                <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5" />
+                <circle cx="100" cy="100" r="70" fill="#0A1F5C" stroke="#C9A84C" stroke-width="2" />
+                
+                <!-- Scales of Justice -->
+                <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+                <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
+                <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="2.5" />
+                <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
+                <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1" />
+                <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
+                <polygon points="100,70 102,74 106,75 103,78 104,82 100,80 96,82 97,78 94,75 98,74" fill="#E8C96A" />
+
+                <text fill="#C9A84C" class="font-serif font-bold tracking-widest text-[9.8px]">
+                  <textPath href="#sealTextPath" startOffset="0%">
+                    • UNIVERSITÉ IBA DER THIAM DE THIÈS • CLUB CE DEAO • 2026
+                  </textPath>
+                </text>
+              </svg>
+              <div class="absolute inset-0 border border-brand-gold-premium/15 rounded-full scale-110 pointer-events-none"></div>
             </div>
           </div>
         </div>
