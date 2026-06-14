@@ -1156,31 +1156,41 @@
             if (insertError.code === '23505') {
               throw new Error("Cet email est déjà enregistré pour le concours.");
             }
-            throw new Error(insertError.message);
+            console.error("Supabase Error:", insertError);
+            throw new Error("Erreur de base de données.");
           }
 
-          // Show Success Panel
-          document.getElementById('inscription-form').classList.add('hidden');
-          document.getElementById('inscription-success').classList.remove('hidden');
-          
-          document.getElementById('success-name').innerText = `${prenom} ${nom}`;
-          document.getElementById('success-email').innerText = email;
-          document.getElementById('success-ufr').innerText = ufr;
-          document.getElementById('success-niveau').innerText = niveau;
-
-          // Configure WhatsApp button
-          const whatsappMsg = `Bonjour ! Je viens de valider mon inscription au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n📞 Contact : ${telephone}`;
-          const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
-          
-          document.getElementById('whatsapp-button').href = whatsappUrl;
-
         } catch (err) {
-          errorBanner.classList.remove('hidden');
-          errorText.innerText = err.message || "Une erreur s'est produite. Veuillez réessayer.";
-        } finally {
-          submitBtn.disabled = false;
-          submitBtnText.innerText = "⚖️ Je participe au concours";
+          // If it's a validation error (already exists), stop the process
+          if (err.message.includes("déjà enregistré")) {
+            errorBanner.classList.remove('hidden');
+            errorText.innerText = err.message;
+            submitBtn.disabled = false;
+            submitBtnText.innerText = "⚖️ Je participe au concours";
+            return; // Stop here!
+          }
+          // Otherwise (like "Failed to fetch" or offline), we log it but STILL ALLOW the user to proceed via WhatsApp
+          console.error("Problème réseau ou Supabase:", err);
+          // We don't return, we let the code continue to the Success Panel
         }
+
+        // Show Success Panel (proceeds even if DB fails, as a fallback)
+        document.getElementById('inscription-form').classList.add('hidden');
+        document.getElementById('inscription-success').classList.remove('hidden');
+        
+        document.getElementById('success-name').innerText = `${prenom} ${nom}`;
+        document.getElementById('success-email').innerText = email;
+        document.getElementById('success-ufr').innerText = ufr;
+        document.getElementById('success-niveau').innerText = niveau;
+
+        // Configure WhatsApp button
+        const whatsappMsg = `Bonjour ! Je viens de m'inscrire au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
+        const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
+        
+        document.getElementById('whatsapp-button').href = whatsappUrl;
+
+        submitBtn.disabled = false;
+        submitBtnText.innerText = "⚖️ Je participe au concours";
       }
 
       function resetInscriptionForm() {
