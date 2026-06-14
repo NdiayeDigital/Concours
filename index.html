@@ -706,10 +706,10 @@
                 <input type="tel" id="telephone" required placeholder="Ex: +221 77 000 00 00" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
               </div>
               <div class="space-y-1.5">
-                <label for="email" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Email Universitaire <span class="text-red-500">*</span></label>
-                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: prenom.nom@univ-thies.sn" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
-                <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email doit obligatoirement se terminer par '@univ-thies.sn'</span>
-                <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Doit obligatoirement se terminer par @univ-thies.sn</span>
+                <label for="email" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Email <span class="text-red-500">*</span></label>
+                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: email@univ-thies.sn ou @gmail.com" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email doit se terminer par '@univ-thies.sn' ou '@gmail.com'</span>
+                <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Accepte @univ-thies.sn ou @gmail.com</span>
               </div>
             </div>
 
@@ -1096,7 +1096,7 @@
           errorSpan.classList.add('hidden');
           hintSpan.classList.remove('hidden');
           input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
-        } else if (!val.endsWith('@univ-thies.sn')) {
+        } else if (!val.endsWith('@univ-thies.sn') && !val.endsWith('@gmail.com')) {
           errorSpan.classList.remove('hidden');
           hintSpan.classList.add('hidden');
           input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
@@ -1127,9 +1127,9 @@
         errorBanner.classList.add('hidden');
 
         // Front-end email check
-        if (!email.endsWith('@univ-thies.sn')) {
+        if (!email.endsWith('@univ-thies.sn') && !email.endsWith('@gmail.com')) {
           errorBanner.classList.remove('hidden');
-          errorText.innerText = "L'adresse email doit obligatoirement se terminer par '@univ-thies.sn'";
+          errorText.innerText = "L'adresse email doit se terminer par '@univ-thies.sn' ou '@gmail.com'";
           return;
         }
 
