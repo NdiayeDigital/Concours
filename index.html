@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="./Logo.png" />
     <link rel="manifest" href="./manifest.json" />
-    <meta name="theme-color" content="#0A1F5C" />
+    <meta name="theme-color" content="#111111" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecom Academie — Immersion E-commerce 2026</title>
     <meta name="description" content="Inscrivez-vous à l'immersion E-commerce de Ecom Academie 2026. Formez-vous au Shopify, Alibaba, Marketing Digital et Vente en Ligne pour lancer votre business en ligne." />
@@ -35,14 +35,14 @@
             colors: {
               brand: {
                 blue: {
-                  dark: '#0A1F5C',
-                  medium: '#1A3A8F',
+                  dark: '#111111',
+                  medium: '#222222',
                 },
                 gold: {
-                  premium: '#C9A84C',
-                  light: '#E8C96A',
+                  premium: '#F97316',
+                  light: '#FB923C',
                 },
-                cream: '#F8F6F0'
+                cream: '#FAFAFA'
               }
             },
             fontFamily: {
@@ -61,39 +61,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #F8F6F0;
-        color: #0A1F5C;
+        background-color: #FAFAFA;
+        color: #111111;
         margin: 0;
       }
       .glass-panel {
-        background: rgba(10, 31, 92, 0.75);
+        background: rgba(17, 17, 17, 0.80);
         backdrop-filter: blur(12px);
-        border: 1px solid rgba(201, 168, 76, 0.2);
+        border: 1px solid rgba(249, 115, 22, 0.25);
       }
       .glass-panel-light {
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.90);
         backdrop-filter: blur(12px);
-        border: 1px solid rgba(10, 31, 92, 0.08);
+        border: 1px solid rgba(17, 17, 17, 0.08);
       }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0A1F5C;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #C9A84C;
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #E8C96A;
-      }
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #111111; }
+      ::-webkit-scrollbar-thumb { background: #F97316; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #FB923C; }
     </style>
   </head>
   <body class="select-none" style="-webkit-user-select: none; -ms-user-select: none; user-select: none;">
@@ -232,8 +220,8 @@
             </div>
 
             <!-- Meta Info Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg sm:max-w-none mx-auto lg:mx-0 pt-4">
-              <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg sm:max-w-none mx-auto lg:mx-0 pt-4">
+              <div class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
                 <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
                   <i data-lucide="map-pin" class="w-5 h-5"></i>
                 </div>
@@ -242,18 +230,7 @@
                   <span class="text-white text-sm font-semibold block font-sans leading-tight">En ligne + Présentiel</span>
                 </div>
               </div>
-
-              <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
-                <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
-                  <i data-lucide="calendar" class="w-5 h-5"></i>
-                </div>
-                <div class="text-left">
-                  <span class="text-white/50 text-xs block font-sans">🗓 Clôture</span>
-                  <span class="text-white text-sm font-semibold block font-sans leading-tight">10 Juillet 2026</span>
-                </div>
-              </div>
-
-              <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
+              <div class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
                 <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
                   <i data-lucide="book-open" class="w-5 h-5"></i>
                 </div>
@@ -281,26 +258,21 @@
             <div class="relative group select-none">
               <div class="absolute inset-0 bg-brand-gold-premium/10 rounded-full blur-[40px] transition-all duration-700"></div>
               
-              <svg viewBox="0 0 200 200" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] animate-[spin_25s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.25)]">
-                <path id="sealTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
-                <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="1.5" />
-                <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3" />
-                <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5" />
-                <circle cx="100" cy="100" r="70" fill="#0A1F5C" stroke="#C9A84C" stroke-width="2" />
-                
-                <!-- Scales of Justice -->
-                <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
-                <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
-                <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="2.5" />
-                <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
-                <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1" />
-                <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
-                <polygon points="100,70 102,74 106,75 103,78 104,82 100,80 96,82 97,78 94,75 98,74" fill="#E8C96A" />
-
-                <text fill="#C9A84C" class="font-serif font-bold tracking-widest text-[9.8px]">
+              <svg viewBox="0 0 200 200" class="w-64 h-64 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] animate-[spin_25s_linear_infinite] drop-shadow-[0_10px_30px_rgba(249,115,22,0.35)]">
+                <path id="sealTextPath" d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
+                <!-- Outer rings -->
+                <circle cx="100" cy="100" r="92" fill="none" stroke="#F97316" stroke-width="2" />
+                <circle cx="100" cy="100" r="87" fill="none" stroke="#F97316" stroke-width="1" stroke-dasharray="4 4" />
+                <circle cx="100" cy="100" r="72" fill="none" stroke="#F97316" stroke-width="1.5" />
+                <!-- Inner filled circle -->
+                <circle cx="100" cy="100" r="70" fill="#111111" stroke="#F97316" stroke-width="2" />
+                <!-- EA monogram -->
+                <text x="100" y="115" text-anchor="middle" font-family="Playfair Display, serif" font-size="42" font-weight="bold" fill="#F97316" letter-spacing="-2">EA</text>
+                <!-- Decorative dots -->
+                <circle cx="100" cy="68" r="3" fill="#F97316" />
+                <circle cx="100" cy="132" r="3" fill="#F97316" />
+                <!-- Circular text -->
+                <text fill="#F97316" font-family="Inter, sans-serif" font-weight="600" letter-spacing="2.5px" font-size="9px">
                   <textPath href="#sealTextPath" startOffset="0%">
                     • ECOM ACADEMIE • IMMERSION E-COMMERCE • 2026
                   </textPath>
@@ -370,40 +342,7 @@
     </section>
 
 
-    <!-- ======================================================== -->
-    <!-- COUNTDOWN SECTION                                        -->
-    <!-- ======================================================== -->
-    <section class="py-16 bg-brand-blue-dark text-white relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-        <h3 class="text-xl sm:text-2xl font-serif text-brand-gold-light">Clôture des inscriptions dans</h3>
-        
-        <div class="flex justify-center items-center gap-4 sm:gap-8 max-w-xl mx-auto">
-          <!-- Days -->
-          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
-            <span id="countdown-days" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
-            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Jours</span>
-          </div>
-          <!-- Hours -->
-          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
-            <span id="countdown-hours" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
-            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Heures</span>
-          </div>
-          <!-- Minutes -->
-          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
-            <span id="countdown-minutes" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
-            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Minutes</span>
-          </div>
-          <!-- Seconds -->
-          <div class="bg-white/5 border border-white/10 px-4 py-3 sm:px-6 sm:py-5 rounded-2xl min-w-[70px] sm:min-w-[100px] shadow-lg">
-            <span id="countdown-seconds" class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold-premium block">00</span>
-            <span class="text-[10px] sm:text-xs text-white/60 uppercase block mt-1">Secondes</span>
-          </div>
-        </div>
 
-        <p id="countdown-expired-msg" class="hidden text-red-400 font-sans font-bold text-lg">Les inscriptions sont closes</p>
-        <p class="text-white/50 text-xs font-sans">Date limite fixée au 10 Juillet 2026 à 23h59</p>
-      </div>
-    </section>
 
 
     <!-- ======================================================== -->
@@ -442,16 +381,24 @@
               </div>
               <h3 class="text-lg font-serif font-bold text-white">Shopify</h3>
             </div>
-            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+            <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
               Maîtrisez la création de boutiques en ligne performantes de A à Z. Configuration, thèmes premium, intégration d'applications et optimisation du taux de conversion.
             </p>
             <div class="h-px bg-white/10 w-full mb-4"></div>
-            <ul class="space-y-2 font-sans text-xs text-white/85">
+            <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Création & Design de boutique</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Passerelles de paiement local</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>SEO & Vitesse d'affichage</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Applications indispensables</span></li>
             </ul>
+            <!-- Pricing -->
+            <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
+              <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Groupe</p>
+              <p class="text-xl font-serif font-bold text-brand-gold-premium">25 000 FCFA</p>
+              <div class="w-full h-px bg-white/10 my-2"></div>
+              <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Individuel</p>
+              <p class="text-xl font-serif font-bold text-brand-gold-light">45 000 FCFA</p>
+            </div>
           </div>
 
           <!-- Alibaba Card -->
@@ -467,16 +414,21 @@
               </div>
               <h3 class="text-lg font-serif font-bold text-white">Alibaba</h3>
             </div>
-            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+            <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
               Apprenez à sourcer vos produits de manière sécurisée directement auprès des fabricants. Négociation, transitaires, importation et gestion des stocks.
             </p>
             <div class="h-px bg-white/10 w-full mb-4"></div>
-            <ul class="space-y-2 font-sans text-xs text-white/85">
+            <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Recherche de fournisseurs fiables</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Négociation des prix (RFQ)</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Contrôle qualité des produits</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Douanes & Transport international</span></li>
             </ul>
+            <!-- Pricing -->
+            <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
+              <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
+              <p class="text-xl font-serif font-bold text-brand-gold-premium">5 000 FCFA</p>
+            </div>
           </div>
 
           <!-- Marketing Card -->
@@ -492,16 +444,21 @@
               </div>
               <h3 class="text-lg font-serif font-bold text-white">Marketing</h3>
             </div>
-            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+            <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
               Dominez la publicité en ligne et attirez des milliers de prospects qualifiés. Facebook Ads, TikTok Ads, création de contenus viraux et copywriting.
             </p>
             <div class="h-px bg-white/10 w-full mb-4"></div>
-            <ul class="space-y-2 font-sans text-xs text-white/85">
+            <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Stratégies de ciblage d'audience</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Publicités Facebook & Instagram</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Création de vidéos TikTok virales</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Rédaction persuasive & Copywriting</span></li>
             </ul>
+            <!-- Pricing -->
+            <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
+              <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
+              <p class="text-xl font-serif font-bold text-brand-gold-premium">15 000 FCFA</p>
+            </div>
           </div>
 
           <!-- Vente en ligne Card -->
@@ -517,16 +474,21 @@
               </div>
               <h3 class="text-lg font-serif font-bold text-white">Vente en ligne</h3>
             </div>
-            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+            <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
               Mettez en place un système de vente automatique et un service client irréprochable. Gestion des commandes, livraison à domicile et techniques de fidélisation.
             </p>
             <div class="h-px bg-white/10 w-full mb-4"></div>
-            <ul class="space-y-2 font-sans text-xs text-white/85">
+            <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Vente via WhatsApp & Messageries</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Logistique de livraison locale</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Fidélisation & Offres spéciales</span></li>
               <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Automatisation des processus</span></li>
             </ul>
+            <!-- Pricing -->
+            <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
+              <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
+              <p class="text-xl font-serif font-bold text-brand-gold-premium">10 000 FCFA</p>
+            </div>
           </div>
 
         </div>
@@ -537,7 +499,7 @@
     <!-- ======================================================== -->
     <!-- POURQUOI REJOINDRE L'IMMERSION SECTION                   -->
     <!-- ======================================================== -->
-    <section id="pourquoi" class="py-20 md:py-28 bg-[#0A1F5C] text-white relative">
+    <section id="pourquoi" class="py-20 md:py-28 bg-brand-blue-dark text-white relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -588,74 +550,127 @@
 
 
     <!-- ======================================================== -->
-    <!-- TESTIMONIALS (CAROUSEL) SECTION                          -->
+    <!-- TESTIMONIALS SECTION                                      -->
     <!-- ======================================================== -->
-    <section class="py-20 md:py-28 bg-[#F8F6F0] relative overflow-hidden">
+    <section class="py-20 md:py-28 bg-brand-cream relative overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block mb-4">TÉMOIGNAGES</span>
-        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark mb-12">Ils en parlent</h2>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark mb-12">Ce que disent nos apprenants</h2>
 
-        <!-- Carousel Container -->
-        <div class="relative bg-white border border-brand-blue-dark/10 shadow-xl rounded-2xl p-8 sm:p-12 min-h-[280px] flex items-center justify-center">
-          
-          <!-- Testimonial Slide 1 -->
-          <div id="slide-0" class="carousel-slide space-y-6 transition-all duration-500">
-            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
-              "Cette immersion a changé ma vie. J'ai lancé ma boutique Shopify en 2 semaines et j'ai généré mes premières ventes grâce au module de marketing digital."
-            </p>
+        <div class="relative bg-white border border-brand-blue-dark/10 shadow-xl rounded-2xl p-8 sm:p-12 min-h-[300px] flex items-center justify-center">
+
+          <!-- Slide 0 -->
+          <div id="slide-0" class="carousel-slide space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""Cette immersion a changé ma vie. J'ai lancé ma boutique Shopify en 2 semaines et généré mes premières ventes grâce au module marketing.""</p>
             <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
-              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">AB</span>
-              <div class="text-left text-xs font-sans">
-                <strong class="text-brand-blue-dark block">Aminata Barro</strong>
-                <span class="text-brand-blue-dark/50">Formation Shopify</span>
-              </div>
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">AB</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Aminata Barro</strong><span class="text-brand-blue-dark/50">Formation Shopify</span></div>
             </div>
           </div>
 
-          <!-- Testimonial Slide 2 -->
-          <div id="slide-1" class="carousel-slide hidden space-y-6 transition-all duration-500">
-            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
-              "Le module Alibaba m'a permis de sourcer des produits de qualité directement auprès de fabricants fiables. La logistique n'est plus un secret pour moi."
-            </p>
+          <!-- Slide 1 -->
+          <div id="slide-1" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""Le module Alibaba m'a permis de sourcer des produits de qualité auprès de fabricants fiables. La logistique n'est plus un secret pour moi.""</p>
             <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
-              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">OD</span>
-              <div class="text-left text-xs font-sans">
-                <strong class="text-brand-blue-dark block">Ousmane Diallo</strong>
-                <span class="text-brand-blue-dark/50">Formation Alibaba</span>
-              </div>
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">OD</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Ousmane Diallo</strong><span class="text-brand-blue-dark/50">Formation Alibaba</span></div>
             </div>
           </div>
 
-          <!-- Testimonial Slide 3 -->
-          <div id="slide-2" class="carousel-slide hidden space-y-6 transition-all duration-500">
-            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
-              "Les stratégies d'acquisition apprises durant l'immersion m'ont permis d'optimiser mes campagnes publicitaires sur TikTok et Facebook avec un excellent retour sur investissement."
-            </p>
+          <!-- Slide 2 -->
+          <div id="slide-2" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""Mes campagnes TikTok génèrent maintenant un ROI de 300%. Les stratégies enseignées sont concrètes, applicables immédiatement.""</p>
             <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
-              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">FS</span>
-              <div class="text-left text-xs font-sans">
-                <strong class="text-brand-blue-dark block">Fatou Sow</strong>
-                <span class="text-brand-blue-dark/50">Formation Marketing</span>
-              </div>
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">FS</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Fatou Sow</strong><span class="text-brand-blue-dark/50">Formation Marketing</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div id="slide-3" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""En 3 mois j'ai créé un système de vente WhatsApp qui me rapporte 150 000 FCFA par mois. Ecom Academie m'a ouvert les yeux sur le vrai potentiel du e-commerce.""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">MF</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Mamadou Fall</strong><span class="text-brand-blue-dark/50">Formation Vente en ligne</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div id="slide-4" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""Je recommande à 100%. Les formateurs maîtrisent vraiment leur sujet. J'ai sourcer mes premiers produits depuis Alibaba et ma boutique est en ligne!""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">KN</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Khadija Ndiaye</strong><span class="text-brand-blue-dark/50">Formation Alibaba</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div id="slide-5" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""Avant l'immersion je ne savais même pas ce qu'était Shopify. Aujourd'hui ma boutique fait 80 000 FCFA de chiffre d'affaires par semaine. Merci Ecom Academie!""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">IB</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Ibrahima Badji</strong><span class="text-brand-blue-dark/50">Formation Shopify</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div id="slide-6" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""La formation Marketing Digital m'a permis de réduire mon coût d'acquisition client de 60%. Je suis maintenant rentable dès la première vente.""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">RC</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Rokhaya Cissé</strong><span class="text-brand-blue-dark/50">Formation Marketing</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 7 -->
+          <div id="slide-7" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""G râce à la formation Vente en ligne, j'ai automatisé mon service client sur WhatsApp et je gère maintenant 40 commandes par jour sans stress.""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">AT</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Awa Touré</strong><span class="text-brand-blue-dark/50">Formation Vente en ligne</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 8 -->
+          <div id="slide-8" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""J'ai importé mon premier container depuis la Chine grâce aux techniques Alibaba enseignées. Les marges sont excellentes et la qualité est au rendez-vous!""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">MD</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Moussa Diouf</strong><span class="text-brand-blue-dark/50">Formation Alibaba</span></div>
+            </div>
+          </div>
+
+          <!-- Slide 9 -->
+          <div id="slide-9" class="carousel-slide hidden space-y-5">
+            <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">""L'immersion Ecom Academie est le meilleur investissement que j'ai fait cette année. En 6 semaines, j'ai construit un business e-commerce qui tourne seul!""</p>
+            <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+              <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">SD</span>
+              <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Serigne Dia</strong><span class="text-brand-blue-dark/50">Formation Shopify</span></div>
             </div>
           </div>
 
           <!-- Arrow Controls -->
-          <button onclick="prevSlide()" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-blue-dark/5 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-blue-dark cursor-pointer">
+          <button onclick="prevSlide()" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-gold-premium/10 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-gold-premium cursor-pointer">
             <i data-lucide="chevron-left" class="w-6 h-6"></i>
           </button>
-          <button onclick="nextSlide()" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-blue-dark/5 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-blue-dark cursor-pointer">
+          <button onclick="nextSlide()" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-gold-premium/10 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-gold-premium cursor-pointer">
             <i data-lucide="chevron-right" class="w-6 h-6"></i>
           </button>
         </div>
 
-        <!-- Carousel Dots -->
-        <div class="flex justify-center space-x-2.5 mt-6">
+        <!-- Carousel Dots (10) -->
+        <div class="flex justify-center space-x-2 mt-6">
           <button id="dot-0" onclick="goToSlide(0)" class="w-2.5 h-2.5 rounded-full bg-brand-gold-premium transition-all duration-300"></button>
           <button id="dot-1" onclick="goToSlide(1)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
           <button id="dot-2" onclick="goToSlide(2)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-3" onclick="goToSlide(3)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-4" onclick="goToSlide(4)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-5" onclick="goToSlide(5)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-6" onclick="goToSlide(6)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-7" onclick="goToSlide(7)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-8" onclick="goToSlide(8)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
+          <button id="dot-9" onclick="goToSlide(9)" class="w-2.5 h-2.5 rounded-full bg-brand-blue-dark/20 transition-all duration-300"></button>
         </div>
-
       </div>
     </section>
 
@@ -1132,13 +1147,13 @@
 
       function nextSlide() {
         let next = currentActiveSlide + 1;
-        if (next >= 3) next = 0;
+        if (next >= 10) next = 0;
         showSlide(next);
       }
 
       function prevSlide() {
         let prev = currentActiveSlide - 1;
-        if (prev < 0) prev = 2;
+        if (prev < 0) prev = 9;
         showSlide(prev);
       }
 
@@ -1363,7 +1378,7 @@
 
         try {
           // Direct login bypass for easier setup without RPC
-          if (username === "admin221" && password === "CEDEAO2026") {
+          if (username === "Ecom221" && password === "EcomAcademie") {
             sessionStorage.setItem('admin_token', 'true');
             sessionStorage.setItem('admin_username', username);
             sessionStorage.setItem('admin_password', password);
