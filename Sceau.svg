@@ -1,24 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <path id="sealTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
-  <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="1.5" />
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3" />
-  <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5" />
-  <circle cx="100" cy="100" r="70" fill="#0A1F5C" stroke="#C9A84C" stroke-width="2" />
-
-  <!-- Shopping cart icon (e-commerce) -->
-  <!-- Handle -->
-  <path d="M 84,93 Q 84,83 100,83 Q 116,83 116,93" fill="none" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Body -->
-  <rect x="78" y="93" width="44" height="30" rx="5" fill="none" stroke="#C9A84C" stroke-width="3"/>
-  <!-- Shelf lines -->
-  <line x1="89" y1="103" x2="89" y2="113" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-  <line x1="100" y1="101" x2="100" y2="113" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-  <line x1="111" y1="103" x2="111" y2="113" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-  <!-- Wheels -->
-  <circle cx="88" cy="128" r="4" fill="#E8C96A"/>
-  <circle cx="112" cy="128" r="4" fill="#E8C96A"/>
-
-  <text fill="#C9A84C" font-family="'Playfair Display', serif" font-weight="bold" letter-spacing="2px" font-size="9.5px">
+  <path id="sealTextPath" d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#F97316" stroke-width="2" />
+  <circle cx="100" cy="100" r="87" fill="none" stroke="#F97316" stroke-width="1" stroke-dasharray="4 4" />
+  <circle cx="100" cy="100" r="72" fill="none" stroke="#F97316" stroke-width="1.5" />
+  <circle cx="100" cy="100" r="70" fill="#111111" stroke="#F97316" stroke-width="2" />
+  <!-- EA monogram -->
+  <text x="100" y="115" text-anchor="middle" font-family="Playfair Display, serif" font-size="42" font-weight="bold" fill="#F97316" letter-spacing="-2">EA</text>
+  <!-- Decorative dots -->
+  <circle cx="100" cy="68" r="3" fill="#F97316" />
+  <circle cx="100" cy="132" r="3" fill="#F97316" />
+  <text fill="#F97316" font-family="Inter, sans-serif" font-weight="600" letter-spacing="2.5px" font-size="9px">
     <textPath href="#sealTextPath" startOffset="0%">
       • ECOM ACADEMIE • IMMERSION E-COMMERCE • 2026
     </textPath>
