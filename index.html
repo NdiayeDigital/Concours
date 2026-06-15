@@ -87,25 +87,14 @@
   <body class="select-none" style="-webkit-user-select: none; -ms-user-select: none; user-select: none;">
 
     <!-- ======================================================== -->
-    <!-- PRELOADER (ANIMATION DE CHARGEMENT)                      -->
-    <!-- ======================================================== -->
-    <div id="preloader" class="fixed inset-0 z-[100] bg-brand-blue-dark flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
-      <svg viewBox="0 0 200 200" class="w-24 h-24 sm:w-32 sm:h-32 animate-[spin_4s_linear_infinite] drop-shadow-[0_10px_20px_rgba(249,115,22,0.5)]">
-        <circle cx="100" cy="100" r="92" fill="none" stroke="#F97316" stroke-width="2" />
-        <circle cx="100" cy="100" r="88" fill="none" stroke="#F97316" stroke-width="1.5" stroke-dasharray="4 4" />
-        <!-- Panier e-commerce -->
-        <!-- Poignée du panier -->
-        <path d="M 72,80 Q 72,68 100,68 Q 128,68 128,80" fill="none" stroke="#F97316" stroke-width="5" stroke-linecap="round"/>
-        <!-- Corps du panier -->
-        <rect x="62" y="80" width="76" height="52" rx="8" fill="none" stroke="#F97316" stroke-width="4"/>
-        <!-- Lignes intérieures (produits) -->
-        <line x1="82" y1="100" x2="82" y2="116" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="100" y1="96" x2="100" y2="116" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="118" y1="100" x2="118" y2="116" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
-        <!-- Roues -->
-        <circle cx="80" cy="140" r="6" fill="#F97316"/>
-        <circle cx="120" cy="140" r="6" fill="#F97316"/>
-      </svg>
+    <div id="preloader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
+      <div class="relative flex items-center justify-center">
+        <!-- Anneau orange tournant -->
+        <div class="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-dashed border-brand-gold-premium/45 animate-[spin_10s_linear_infinite]"></div>
+        <div class="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full border border-brand-gold-premium/20 animate-[spin_15s_linear_infinite_reverse]"></div>
+        <!-- Logo de Ecom Academie au centre -->
+        <img src="Logo.png" alt="Ecom Academie" class="w-20 h-20 sm:w-28 sm:h-28 object-contain drop-shadow-[0_0_15px_rgba(249,115,22,0.5)] animate-pulse" />
+      </div>
       <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest animate-pulse uppercase">
         IMMERSION ECOM ACADEMIE
       </div>
@@ -1192,7 +1181,7 @@
       // 5. TESTIMONIALS CAROUSEL
       function showSlide(index) {
         currentActiveSlide = index;
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 10; i++) {
           const slide = document.getElementById(`slide-${i}`);
           const dot = document.getElementById(`dot-${i}`);
           if (i === index) {
