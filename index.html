@@ -6,17 +6,17 @@
     <link rel="manifest" href="./manifest.json" />
     <meta name="theme-color" content="#0A1F5C" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Concours de Plaidoirie Universitaire 2026 — Club CE DEAO UIDT Thiès</title>
-    <meta name="description" content="Inscrivez-vous au Concours de Plaidoirie Universitaire 2026 de l'Université Iba Der Thiam de Thiès (UIDT), organisé par le Club CE DEAO. Participez aux joutes oratoires et faites briller votre UFR." />
+    <title>Ecom Academie — Immersion E-commerce 2026</title>
+    <meta name="description" content="Inscrivez-vous à l'immersion E-commerce de Ecom Academie 2026. Formez-vous au Shopify, Alibaba, Marketing Digital et Vente en Ligne pour lancer votre business en ligne." />
     
     <!-- Open Graph / Meta Image for Vercel & Socials -->
-    <meta property="og:title" content="Concours de Plaidoirie Universitaire 2026 — UIDT" />
-    <meta property="og:description" content="Inscrivez-vous au Concours de Plaidoirie Universitaire 2026 de l'Université Iba Der Thiam de Thiès (UIDT)." />
-    <meta property="og:image" content="https://concours-uidt.vercel.app/Sceau.svg" />
+    <meta property="og:title" content="Ecom Academie — Immersion E-commerce 2026" />
+    <meta property="og:description" content="Inscrivez-vous à l'immersion E-commerce de Ecom Academie 2026. Shopify, Alibaba, Marketing, Vente en Ligne." />
+    <meta property="og:image" content="https://concours-uidt.vercel.app/Logo.png" />
     <meta property="og:url" content="https://concours-uidt.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://concours-uidt.vercel.app/Sceau.svg" />
+    <meta name="twitter:image" content="https://concours-uidt.vercel.app/Logo.png" />
 
     <!-- Apple Touch Icon for Mobile Shortcuts -->
     <link rel="apple-touch-icon" href="./Sceau.svg" />
@@ -103,25 +103,26 @@
     <!-- ======================================================== -->
     <div id="preloader" class="fixed inset-0 z-[100] bg-brand-blue-dark flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
       <svg viewBox="0 0 200 200" class="w-24 h-24 sm:w-32 sm:h-32 animate-[spin_4s_linear_infinite] drop-shadow-[0_10px_20px_rgba(201,168,76,0.5)]">
-        <path id="preloaderTextPath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" fill="none" />
         <circle cx="100" cy="100" r="92" fill="none" stroke="#C9A84C" stroke-width="2" />
         <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 4" />
-        <!-- Balance de la justice -->
-        <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" />
-        <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
-        <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="3" />
-        <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1.5" />
-        <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1.5" />
-        <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
-        <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1.5" />
-        <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1.5" />
-        <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Panier e-commerce -->
+        <!-- Poignée du panier -->
+        <path d="M 72,80 Q 72,68 100,68 Q 128,68 128,80" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round"/>
+        <!-- Corps du panier -->
+        <rect x="62" y="80" width="76" height="52" rx="8" fill="none" stroke="#C9A84C" stroke-width="4"/>
+        <!-- Lignes intérieures (produits) -->
+        <line x1="82" y1="100" x2="82" y2="116" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="100" y1="96" x2="100" y2="116" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="118" y1="100" x2="118" y2="116" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Roues -->
+        <circle cx="80" cy="140" r="6" fill="#C9A84C"/>
+        <circle cx="120" cy="140" r="6" fill="#C9A84C"/>
       </svg>
       <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest animate-pulse uppercase">
-        UIDT 2026
+        ECOM ACADEMIE
       </div>
       <div class="mt-2 text-white/50 font-sans text-xs uppercase tracking-[0.3em]">
-        Concours de Plaidoirie
+        Immersion E-commerce 2026
       </div>
     </div>
     <!-- NAVBAR                                                   -->
@@ -132,18 +133,18 @@
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
             <div class="w-10 h-10 rounded-full border-2 border-brand-gold-premium flex items-center justify-center bg-brand-blue-dark/50 relative overflow-hidden">
-              <span class="text-brand-gold-premium font-serif font-bold text-xs tracking-wider">CE</span>
+              <span class="text-brand-gold-premium font-serif font-bold text-xs tracking-wider">EA</span>
             </div>
             <div>
-              <span class="text-white font-serif font-bold text-lg tracking-wide block leading-none">CE DEAO</span>
-              <span class="text-brand-gold-premium font-sans text-[9px] tracking-widest uppercase block mt-1">Université Iba Der Thiam</span>
+              <span class="text-white font-serif font-bold text-lg tracking-wide block leading-none">Ecom Academie</span>
+              <span class="text-brand-gold-premium font-sans text-[9px] tracking-widest uppercase block mt-1">Immersion E-commerce</span>
             </div>
           </div>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
             <a href="#presentation" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Présentation</a>
-            <a href="#recompenses" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Récompenses</a>
+            <a href="#formations" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Formations</a>
             <a href="#pourquoi" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Pourquoi</a>
             <a href="#inscription" class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Inscription</a>
             
@@ -156,7 +157,7 @@
           <!-- Desktop CTA -->
           <div class="hidden md:block">
             <a href="#inscription" class="bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-sm py-2.5 px-6 rounded shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex items-center space-x-2">
-              <span>Participer</span>
+              <span>S'inscrire</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
@@ -178,8 +179,8 @@
       <div id="mobile-menu" class="hidden md:hidden bg-brand-blue-dark border-b border-brand-gold-premium/20">
         <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
           <a href="#presentation" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Présentation</a>
-          <a href="#recompenses" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Récompenses</a>
-          <a href="#pourquoi" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Pourquoi participer</a>
+          <a href="#formations" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Formations</a>
+          <a href="#pourquoi" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Pourquoi nous rejoindre</a>
           <a href="#inscription" onclick="toggleMobileMenu()" class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Inscription</a>
           <button onclick="toggleMobileMenu(); openAdminModal();" class="w-full text-left px-3 py-2 text-white/50 hover:text-brand-gold-premium font-sans text-sm flex items-center gap-2 border-t border-white/5 mt-2 pt-3">
             <i data-lucide="shield" class="w-4 h-4"></i>
@@ -187,7 +188,7 @@
           </button>
           <div class="px-3 pt-3">
             <a href="#inscription" onclick="toggleMobileMenu()" class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light text-brand-blue-dark font-sans font-bold text-center py-2.5 rounded shadow flex items-center justify-center space-x-2">
-              <span>S'inscrire au concours</span>
+              <span>S'inscrire à l'immersion</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
@@ -218,15 +219,15 @@
           <div class="lg:col-span-7 text-center lg:text-left space-y-8 animate-fade-in">
             <div class="inline-flex items-center space-x-2 bg-brand-gold-premium/15 border border-brand-gold-premium/45 px-4.5 py-1.5 rounded-full text-brand-gold-light text-xs font-semibold uppercase tracking-wider">
               <span class="w-2 h-2 rounded-full bg-brand-gold-light animate-pulse"></span>
-              <span>Organisé par le Club CE DEAO — UIDT Thiès</span>
+              <span>Ecom Academie — Immersion E-commerce 2026</span>
             </div>
 
             <div class="space-y-4">
               <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight tracking-wide">
-                Concours de <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium">Plaidoirie</span> Universitaire
+                Immersion <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium">E-commerce</span> Ecom Academie
               </h1>
               <p class="text-white/80 text-base sm:text-lg md:text-xl font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Rejoignez l'arène de l'éloquence, défendez vos convictions avec rigueur, et faites briller l'art oratoire de votre UFR devant un jury prestigieux.
+                Formez-vous aux métiers du e-commerce, maîtrisez Shopify, Alibaba, le Marketing Digital et la Vente en Ligne pour lancer votre business rentable.
               </p>
             </div>
 
@@ -237,8 +238,8 @@
                   <i data-lucide="map-pin" class="w-5 h-5"></i>
                 </div>
                 <div class="text-left">
-                  <span class="text-white/50 text-xs block font-sans">📍 Lieu</span>
-                  <span class="text-white text-sm font-semibold block font-sans leading-tight">Amphi Principal UIDT</span>
+                  <span class="text-white/50 text-xs block font-sans">📍 Format</span>
+                  <span class="text-white text-sm font-semibold block font-sans leading-tight">En ligne + Présentiel</span>
                 </div>
               </div>
 
@@ -254,11 +255,11 @@
 
               <div class="flex items-center space-x-3 bg-brand-blue-dark/50 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/30 transition-all duration-300">
                 <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
-                  <i data-lucide="trophy" class="w-5 h-5"></i>
+                  <i data-lucide="book-open" class="w-5 h-5"></i>
                 </div>
                 <div class="text-left">
-                  <span class="text-white/50 text-xs block font-sans">🏆 Grand Prix</span>
-                  <span class="text-white text-sm font-semibold block font-sans leading-tight">50 000 FCFA + Lot</span>
+                  <span class="text-white/50 text-xs block font-sans">📚 Formations</span>
+                  <span class="text-white text-sm font-semibold block font-sans leading-tight">4 modules experts</span>
                 </div>
               </div>
             </div>
@@ -266,11 +267,11 @@
             <!-- Actions -->
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a href="#inscription" class="w-full sm:w-auto bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-8 rounded shadow-lg transition-all duration-300 flex items-center justify-center space-x-3">
-                <span>Je m'inscris au concours</span>
+                <span>Je m'inscris à l'immersion</span>
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
               </a>
               <a href="#presentation" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 font-sans font-medium py-4 px-8 rounded transition-all duration-300 flex items-center justify-center">
-                Découvrir l'événement
+                Découvrir les formations
               </a>
             </div>
           </div>
@@ -301,7 +302,7 @@
 
                 <text fill="#C9A84C" class="font-serif font-bold tracking-widest text-[9.8px]">
                   <textPath href="#sealTextPath" startOffset="0%">
-                    • UNIVERSITÉ IBA DER THIAM DE THIÈS • CLUB CE DEAO • 2026
+                    • ECOM ACADEMIE • IMMERSION E-COMMERCE • 2026
                   </textPath>
                 </text>
               </svg>
@@ -322,45 +323,45 @@
           
           <!-- Presentation Text -->
           <div class="lg:col-span-7 space-y-6">
-            <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">PRÉSENTATION DU CONCOURS</span>
+            <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">PRÉSENTATION DE L'IMMERSION</span>
             <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark leading-tight">
-              Révéler l'excellence oratoire et l'art de convaincre
+              Lancez votre business e-commerce avec les meilleurs outils
             </h2>
             <p class="text-brand-blue-dark/80 font-sans text-base leading-relaxed">
-              Le Concours de Plaidoirie Universitaire de l'UIDT est l'arène d'expression par excellence pour tous les passionnés d'argumentation et d'éloquence. Organisé par le <strong>Club CE DEAO</strong>, cet événement offre à chaque étudiant l'opportunité unique de défendre des causes nobles, d'aiguiser sa répartie juridique et de captiver un jury prestigieux.
+              L'immersion E-commerce de <strong>Ecom Academie</strong> est le programme de formation par excellence pour tous ceux qui souhaitent maîtriser le commerce en ligne. À travers 4 modules experts — <strong>Shopify, Alibaba, Marketing Digital et Vente en Ligne</strong> — vous acquérez les compétences nécessaires pour créer, gérer et développer une boutique en ligne rentable.
             </p>
             
             <!-- Citation -->
             <div class="border-l-4 border-brand-gold-premium pl-4 py-2 my-6 italic text-brand-blue-dark/70 font-serif">
-              "L'éloquence est la peinture de la pensée." — Blaise Pascal
+              "Le e-commerce n'est pas une option, c'est une nécessité pour le futur entrepreneur."
             </div>
 
             <p class="text-brand-blue-dark/80 font-sans text-base leading-relaxed">
-              Que vous soyez en sciences juridiques, technologies, économie ou santé, venir valoriser vos compétences oratoires et représenter fièrement votre UFR dans cette compétition prestigieuse.
+              Que vous soyez débutant ou initié, cette immersion vous donnera les clés pour réussir dans le monde du e-commerce et générer vos premiers revenus en ligne.
             </p>
           </div>
 
           <!-- Quick Stats Panel -->
           <div class="lg:col-span-5 bg-brand-blue-dark text-white rounded-2xl p-8 border border-brand-gold-premium/30 shadow-xl relative overflow-hidden">
             <div class="absolute top-0 right-0 w-24 h-24 bg-brand-gold-premium/10 rounded-full blur-xl"></div>
-            <h3 class="text-xl font-serif font-semibold text-brand-gold-light mb-6 border-b border-white/10 pb-4">Chiffres clés du concours</h3>
+            <h3 class="text-xl font-serif font-semibold text-brand-gold-light mb-6 border-b border-white/10 pb-4">Chiffres clés de l'immersion</h3>
             
             <div class="grid grid-cols-2 gap-6">
               <div>
-                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">3</span>
-                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Podiums Récompensés</span>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">4</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Formations Disponibles</span>
               </div>
               <div>
-                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">1<sup>ère</sup></span>
-                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Édition Officielle</span>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">100%</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Pratique & Concret</span>
               </div>
               <div>
-                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">50K</span>
-                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Pour le Vainqueur + Lot</span>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">∞</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Accès Replay Inclus</span>
               </div>
               <div>
-                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">Toutes</span>
-                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">UFR de l'UIDT admises</span>
+                <span class="text-3xl font-serif font-bold text-brand-gold-premium block">Tous</span>
+                <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Niveaux Acceptés</span>
               </div>
             </div>
           </div>
@@ -408,99 +409,123 @@
     <!-- ======================================================== -->
     <!-- RECOMPENSES SECTION                                      -->
     <!-- ======================================================== -->
-    <section id="recompenses" class="py-20 md:py-28 bg-[#F8F6F0] relative overflow-hidden">
+    <!-- ======================================================== -->
+    <!-- FORMATIONS SECTION                                       -->
+    <!-- ======================================================== -->
+    <section id="formations" class="py-20 md:py-28 bg-[#F8F6F0] relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">DISTINCTIONS ET PRIX</span>
+          <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">NOTRE PROGRAMME</span>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark">
-            Des récompenses à la hauteur de votre talent
+            Des formations adaptées pour lancer votre business
           </h2>
           <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
           <p class="text-brand-blue-dark/75 font-sans text-sm sm:text-base mt-2">
-            Le jury décernera trois grands prix pour récompenser l'art de l'argumentation, la prestance oratoire et l'éloquence.
+            Choisissez l'un de nos 4 modules spécialisés et devenez un expert du commerce en ligne.
           </p>
         </div>
 
         <!-- Cards Container -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch pt-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch pt-6">
           
-          <!-- 2nd Place -->
-          <div class="flex flex-col rounded-2xl border p-8 bg-slate-900/95 border-slate-400/30 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 order-2 md:order-1">
-            <div class="self-center mb-6">
-              <span class="px-4 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase bg-slate-500/20 text-slate-300 border-slate-500/30">
-                Vice-Champion
+          <!-- Shopify Card -->
+          <div class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+            <div class="self-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
+                E-commerce CMS
               </span>
             </div>
-            <div class="flex justify-center mb-6">
-              <div class="p-4 bg-white/5 rounded-2xl">
-                <i data-lucide="award" class="w-12 h-12 text-slate-300"></i>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
+                <i data-lucide="shopping-bag" class="w-8 h-8"></i>
               </div>
+              <h3 class="text-lg font-serif font-bold text-white">Shopify</h3>
             </div>
-            <div class="text-center mb-8">
-              <h3 class="text-lg font-sans font-medium text-white/70 tracking-wide uppercase text-xs">2ème Lauréat</h3>
-              <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold-light mt-1.5 leading-tight">25 000 FCFA</div>
-              <div class="text-sm font-sans text-white/60 mt-1">Tablette + Trophée</div>
-            </div>
-            <div class="h-px bg-white/10 w-full mb-8"></div>
-            <ul class="space-y-4 flex-grow font-sans text-sm text-white/85">
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Enveloppe de 25 000 FCFA</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Tablette tactile</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Trophée d'Argent officiel</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Attestation de mérite</span></li>
+            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+              Maîtrisez la création de boutiques en ligne performantes de A à Z. Configuration, thèmes premium, intégration d'applications et optimisation du taux de conversion.
+            </p>
+            <div class="h-px bg-white/10 w-full mb-4"></div>
+            <ul class="space-y-2 font-sans text-xs text-white/85">
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Création & Design de boutique</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Passerelles de paiement local</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>SEO & Vitesse d'affichage</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Applications indispensables</span></li>
             </ul>
           </div>
 
-          <!-- 1st Place (Center / Larger) -->
-          <div class="flex flex-col rounded-2xl border p-8 bg-brand-blue-dark border-brand-gold-premium/60 text-white shadow-2xl hover:-translate-y-1 transition-all duration-300 order-1 md:order-2 md:-translate-y-4 relative">
-            <div class="self-center mb-6">
-              <span class="px-4 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border-brand-gold-premium/40">
-                🏆 1ère PLACE
+          <!-- Alibaba Card -->
+          <div class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+            <div class="self-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
+                Sourcing & Logistique
               </span>
             </div>
-            <div class="flex justify-center mb-6">
-              <div class="p-4 bg-white/5 rounded-2xl relative">
-                <i data-lucide="trophy" class="w-16 h-16 text-brand-gold-premium"></i>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
+                <i data-lucide="truck" class="w-8 h-8"></i>
               </div>
+              <h3 class="text-lg font-serif font-bold text-white">Alibaba</h3>
             </div>
-            <div class="text-center mb-8">
-              <h3 class="text-lg font-sans font-medium text-white/70 tracking-wide uppercase text-xs">Grand Vainqueur</h3>
-              <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold-light mt-1.5 leading-tight">50 000 FCFA</div>
-              <div class="text-sm font-sans text-white/60 mt-1">Ordinateur portable + Trophée</div>
-            </div>
-            <div class="h-px bg-white/10 w-full mb-8"></div>
-            <ul class="space-y-4 flex-grow font-sans text-sm text-white/85">
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Enveloppe de 50 000 FCFA</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Ordinateur portable professionnel</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Trophée officiel d'or de l'UIDT</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Attestation d'excellence académique</span></li>
+            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+              Apprenez à sourcer vos produits de manière sécurisée directement auprès des fabricants. Négociation, transitaires, importation et gestion des stocks.
+            </p>
+            <div class="h-px bg-white/10 w-full mb-4"></div>
+            <ul class="space-y-2 font-sans text-xs text-white/85">
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Recherche de fournisseurs fiables</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Négociation des prix (RFQ)</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Contrôle qualité des produits</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Douanes & Transport international</span></li>
             </ul>
-            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium rounded-b-2xl"></div>
           </div>
 
-          <!-- 3rd Place -->
-          <div class="flex flex-col rounded-2xl border p-8 bg-[#251A14]/95 border-amber-800/35 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 order-3">
-            <div class="self-center mb-6">
-              <span class="px-4 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase bg-amber-800/20 text-amber-500 border-amber-800/30">
-                3ème Marche
+          <!-- Marketing Card -->
+          <div class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+            <div class="self-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
+                Acquisition Clients
               </span>
             </div>
-            <div class="flex justify-center mb-6">
-              <div class="p-4 bg-white/5 rounded-2xl">
-                <i data-lucide="award" class="w-12 h-12 text-amber-700"></i>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
+                <i data-lucide="megaphone" class="w-8 h-8"></i>
               </div>
+              <h3 class="text-lg font-serif font-bold text-white">Marketing</h3>
             </div>
-            <div class="text-center mb-8">
-              <h3 class="text-lg font-sans font-medium text-white/70 tracking-wide uppercase text-xs">3ème Lauréat</h3>
-              <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold-light mt-1.5 leading-tight">Tablette</div>
-              <div class="text-sm font-sans text-white/60 mt-1">Tablette + Trophée</div>
+            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+              Dominez la publicité en ligne et attirez des milliers de prospects qualifiés. Facebook Ads, TikTok Ads, création de contenus viraux et copywriting.
+            </p>
+            <div class="h-px bg-white/10 w-full mb-4"></div>
+            <ul class="space-y-2 font-sans text-xs text-white/85">
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Stratégies de ciblage d'audience</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Publicités Facebook & Instagram</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Création de vidéos TikTok virales</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Rédaction persuasive & Copywriting</span></li>
+            </ul>
+          </div>
+
+          <!-- Vente en ligne Card -->
+          <div class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+            <div class="self-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
+                Closing & Scalabilité
+              </span>
             </div>
-            <div class="h-px bg-white/10 w-full mb-8"></div>
-            <ul class="space-y-4 flex-grow font-sans text-sm text-white/85">
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Tablette tactile</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Trophée de Bronze officiel</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Attestation de mérite</span></li>
-              <li class="flex items-start space-x-3"><span class="text-brand-gold-premium font-bold">•</span><span>Lots d'ouvrages académiques</span></li>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
+                <i data-lucide="trending-up" class="w-8 h-8"></i>
+              </div>
+              <h3 class="text-lg font-serif font-bold text-white">Vente en ligne</h3>
+            </div>
+            <p class="text-white/70 text-xs font-sans mb-6 leading-relaxed flex-grow">
+              Mettez en place un système de vente automatique et un service client irréprochable. Gestion des commandes, livraison à domicile et techniques de fidélisation.
+            </p>
+            <div class="h-px bg-white/10 w-full mb-4"></div>
+            <ul class="space-y-2 font-sans text-xs text-white/85">
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Vente via WhatsApp & Messageries</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Logistique de livraison locale</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Fidélisation & Offres spéciales</span></li>
+              <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Automatisation des processus</span></li>
             </ul>
           </div>
 
@@ -510,51 +535,51 @@
 
 
     <!-- ======================================================== -->
-    <!-- POURQUOI PARTICIPER SECTION                             -->
+    <!-- POURQUOI REJOINDRE L'IMMERSION SECTION                   -->
     <!-- ======================================================== -->
     <section id="pourquoi" class="py-20 md:py-28 bg-[#0A1F5C] text-white relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">OPPORTUNITÉS</span>
-          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Pourquoi participer au concours ?</h2>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Pourquoi rejoindre cette immersion ?</h2>
           <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <!-- Item 1 -->
           <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
-            <span class="text-3xl block mb-4">🎤</span>
-            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Développer son art oratoire</h3>
-            <p class="text-white/70 text-sm font-sans leading-relaxed">Apprenez à structurer vos idées et à capter l'attention de l'auditoire avec élégance.</p>
+            <span class="text-3xl block mb-4">💡</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Compétences Pratiques</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Apprenez à maîtriser Shopify, Alibaba, le Marketing Digital et la Vente en Ligne par la pratique.</p>
           </div>
 
           <!-- Item 2 -->
           <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
-            <span class="text-3xl block mb-4">⚖️</span>
-            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Valoriser ses compétences</h3>
-            <p class="text-white/70 text-sm font-sans leading-relaxed">Mettez en avant vos facultés d'analyse juridique, d'argumentation et de rhétorique.</p>
+            <span class="text-3xl block mb-4">🤝</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Mentorat & Suivi</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Bénéficiez d'un accompagnement personnalisé par des experts du e-commerce en activité.</p>
           </div>
 
           <!-- Item 3 -->
           <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
-            <span class="text-3xl block mb-4">🏆</span>
-            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Récompenses prestigieuses</h3>
-            <p class="text-white/70 text-sm font-sans leading-relaxed">Gagnez des prix d'une valeur exceptionnelle (ordinateurs, enveloppes financières, etc.).</p>
+            <span class="text-3xl block mb-4">🚀</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Projet Réel</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Ne vous contentez pas de théorie : créez et lancez votre propre boutique durant la formation.</p>
           </div>
 
           <!-- Item 4 -->
           <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
-            <span class="text-3xl block mb-4">🎓</span>
-            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Représenter son UFR</h3>
-            <p class="text-white/70 text-sm font-sans leading-relaxed">Portez haut les couleurs de votre faculté et faites briller le niveau académique de votre département.</p>
+            <span class="text-3xl block mb-4">🌍</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Réseau d'Entrepreneurs</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Rejoignez une communauté active d'élèves et de professionnels pour partager vos expériences.</p>
           </div>
 
           <!-- Item 5 -->
           <div class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
-            <span class="text-3xl block mb-4">🌟</span>
-            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Événement de haut niveau</h3>
-            <p class="text-white/70 text-sm font-sans leading-relaxed">Rencontrez des experts, des juges et d'autres passionnés d'éloquence dans une ambiance unique.</p>
+            <span class="text-3xl block mb-4">📈</span>
+            <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Scalabilité de Business</h3>
+            <p class="text-white/70 text-sm font-sans leading-relaxed">Découvrez les clés pour automatiser votre service client, votre logistique et scaler vos ventes.</p>
           </div>
         </div>
 
@@ -576,13 +601,13 @@
           <!-- Testimonial Slide 1 -->
           <div id="slide-0" class="carousel-slide space-y-6 transition-all duration-500">
             <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
-              "Ce concours a été un tournant dans mes études. J'ai surmonté ma peur de parler en public et j'ai acquis des compétences d'argumentation qui me servent tous les jours."
+              "Cette immersion a changé ma vie. J'ai lancé ma boutique Shopify en 2 semaines et j'ai généré mes premières ventes grâce au module de marketing digital."
             </p>
             <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
               <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">AB</span>
               <div class="text-left text-xs font-sans">
                 <strong class="text-brand-blue-dark block">Aminata Barro</strong>
-                <span class="text-brand-blue-dark/50">UFR-SET</span>
+                <span class="text-brand-blue-dark/50">Formation Shopify</span>
               </div>
             </div>
           </div>
@@ -590,13 +615,13 @@
           <!-- Testimonial Slide 2 -->
           <div id="slide-1" class="carousel-slide hidden space-y-6 transition-all duration-500">
             <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
-              "Représenter l'UFR-SANTE et remporter le deuxième prix a été une fierté immense. Je conseille à tous les étudiants de relever ce formidable défi."
+              "Le module Alibaba m'a permis de sourcer des produits de qualité directement auprès de fabricants fiables. La logistique n'est plus un secret pour moi."
             </p>
             <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
               <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">OD</span>
               <div class="text-left text-xs font-sans">
                 <strong class="text-brand-blue-dark block">Ousmane Diallo</strong>
-                <span class="text-brand-blue-dark/50">UFR-SANTE</span>
+                <span class="text-brand-blue-dark/50">Formation Alibaba</span>
               </div>
             </div>
           </div>
@@ -604,13 +629,13 @@
           <!-- Testimonial Slide 3 -->
           <div id="slide-2" class="carousel-slide hidden space-y-6 transition-all duration-500">
             <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">
-              "L'organisation est impeccable et le jury d'un niveau professionnel. Un événement d'éloquence incontournable dans toute l'université."
+              "Les stratégies d'acquisition apprises durant l'immersion m'ont permis d'optimiser mes campagnes publicitaires sur TikTok et Facebook avec un excellent retour sur investissement."
             </p>
             <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
               <span class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold">FS</span>
               <div class="text-left text-xs font-sans">
                 <strong class="text-brand-blue-dark block">Fatou Sow</strong>
-                <span class="text-brand-blue-dark/50">UFR-SES</span>
+                <span class="text-brand-blue-dark/50">Formation Marketing</span>
               </div>
             </div>
           </div>
@@ -643,7 +668,7 @@
         
         <div class="text-center mb-8 md:mb-12 space-y-3">
           <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-[10px] sm:text-xs uppercase block">FORMULAIRE D'INSCRIPTION</span>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark">Prenez votre place dans l'arène</h2>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark">Prenez votre place dans l'immersion</h2>
           <p class="text-brand-blue-dark/65 font-sans text-xs sm:text-sm md:text-base max-w-md mx-auto px-2">
             Remplissez le formulaire ci-dessous pour valider votre candidature officielle.
           </p>
@@ -661,15 +686,15 @@
             <div class="space-y-3">
               <h3 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark">Candidature Enregistrée !</h3>
               <p class="text-brand-blue-dark/75 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-                Félicitations <strong id="success-name"></strong>. Votre inscription au Concours de Plaidoirie Universitaire 2026 de l'UIDT a été validée avec succès.
+                Félicitations <strong id="success-name"></strong>. Votre inscription à l'immersion E-commerce de Ecom Academie a été validée avec succès.
                 <br><br>
-                <strong class="text-brand-gold-premium">Note : Le sujet de votre plaidoirie sera choisi par le jury.</strong>
+                <strong class="text-brand-gold-premium">Note : Un conseiller de Ecom Academie vous contactera très prochainement par téléphone ou WhatsApp.</strong>
               </p>
               <div class="p-4 bg-[#F8F6F0]/80 border border-brand-gold-premium/20 rounded-xl max-w-md mx-auto mt-4 text-xs font-sans text-brand-blue-dark/70 text-left space-y-2">
                 <p><strong>Récapitulatif de votre profil :</strong></p>
                 <p>• Email : <span id="success-email"></span></p>
-                <p>• UFR : <span id="success-ufr"></span></p>
-                <p>• Niveau : <span id="success-niveau"></span></p>
+                <p>• Formation : <span id="success-ufr"></span></p>
+                <p>• Expérience : <span id="success-niveau"></span></p>
               </div>
 
               <!-- Billet & QR Code -->
@@ -726,75 +751,68 @@
               </div>
               <div class="space-y-1.5">
                 <label for="email" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Email <span class="text-red-500">*</span></label>
-                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: email@univ-thies.sn ou @gmail.com" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
-                <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email doit se terminer par '@univ-thies.sn' ou '@gmail.com'</span>
-                <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Accepte @univ-thies.sn ou @gmail.com</span>
+                <input type="email" id="email" oninput="validateEmailLive(this)" required placeholder="Ex: votre.email@gmail.com" class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email doit être valide</span>
+                <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Saisissez une adresse email valide</span>
               </div>
             </div>
 
             <!-- UFR & Filière -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-1.5">
-                <label for="ufr" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">UFR / Institut <span class="text-red-500">*</span></label>
+                <label for="ufr" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Formation souhaitée <span class="text-red-500">*</span></label>
                 <select id="ufr" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
-                  <option value="" disabled selected>Sélectionnez votre UFR</option>
-                  <option value="UFR-SET">UFR-SET (Sciences et Environnement et Technologie)</option>
-                  <option value="UFR-SES">UFR-SES (Sciences Économiques et Sociales)</option>
-                  <option value="UFR-SI">UFR-SI (Sciences et Ingénierie)</option>
-                  <option value="UFR-SANTE">UFR-SANTE (Sciences de la Santé)</option>
-                  <option value="IUT">IUT (Institut Universitaire de Technologie)</option>
+                  <option value="" disabled selected>Sélectionnez votre formation</option>
+                  <option value="Shopify">Shopify (Création de boutique)</option>
+                  <option value="Alibaba">Alibaba (Sourcing & Logistique)</option>
+                  <option value="Marketing">Marketing (Acquisition clients)</option>
+                  <option value="Vente en ligne">Vente en ligne (Closing & Logistique)</option>
                 </select>
               </div>
               <div class="space-y-1.5">
-                <label for="filiere" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Filière <span class="text-red-500">*</span></label>
-                <input type="text" id="filiere" required placeholder="Ex: Sciences Juridiques, Génie Civil..." class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                <label for="filiere" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Votre Projet / Objectif <span class="text-red-500">*</span></label>
+                <input type="text" id="filiere" required placeholder="Ex: Lancer ma marque de prêt-à-porter..." class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
               </div>
             </div>
 
             <!-- Study Level -->
             <div class="space-y-1.5">
-              <label for="niveau" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Niveau d'études <span class="text-red-500">*</span></label>
+              <label for="niveau" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Niveau d'expérience en e-commerce <span class="text-red-500">*</span></label>
               <select id="niveau" required class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
                 <option value="" disabled selected>Sélectionnez votre niveau</option>
-                <option value="Licence 1 (L1)">Licence 1 (L1)</option>
-                <option value="Licence 2 (L2)">Licence 2 (L2)</option>
-                <option value="Licence 3 (L3)">Licence 3 (L3)</option>
-                <option value="Master 1 (M1)">Master 1 (M1)</option>
-                <option value="Master 2 (M2)">Master 2 (M2)</option>
-                <option value="Doctorat">Doctorat</option>
+                <option value="Débutant">Débutant (Aucune expérience)</option>
+                <option value="Intermédiaire">Intermédiaire (Déjà essayé, pas de ventes régulières)</option>
+                <option value="Avancé">Avancé (Déjà des ventes régulières)</option>
               </select>
             </div>
 
             <!-- Submit -->
             <div class="pt-4 space-y-4">
               <p class="text-[9px] font-sans text-brand-blue-dark/50 leading-relaxed">
-                En soumettant ce formulaire, vous acceptez que le Club CE DEAO de l'UIDT traite vos données personnelles aux fins d'organisation de ce concours. Aucune donnée ne sera partagée à des tiers.
+                En soumettant ce formulaire, vous acceptez que Ecom Academie traite vos données personnelles aux fins d'organisation de cette immersion. Aucune donnée ne sera partagée à des tiers.
               </p>
               <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-brand-gold-premium/20 transition-colors duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5 cursor-pointer">
-                <i data-lucide="scale" class="w-5 h-5"></i>
-                <span id="submit-btn-text">⚖️ Je participe au concours</span>
+                <i data-lucide="rocket" class="w-5 h-5"></i>
+                <span id="submit-btn-text">🚀 Je m'inscris à l'immersion</span>
               </button>
             </div>
           </form>
         </div>
       </div>
     </section>
-
-
-    <!-- ======================================================== -->
     <!-- FOOTER                                                   -->
     <!-- ======================================================== -->
     <footer class="bg-brand-blue-dark text-white border-t border-brand-gold-premium/20 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <div class="flex flex-col items-center space-y-2">
-          <span class="text-brand-gold-premium font-serif font-bold text-xl tracking-wide">Club CE DEAO · UIDT Thiès</span>
-          <span class="text-xs text-white/50 uppercase tracking-widest font-sans">Commission des Événements et Débats d'Art Oratoire</span>
+          <span class="text-brand-gold-premium font-serif font-bold text-xl tracking-wide">🛒 Ecom Academie</span>
+          <span class="text-xs text-white/50 uppercase tracking-widest font-sans">Immersion E-commerce 2026 — Shopify · Alibaba · Marketing · Vente en ligne</span>
         </div>
         
         <div class="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-sans px-4">
           <a href="#presentation" class="text-white/60 hover:text-brand-gold-premium transition-colors">Présentation</a>
           <span class="text-white/20 hidden sm:inline">|</span>
-          <a href="#recompenses" class="text-white/60 hover:text-brand-gold-premium transition-colors">Récompenses</a>
+          <a href="#formations" class="text-white/60 hover:text-brand-gold-premium transition-colors">Formations</a>
           <span class="text-white/20 hidden sm:inline">|</span>
           <a href="#pourquoi" class="text-white/60 hover:text-brand-gold-premium transition-colors">Pourquoi</a>
           <span class="text-white/20 hidden sm:inline">|</span>
@@ -806,7 +824,7 @@
           <span>Espace Admin</span>
         </button>
 
-        <p class="text-white/40 text-[10px] font-sans pt-4">&copy; 2026 Club CE DEAO — Université Iba Der Thiam de Thiès. Tous droits réservés.</p>
+        <p class="text-white/40 text-[10px] font-sans pt-4">&copy; 2026 Ecom Academie — Tous droits réservés. Plateforme d'inscription à l'immersion E-commerce.</p>
       </div>
     </footer>
 
@@ -872,8 +890,8 @@
               👑
             </div>
             <div>
-              <h1 class="text-lg font-serif font-bold text-white leading-tight">Espace Supervision UIDT</h1>
-              <p class="text-xxs text-brand-gold-light uppercase tracking-wider font-sans">Bienvenue, Mouhamadou Al Amin Ndiaye</p>
+              <h1 class="text-lg font-serif font-bold text-white leading-tight">Espace Supervision Ecom Academie</h1>
+              <p class="text-xxs text-brand-gold-light uppercase tracking-wider font-sans">Gestion des Inscriptions - Immersion 2026</p>
             </div>
           </div>
           
@@ -899,7 +917,7 @@
 
           <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
             <div class="space-y-1">
-              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">UFR Représentées</span>
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Formations Choisies</span>
               <strong id="stat-ufr" class="text-3xl font-serif text-brand-blue-dark">0</strong>
             </div>
             <div class="p-3 bg-brand-gold-premium/10 rounded-xl text-brand-gold-premium"><i data-lucide="school" class="w-8 h-8"></i></div>
@@ -919,7 +937,7 @@
           <!-- UFR Stats -->
           <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
             <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
-              <i data-lucide="building-2" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par UFR
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Formation
             </h3>
             <div id="stats-ufr-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
               <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
@@ -929,7 +947,7 @@
           <!-- Filière Stats -->
           <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
             <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
-              <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Filière
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Projet / Objectif
             </h3>
             <div id="stats-filiere-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
               <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
@@ -940,7 +958,7 @@
         <!-- Filter and Action Bar -->
         <div class="bg-white border border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="relative w-full md:max-w-md">
-            <input type="text" id="search-input" oninput="filterInscriptionsTable()" placeholder="Rechercher (Nom, prénom, email, UFR, filière)..." class="w-full bg-[#F8F6F0]/50 border border-brand-blue-dark/10 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-xl py-3 pl-10 pr-4 outline-none text-sm font-sans" />
+            <input type="text" id="search-input" oninput="filterInscriptionsTable()" placeholder="Rechercher (Nom, prénom, email, formation, projet)..." class="w-full bg-[#F8F6F0]/50 border border-brand-blue-dark/10 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-xl py-3 pl-10 pr-4 outline-none text-sm font-sans" />
             <i data-lucide="search" class="w-4 h-4 text-brand-blue-dark/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
           </div>
           
@@ -960,8 +978,8 @@
                   <th class="py-4 px-4 border-b border-white/5 font-semibold">Nom Complet</th>
                   <th class="py-4 px-4 border-b border-white/5 font-semibold">Téléphone</th>
                   <th class="py-4 px-4 border-b border-white/5 font-semibold">Email</th>
-                  <th class="py-4 px-4 border-b border-white/5 font-semibold">UFR / Institut</th>
-                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Filière / Niveau</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Formation</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Projet / Expérience</th>
                   <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-28">Actions</th>
                 </tr>
               </thead>
@@ -1133,12 +1151,13 @@
         const val = input.value.trim().toLowerCase();
         const errorSpan = document.getElementById('email-live-error');
         const hintSpan = document.getElementById('email-live-hint');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
         if (val === '') {
           errorSpan.classList.add('hidden');
           hintSpan.classList.remove('hidden');
           input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
-        } else if (!val.endsWith('@univ-thies.sn') && !val.endsWith('@gmail.com')) {
+        } else if (!emailRegex.test(val)) {
           errorSpan.classList.remove('hidden');
           hintSpan.classList.add('hidden');
           input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
@@ -1175,9 +1194,10 @@
         errorBanner.classList.add('hidden');
 
         // Front-end email check
-        if (!email.endsWith('@univ-thies.sn') && !email.endsWith('@gmail.com')) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
           errorBanner.classList.remove('hidden');
-          errorText.innerText = "L'adresse email doit se terminer par '@univ-thies.sn' ou '@gmail.com'";
+          errorText.innerText = "L'adresse email saisie n'est pas valide.";
           return;
         }
 
@@ -1194,7 +1214,7 @@
             .maybeSingle();
 
           if (existing) {
-            throw new Error("Cet email est déjà enregistré pour le concours.");
+            throw new Error("Cet email est déjà enregistré pour l'immersion.");
           }
 
           // Insert record
@@ -1204,7 +1224,7 @@
 
           if (insertError) {
             if (insertError.code === '23505') {
-              throw new Error("Cet email est déjà enregistré pour le concours.");
+              throw new Error("Cet email est déjà enregistré pour l'immersion.");
             }
             console.error("Supabase Error:", insertError);
             throw new Error("Erreur de base de données.");
@@ -1218,7 +1238,7 @@
             errorBanner.classList.remove('hidden');
             errorText.innerText = err.message;
             submitBtn.disabled = false;
-            submitBtnText.innerText = "⚖️ Je participe au concours";
+            submitBtnText.innerText = "🚀 Je m'inscris à l'immersion";
             return; // Stop here!
           }
           // Otherwise (like "Failed to fetch" or offline), we log it but STILL ALLOW the user to proceed via WhatsApp
@@ -1236,17 +1256,17 @@
         document.getElementById('success-niveau').innerText = niveau;
 
         // Generate QR Code Ticket Data
-        const qrData = `Candidat: ${prenom} ${nom} | UFR: ${ufr} | Niveau: ${niveau}`;
+        const qrData = `Candidat: ${prenom} ${nom} | Formation: ${ufr} | Expérience: ${niveau}`;
         document.getElementById('ticket-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
 
         // Configure WhatsApp button
-        const whatsappMsg = `Bonjour ! Je viens de m'inscrire au Concours de Plaidoirie Universitaire 2026.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 UFR/Institut : ${ufr}\n📚 Niveau : ${niveau}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
+        const whatsappMsg = `Bonjour ! Je viens de m'inscrire à l'Immersion E-commerce 2026 de Ecom Academie.\n\n👤 Candidat : ${prenom} ${nom}\n🎓 Formation : ${ufr}\n📊 Expérience : ${niveau}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
         const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
         
         document.getElementById('whatsapp-button').href = whatsappUrl;
 
         submitBtn.disabled = false;
-        submitBtnText.innerText = "⚖️ Je participe au concours";
+        submitBtnText.innerText = "🚀 Je m'inscris à l'immersion";
       }
 
       async function retrySupabaseInsert() {
@@ -1588,7 +1608,7 @@
         }
 
         let csvContent = "\uFEFF";
-        csvContent += "N°;Nom;Prénom;Téléphone;Email;UFR;Filière;Niveau;Date d'inscription\r\n";
+        csvContent += "N°;Nom;Prénom;Téléphone;Email;Formation;Projet/Objectif;Expérience;Date d'inscription\r\n";
 
         globalInscriptions.forEach((item, index) => {
           const row = [
@@ -1610,7 +1630,7 @@
         const url = URL.createObjectURL(blob);
         
         link.setAttribute("href", url);
-        link.setAttribute("download", `inscriptions_concours_plaidoirie_2026.csv`);
+        link.setAttribute("download", `inscriptions_immersion_ecom_academie_2026.csv`);
         link.style.visibility = 'hidden';
         document.body.appendChild(link);
         link.click();

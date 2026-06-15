@@ -4,21 +4,23 @@
   <circle cx="100" cy="100" r="88" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3" />
   <circle cx="100" cy="100" r="72" fill="none" stroke="#C9A84C" stroke-width="1.5" />
   <circle cx="100" cy="100" r="70" fill="#0A1F5C" stroke="#C9A84C" stroke-width="2" />
-  
-  <path d="M 85,138 L 115,138 M 90,135 L 110,135 M 95,130 L 105,130" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" />
-  <line x1="100" y1="78" x2="100" y2="130" stroke="#C9A84C" stroke-width="3" />
-  <line x1="75" y1="84" x2="125" y2="84" stroke="#C9A84C" stroke-width="2.5" />
-  <line x1="75" y1="84" x2="68" y2="108" stroke="#C9A84C" stroke-width="1" />
-  <line x1="75" y1="84" x2="82" y2="108" stroke="#C9A84C" stroke-width="1" />
-  <path d="M 65,108 Q 75,114 85,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
-  <line x1="125" y1="84" x2="118" y2="108" stroke="#C9A84C" stroke-width="1" />
-  <line x1="125" y1="84" x2="132" y2="108" stroke="#C9A84C" stroke-width="1" />
-  <path d="M 115,108 Q 125,114 135,108" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" />
-  <polygon points="100,70 102,74 106,75 103,78 104,82 100,80 96,82 97,78 94,75 98,74" fill="#E8C96A" />
 
-  <text fill="#C9A84C" font-family="'Playfair Display', serif" font-weight="bold" letter-spacing="2px" font-size="9.8px">
+  <!-- Shopping cart icon (e-commerce) -->
+  <!-- Handle -->
+  <path d="M 84,93 Q 84,83 100,83 Q 116,83 116,93" fill="none" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Body -->
+  <rect x="78" y="93" width="44" height="30" rx="5" fill="none" stroke="#C9A84C" stroke-width="3"/>
+  <!-- Shelf lines -->
+  <line x1="89" y1="103" x2="89" y2="113" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100" y1="101" x2="100" y2="113" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <line x1="111" y1="103" x2="111" y2="113" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Wheels -->
+  <circle cx="88" cy="128" r="4" fill="#E8C96A"/>
+  <circle cx="112" cy="128" r="4" fill="#E8C96A"/>
+
+  <text fill="#C9A84C" font-family="'Playfair Display', serif" font-weight="bold" letter-spacing="2px" font-size="9.5px">
     <textPath href="#sealTextPath" startOffset="0%">
-      • UNIVERSITÉ IBA DER THIAM DE THIÈS • CLUB CE DEAO • 2026
+      • ECOM ACADEMIE • IMMERSION E-COMMERCE • 2026
     </textPath>
   </text>
 </svg>

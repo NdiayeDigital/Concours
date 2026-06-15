@@ -1,7 +1,7 @@
 {
-  "name": "Concours de Plaidoirie UIDT",
-  "short_name": "Plaidoirie",
-  "description": "Plateforme d'inscription au Concours de Plaidoirie Universitaire 2026.",
+  "name": "Ecom Academie Immersion 2026",
+  "short_name": "Immersion Ecom",
+  "description": "Plateforme d'inscription à l'Immersion E-commerce de Ecom Academie 2026.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0A1F5C",

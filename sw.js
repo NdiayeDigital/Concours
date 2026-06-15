@@ -1,4 +1,4 @@
-const CACHE_NAME = 'plaidoirie-v1';
+const CACHE_NAME = 'ecom-immersion-v1';
 const urlsToCache = [
   '/',
   '/index.html',
