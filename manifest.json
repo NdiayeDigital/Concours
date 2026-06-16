@@ -4,8 +4,8 @@
   "description": "Plateforme d'inscription à l'Immersion E-commerce de Ecom Academie 2026.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A1F5C",
-  "theme_color": "#0A1F5C",
+  "background_color": "#111111",
+  "theme_color": "#111111",
   "icons": [
     {
       "src": "/Logo.png",

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://concours.vercel.app/sitemap.xml
+Sitemap: https://ecomacademie.vercel.app/sitemap.xml
