@@ -1071,21 +1071,24 @@
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
       </div>
 
-      <!-- Empty State -->
-      <div class="bg-[#F8F6F0]/60 border-2 border-dashed border-brand-blue-dark/10 rounded-2xl p-12 sm:p-16 text-center space-y-6">
-        <div class="w-20 h-20 mx-auto bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center">
-          <i data-lucide="calendar-x" class="w-10 h-10 text-brand-gold-premium/60"></i>
-        </div>
-        <div class="space-y-3">
-          <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark/80">Aucun événement à venir</h3>
-          <p class="text-brand-blue-dark/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-            Restez connectés ! Nos prochains événements, ateliers et sessions de formation seront annoncés ici très prochainement.
-          </p>
-        </div>
-        <div class="flex items-center justify-center gap-3 pt-2">
-          <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
-          <span class="text-xs text-brand-blue-dark/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
-          <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
+      <!-- Dynamic Events Container -->
+      <div id="public-events-container">
+        <!-- Empty State (Fallback if no active events) -->
+        <div class="bg-[#F8F6F0]/60 border-2 border-dashed border-brand-blue-dark/10 rounded-2xl p-12 sm:p-16 text-center space-y-6">
+          <div class="w-20 h-20 mx-auto bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center">
+            <i data-lucide="calendar-x" class="w-10 h-10 text-brand-gold-premium/60"></i>
+          </div>
+          <div class="space-y-3">
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark/80">Aucun événement à venir</h3>
+            <p class="text-brand-blue-dark/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+              Restez connectés ! Nos prochains événements, ateliers et sessions de formation seront annoncés ici très prochainement.
+            </p>
+          </div>
+          <div class="flex items-center justify-center gap-3 pt-2">
+            <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
+            <span class="text-xs text-brand-blue-dark/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
+            <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
+          </div>
         </div>
       </div>
 
@@ -1396,112 +1399,210 @@
       </div>
     </header>
 
-    <!-- Dashboard Body -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      </header>
 
-      <!-- Stats Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div
-          class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
-          <div class="space-y-1">
-            <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Total des inscrits</span>
-            <strong id="stat-total" class="text-3xl font-serif text-brand-blue-dark">0</strong>
-          </div>
-          <div class="p-3 bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark"><i data-lucide="users"
-              class="w-8 h-8"></i></div>
-        </div>
-
-        <div
-          class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
-          <div class="space-y-1">
-            <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Formations Choisies</span>
-            <strong id="stat-ufr" class="text-3xl font-serif text-brand-blue-dark">0</strong>
-          </div>
-          <div class="p-3 bg-brand-gold-premium/10 rounded-xl text-brand-gold-premium"><i data-lucide="school"
-              class="w-8 h-8"></i></div>
-        </div>
-
-        <div
-          class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
-          <div class="space-y-1">
-            <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Inscriptions Aujourd'hui</span>
-            <strong id="stat-today" class="text-3xl font-serif text-brand-blue-dark">0</strong>
-          </div>
-          <div class="p-3 bg-emerald-50 rounded-xl text-emerald-600"><i data-lucide="calendar-plus" class="w-8 h-8"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Detailed Stats (UFR & Filières) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- UFR Stats -->
-        <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
-          <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
-            <i data-lucide="building-2" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Formation
-          </h3>
-          <div id="stats-ufr-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
-            <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
-          </div>
-        </div>
-
-        <!-- Filière Stats -->
-        <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
-          <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
-            <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Projet / Objectif
-          </h3>
-          <div id="stats-filiere-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
-            <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Filter and Action Bar -->
-      <div
-        class="bg-white border border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="relative w-full md:max-w-md">
-          <input type="text" id="search-input" oninput="filterInscriptionsTable()"
-            placeholder="Rechercher (Nom, prénom, email, formation, projet)..."
-            class="w-full bg-[#F8F6F0]/50 border border-brand-blue-dark/10 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-xl py-3 pl-10 pr-4 outline-none text-sm font-sans" />
-          <i data-lucide="search"
-            class="w-4 h-4 text-brand-blue-dark/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-        </div>
-
-        <button onclick="exportTableToCSV()"
-          class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans text-xs font-bold py-3 px-6 rounded-xl shadow transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Exporter au format Excel (CSV)</span>
+    <!-- Tab Navigation -->
+    <div class="bg-white border-b border-brand-blue-dark/10 py-3 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto flex space-x-6">
+        <button id="tab-btn-candidats" onclick="switchAdminTab('candidats')" class="text-brand-gold-premium font-sans font-bold text-sm border-b-2 border-brand-gold-premium pb-1 outline-none transition-all duration-300">
+          👥 Candidatures
+        </button>
+        <button id="tab-btn-events" onclick="switchAdminTab('events')" class="text-brand-blue-dark/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300">
+          📅 Événements
         </button>
       </div>
+    </div>
 
-      <!-- Table Container -->
-      <div class="bg-white border border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
-        <div class="overflow-x-auto w-full">
-          <table class="w-full text-left border-collapse text-xs md:text-sm">
-            <thead class="bg-brand-blue-dark text-white font-sans uppercase text-[10px] tracking-wider">
-              <tr>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-12">#</th>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold">Nom Complet</th>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold">Téléphone</th>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold">Email</th>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold">Formation</th>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold">Projet / Expérience</th>
-                <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-28">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="inscriptions-tbody" class="divide-y divide-brand-blue-dark/5 font-sans">
-              <!-- Data loaded dynamically -->
-              <tr>
-                <td colspan="7" class="py-12 text-center text-brand-blue-dark/45 font-medium">
-                  <div class="flex flex-col items-center justify-center space-y-2">
-                    <div
-                      class="w-6 h-6 border-2 border-brand-gold-premium border-t-transparent rounded-full animate-spin">
+    <!-- Dashboard Body -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+      <!-- ================= CANDIDATURES TAB ================= -->
+      <div id="admin-tab-candidats" class="space-y-8">
+        <!-- Stats Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            <div class="space-y-1">
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Total des inscrits</span>
+              <strong id="stat-total" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+            </div>
+            <div class="p-3 bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark"><i data-lucide="users"
+                class="w-8 h-8"></i></div>
+          </div>
+
+          <div
+            class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            <div class="space-y-1">
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Formations Choisies</span>
+              <strong id="stat-ufr" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+            </div>
+            <div class="p-3 bg-brand-gold-premium/10 rounded-xl text-brand-gold-premium"><i data-lucide="school"
+                class="w-8 h-8"></i></div>
+          </div>
+
+          <div
+            class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            <div class="space-y-1">
+              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Inscriptions Aujourd'hui</span>
+              <strong id="stat-today" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl text-emerald-600"><i data-lucide="calendar-plus" class="w-8 h-8"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Stats (UFR & Filières) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- UFR Stats -->
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Formation
+            </h3>
+            <div id="stats-ufr-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+              <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
+            </div>
+          </div>
+
+          <!-- Filière Stats -->
+          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Projet / Objectif
+            </h3>
+            <div id="stats-filiere-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+              <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter and Action Bar -->
+        <div
+          class="bg-white border border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="relative w-full md:max-w-md">
+            <input type="text" id="search-input" oninput="filterInscriptionsTable()"
+              placeholder="Rechercher (Nom, prénom, email, formation, projet)..."
+              class="w-full bg-[#F8F6F0]/50 border border-brand-blue-dark/10 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-xl py-3 pl-10 pr-4 outline-none text-sm font-sans" />
+            <i data-lucide="search"
+              class="w-4 h-4 text-brand-blue-dark/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          </div>
+
+          <button onclick="exportTableToCSV()"
+            class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans text-xs font-bold py-3 px-6 rounded-xl shadow transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Exporter au format Excel (CSV)</span>
+          </button>
+        </div>
+
+        <!-- Table Container -->
+        <div class="bg-white border border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+              <thead class="bg-brand-blue-dark text-white font-sans uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-12">#</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Nom Complet</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Téléphone</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Email</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Formation</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold">Projet / Expérience</th>
+                  <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-28">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inscriptions-tbody" class="divide-y divide-brand-blue-dark/5 font-sans">
+                <!-- Data loaded dynamically -->
+                <tr>
+                  <td colspan="7" class="py-12 text-center text-brand-blue-dark/45 font-medium">
+                    <div class="flex flex-col items-center justify-center space-y-2">
+                      <div
+                        class="w-6 h-6 border-2 border-brand-gold-premium border-t-transparent rounded-full animate-spin">
+                      </div>
+                      <span>Chargement sécurisé des candidatures...</span>
                     </div>
-                    <span>Chargement sécurisé des candidatures...</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= EVENTS TAB ================= -->
+      <div id="admin-tab-events" class="hidden space-y-8">
+        <!-- Event Addition Form -->
+        <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-6">
+          <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2 border-b border-brand-blue-dark/5 pb-3 font-sans">
+            <i data-lucide="calendar-days" class="w-4 h-4 text-brand-gold-premium"></i> Ajouter un nouvel événement à l'agenda
+          </h3>
+          <form id="admin-event-form" onsubmit="handleCreateEvent(event)" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-1.5">
+              <label for="event-title" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Titre de l'événement *</label>
+              <input type="text" id="event-title" required placeholder="Ex: Masterclass Shopify & Vente en ligne"
+                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="event-date" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Date et Heure *</label>
+              <input type="text" id="event-date" required placeholder="Ex: Samedi 27 Juin 2026 à 16h00"
+                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="event-location" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Lieu *</label>
+              <input type="text" id="event-location" required placeholder="Ex: Université de Thiès, VDN Dakar ou En ligne"
+                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="event-reg-required" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Inscription requise ?</label>
+              <select id="event-reg-required" onchange="toggleEventRegLinkVisibility()"
+                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
+                <option value="false">Non (Entrée libre et gratuite)</option>
+                <option value="true">Oui (Bouton d'inscription requis)</option>
+              </select>
+            </div>
+
+            <div id="event-link-container" class="hidden space-y-1.5 md:col-span-2">
+              <label for="event-reg-link" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Lien ou cible d'inscription (Optionnel)</label>
+              <input type="text" id="event-reg-link" placeholder="Par défaut : #inscription (redirige vers le formulaire d'inscription principal)"
+                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+            </div>
+
+            <div class="md:col-span-2 pt-2 flex justify-end">
+              <button type="submit" id="event-submit-btn"
+                class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+                <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                <span id="event-submit-btn-text">Ajouter l'événement</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Event List -->
+        <div class="bg-white border border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
+          <div class="p-4 bg-brand-blue-dark text-white font-sans font-bold text-sm tracking-wide uppercase flex items-center gap-2">
+            <i data-lucide="list" class="w-4 h-4"></i> Liste des événements programmés
+          </div>
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+              <thead class="bg-[#F8F6F0]/85 text-brand-blue-dark font-sans uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold text-center w-12">#</th>
+                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold">Titre de l'événement</th>
+                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold">Date et Heure</th>
+                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold">Lieu</th>
+                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold text-center w-36">Inscription ?</th>
+                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold text-center w-28">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="events-tbody" class="divide-y divide-brand-blue-dark/5 font-sans">
+                <!-- Data loaded dynamically -->
+                <tr>
+                  <td colspan="6" class="py-12 text-center text-brand-blue-dark/45 font-medium">
+                    Chargement des événements...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -1551,6 +1652,9 @@
 
       // Start Testimonial Carousel Auto-run
       setInterval(nextSlide, 5000);
+
+      // Load active events for public agenda
+      loadPublicEvents();
 
       // Check if admin is already logged in (sessionStorage)
       if (sessionStorage.getItem('admin_token') === 'true') {
@@ -1891,17 +1995,22 @@
     }
 
     // 8. ADMIN DASHBOARD ACTIONS & REAL-TIME DATA
-    function showAdminDashboard() {
+     function showAdminDashboard() {
       document.getElementById('admin-dashboard').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
 
       fetchInscriptionsData();
+      fetchEventsData();
 
-      // Subscribe to real-time additions/deletions
+      // Subscribe to real-time additions/deletions for inscriptions and events
       const channel = supabaseClient
         .channel('schema-db-changes')
         .on('postgres_changes', { event: '*', schema: 'public', table: 'inscriptions' }, () => {
           fetchInscriptionsData();
+        })
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'evenements' }, () => {
+          fetchEventsData();
+          loadPublicEvents();
         })
         .subscribe();
 
@@ -2142,6 +2251,243 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    }
+
+    // ========================================================
+    // GESTION DES ÉVÉNEMENTS (ADMIN & PUBLIC)
+    // ========================================================
+    let globalEvents = [];
+
+    function switchAdminTab(tabName) {
+      const btnCandidats = document.getElementById('tab-btn-candidats');
+      const btnEvents = document.getElementById('tab-btn-events');
+      const tabCandidats = document.getElementById('admin-tab-candidats');
+      const tabEvents = document.getElementById('admin-tab-events');
+
+      if (tabName === 'candidats') {
+        btnCandidats.className = "text-brand-gold-premium font-sans font-bold text-sm border-b-2 border-brand-gold-premium pb-1 outline-none transition-all duration-300";
+        btnEvents.className = "text-brand-blue-dark/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300";
+        tabCandidats.classList.remove('hidden');
+        tabEvents.classList.add('hidden');
+      } else {
+        btnEvents.className = "text-brand-gold-premium font-sans font-bold text-sm border-b-2 border-brand-gold-premium pb-1 outline-none transition-all duration-300";
+        btnCandidats.className = "text-brand-blue-dark/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300";
+        tabEvents.classList.remove('hidden');
+        tabCandidats.classList.add('hidden');
+        fetchEventsData();
+      }
+    }
+
+    function toggleEventRegLinkVisibility() {
+      const regRequired = document.getElementById('event-reg-required').value === 'true';
+      const linkContainer = document.getElementById('event-link-container');
+      if (regRequired) {
+        linkContainer.classList.remove('hidden');
+      } else {
+        linkContainer.classList.add('hidden');
+      }
+    }
+
+    async function fetchEventsData() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('evenements')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw new Error(error.message);
+
+        globalEvents = data || [];
+        renderEventsTable(globalEvents);
+      } catch (err) {
+        console.error("Error fetching events:", err);
+      }
+    }
+
+    function renderEventsTable(list) {
+      const tbody = document.getElementById('events-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (list.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-12 text-center text-brand-blue-dark/45 font-medium font-sans">
+              Aucun événement programmé pour le moment.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      list.forEach((event, index) => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-brand-blue-dark/5 transition-colors";
+        tr.innerHTML = `
+          <td class="py-4 px-4 text-center font-bold text-brand-blue-dark/40 border-b border-brand-blue-dark/5">${index + 1}</td>
+          <td class="py-4 px-4 font-semibold text-brand-blue-dark border-b border-brand-blue-dark/5 text-sm">${event.titre}</td>
+          <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${event.date_evenement}</td>
+          <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${event.lieu}</td>
+          <td class="py-4 px-4 text-center border-b border-brand-blue-dark/5">
+            <span class="px-2.5 py-1 text-xxs font-bold rounded-full border ${
+              event.inscription_requise 
+                ? 'bg-amber-50 text-amber-600 border-amber-200' 
+                : 'bg-emerald-50 text-emerald-600 border-emerald-200'
+            }">
+              ${event.inscription_requise ? 'Oui' : 'Non'}
+            </span>
+          </td>
+          <td class="py-4 px-4 text-center border-b border-brand-blue-dark/5">
+            <button onclick="handleDeleteEvent('${event.id}', '${event.titre.replace(/'/g, "\\'")}')" class="bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 rounded-lg p-2 transition-all duration-300 shadow-sm cursor-pointer" title="Supprimer l'événement">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    async function handleCreateEvent(e) {
+      e.preventDefault();
+      const title = document.getElementById('event-title').value.trim();
+      const dateVal = document.getElementById('event-date').value.trim();
+      const locationVal = document.getElementById('event-location').value.trim();
+      const regRequired = document.getElementById('event-reg-required').value === 'true';
+      const regLink = document.getElementById('event-reg-link').value.trim() || '#inscription';
+
+      const submitBtn = document.getElementById('event-submit-btn');
+      const submitText = document.getElementById('event-submit-btn-text');
+
+      submitBtn.disabled = true;
+      submitText.innerText = "Ajout en cours...";
+
+      try {
+        const { error } = await supabaseClient
+          .from('evenements')
+          .insert([
+            {
+              titre: title,
+              date_evenement: dateVal,
+              lieu: locationVal,
+              inscription_requise: regRequired,
+              lien_inscription: regRequired ? regLink : null
+            }
+          ]);
+
+        if (error) throw new Error(error.message);
+
+        // Reset form
+        document.getElementById('admin-event-form').reset();
+        document.getElementById('event-link-container').classList.add('hidden');
+        alert("Événement ajouté avec succès !");
+        
+        fetchEventsData();
+        loadPublicEvents();
+      } catch (err) {
+        console.error("Error inserting event:", err);
+        alert("Erreur lors de la création de l'événement.");
+      } finally {
+        submitBtn.disabled = false;
+        submitText.innerText = "Ajouter l'événement";
+      }
+    }
+
+    async function handleDeleteEvent(id, title) {
+      if (!confirm(`Voulez-vous vraiment supprimer l'événement "${title}" ?`)) return;
+
+      try {
+        const { error } = await supabaseClient
+          .from('evenements')
+          .delete()
+          .eq('id', id);
+
+        if (error) throw new Error(error.message);
+
+        alert("Événement supprimé !");
+        fetchEventsData();
+        loadPublicEvents();
+      } catch (err) {
+        console.error("Error deleting event:", err);
+        alert("Erreur lors de la suppression de l'événement.");
+      }
+    }
+
+    async function loadPublicEvents() {
+      const container = document.getElementById('public-events-container');
+      if (!container) return;
+
+      try {
+        const { data, error } = await supabaseClient
+          .from('evenements')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw new Error(error.message);
+
+        if (!data || data.length === 0) {
+          // Default empty state
+          container.innerHTML = `
+            <div class="bg-[#F8F6F0]/60 border-2 border-dashed border-brand-blue-dark/10 rounded-2xl p-12 sm:p-16 text-center space-y-6 animate-fade-in">
+              <div class="w-20 h-20 mx-auto bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center">
+                <i data-lucide="calendar-x" class="w-10 h-10 text-brand-gold-premium/60"></i>
+              </div>
+              <div class="space-y-3">
+                <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark/80">Aucun événement à venir</h3>
+                <p class="text-brand-blue-dark/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+                  Restez connectés ! Nos prochains événements, ateliers et sessions de formation seront annoncés ici très prochainement.
+                </p>
+              </div>
+              <div class="flex items-center justify-center gap-3 pt-2">
+                <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
+                <span class="text-xs text-brand-blue-dark/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
+                <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
+              </div>
+            </div>
+          `;
+          lucide.createIcons();
+          return;
+        }
+
+        // Render events list
+        let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">';
+        data.forEach(event => {
+          html += `
+            <div class="bg-white rounded-2xl shadow-lg border border-brand-blue-dark/5 p-6 space-y-4 hover:shadow-brand-gold-premium/10 transition-all duration-300 transform hover:-translate-y-1">
+              <div class="flex justify-between items-start">
+                <span class="px-3 py-1 bg-brand-gold-premium/15 text-brand-gold-premium font-sans font-semibold text-xs rounded-full uppercase tracking-wider">Prochainement</span>
+                <div class="flex items-center gap-1.5 text-brand-blue-dark/55 text-xs font-sans">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-gold-premium"></i>
+                  <span>${event.lieu}</span>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-xl font-serif font-bold text-brand-blue-dark leading-tight">${event.titre}</h3>
+                <div class="flex items-center gap-2 text-sm font-sans text-brand-blue-dark/70">
+                  <i data-lucide="calendar" class="w-4 h-4 text-brand-gold-premium/60"></i>
+                  <span>${event.date_evenement}</span>
+                </div>
+              </div>
+              <div class="pt-2">
+                ${event.inscription_requise 
+                  ? `<a href="${event.lien_inscription || '#inscription'}" class="inline-flex w-full justify-center items-center gap-2 bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans font-bold text-sm py-3 px-5 rounded-xl shadow transition-colors duration-300">
+                       <i data-lucide="ticket" class="w-4 h-4"></i> S'inscrire à l'événement
+                     </a>`
+                  : `<div class="w-full text-center py-2.5 bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark/60 font-sans text-xs font-bold uppercase tracking-wider border border-dashed border-brand-blue-dark/10">
+                       Entrée libre & gratuite
+                     </div>`
+                }
+              </div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+        lucide.createIcons();
+
+      } catch (err) {
+        console.error("Error loading public events:", err);
+      }
     }
 
     // Register PWA Service Worker
