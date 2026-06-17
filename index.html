@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="./Logo.png" />
+  <link rel="icon" type="image/svg+xml" href="./Sceau.svg" />
   <link rel="manifest" href="./manifest.json" />
   <meta name="theme-color" content="#111111" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -141,15 +141,24 @@
       <div
         class="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full border border-brand-gold-premium/20 animate-[spin_15s_linear_infinite_reverse]">
       </div>
-      <!-- Logo de Ecom Academie au centre -->
-      <img src="Logo.png" alt="Ecom Academie"
-        class="w-20 h-20 sm:w-28 sm:h-28 object-contain drop-shadow-[0_0_15px_rgba(249,115,22,0.5)] animate-pulse" />
+      <!-- Nom de Ecom Academie stylisé au centre -->
+      <div class="text-brand-gold-premium font-serif font-bold text-3xl sm:text-4xl tracking-wider select-none drop-shadow-[0_0_15px_rgba(249,115,22,0.55)] animate-pulse">
+        EA
+      </div>
     </div>
-    <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest animate-pulse uppercase">
+    <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest uppercase text-center">
       ECOM ACADEMIE
     </div>
-    <div class="mt-2 text-white/50 font-sans text-xs uppercase tracking-[0.3em]">
+    <div class="mt-2 text-white/50 font-sans text-xs uppercase tracking-[0.3em] text-center">
       Formation E-commerce
+    </div>
+    
+    <!-- Progress Bar (15 seconds) -->
+    <div class="mt-10 flex flex-col items-center space-y-2.5">
+      <div class="w-60 sm:w-72 h-1 bg-white/10 rounded-full overflow-hidden relative">
+        <div id="preloader-progress" class="h-full w-0 bg-brand-gold-premium rounded-full transition-all duration-100 ease-linear"></div>
+      </div>
+      <div id="preloader-percentage" class="text-brand-gold-premium/80 font-sans text-xs font-bold tracking-wider">0%</div>
     </div>
   </div>
   <!-- NAVBAR                                                   -->
@@ -1632,14 +1641,30 @@
 
     // 2. INITIALIZATION ON PAGE LOAD
     window.addEventListener('DOMContentLoaded', () => {
-      // Preloader Logic
-      setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.classList.add('opacity-0');
-          setTimeout(() => preloader.remove(), 700);
+      // Preloader Progress Logic (15 seconds)
+      const progressBar = document.getElementById('preloader-progress');
+      const progressText = document.getElementById('preloader-percentage');
+      const preloader = document.getElementById('preloader');
+      
+      const duration = 15000; // 15 seconds
+      const intervalTime = 100; // smooth update every 100ms
+      let elapsedTime = 0;
+      
+      const loaderInterval = setInterval(() => {
+        elapsedTime += intervalTime;
+        const progressPercentage = Math.min(Math.round((elapsedTime / duration) * 100), 100);
+        
+        if (progressBar) progressBar.style.width = progressPercentage + '%';
+        if (progressText) progressText.innerText = progressPercentage + '%';
+        
+        if (elapsedTime >= duration) {
+          clearInterval(loaderInterval);
+          if (preloader) {
+            preloader.classList.add('opacity-0');
+            setTimeout(() => preloader.remove(), 700);
+          }
         }
-      }, 150);
+      }, intervalTime);
 
       // Initialize Lucide Icons
       lucide.createIcons();
