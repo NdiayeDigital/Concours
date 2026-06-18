@@ -53,9 +53,10 @@ export function useAdmin() {
         setError('Nom d\'administrateur ou mot de passe incorrect.');
         return false;
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error('Login error:', err);
-      setError(err.message || 'Une erreur est survenue lors de la connexion.');
+      const error = err as Error;
+      setError(error.message || 'Une erreur est survenue lors de la connexion.');
       return false;
     } finally {
       setLoading(false);

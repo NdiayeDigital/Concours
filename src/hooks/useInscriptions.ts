@@ -41,9 +41,10 @@ export function useInscriptions() {
       }
 
       setInscriptions(data || []);
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error fetching inscriptions:', err);
-      setError(err.message || 'Une erreur est survenue lors de la récupération des inscriptions.');
+      const error = err as Error;
+      setError(error.message || 'Une erreur est survenue lors de la récupération des inscriptions.');
     } finally {
       setLoading(false);
     }
@@ -89,9 +90,10 @@ export function useInscriptions() {
       }
 
       return { success: true, message: 'Inscription enregistrée avec succès !' };
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error creating inscription:', err);
-      return { success: false, message: err.message || "Une erreur s'est produite." };
+      const error = err as Error;
+      return { success: false, message: error.message || "Une erreur s'est produite." };
     } finally {
       setLoading(false);
     }
@@ -119,9 +121,10 @@ export function useInscriptions() {
       // Locally filter out the deleted item
       setInscriptions((prev) => prev.filter((item) => item.id !== id));
       return true;
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error deleting inscription:', err);
-      setError(err.message || "Une erreur est survenue lors de la suppression.");
+      const error = err as Error;
+      setError(error.message || "Une erreur est survenue lors de la suppression.");
       return false;
     }
   };
@@ -130,8 +133,10 @@ export function useInscriptions() {
   useEffect(() => {
     if (!isAdmin) return;
 
-    // Fetch initial list
-    fetchInscriptions();
+    // Fetch initial list asynchronously to prevent calling setState synchronously in effect body
+    Promise.resolve().then(() => {
+      fetchInscriptions();
+    });
 
     // Setup channel subscription
     const channel = supabase
