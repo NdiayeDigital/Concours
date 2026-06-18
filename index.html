@@ -331,16 +331,15 @@
           </div>
 
           <!-- Meta Info Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg sm:max-w-none mx-auto lg:mx-0 pt-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg sm:max-w-none mx-auto lg:mx-0 pt-4">
             <div
               class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
               <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
-                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                <i data-lucide="monitor" class="w-5 h-5"></i>
               </div>
               <div class="text-left">
-                <span class="text-white/50 text-xs block font-sans">📍 Format</span>
-                <span class="text-white text-sm font-semibold block font-sans leading-tight">En ligne +
-                  Présentiel</span>
+                <span class="text-white/50 text-xs block font-sans">🎓 Format</span>
+                <span class="text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">En ligne + Présentiel</span>
               </div>
             </div>
             <div
@@ -349,8 +348,18 @@
                 <i data-lucide="book-open" class="w-5 h-5"></i>
               </div>
               <div class="text-left">
-                <span class="text-white/50 text-xs block font-sans">📚 Formations & Services</span>
-                <span class="text-white text-sm font-semibold block font-sans leading-tight">4 modules experts + Services de Communication Digitale</span>
+                <span class="text-white/50 text-xs block font-sans">📚 Formation</span>
+                <span class="text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">4 modules experts</span>
+              </div>
+            </div>
+            <div
+              class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
+              <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
+                <i data-lucide="megaphone" class="w-5 h-5"></i>
+              </div>
+              <div class="text-left">
+                <span class="text-white/50 text-xs block font-sans">💼 Service</span>
+                <span class="text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">Communication Digitale</span>
               </div>
             </div>
           </div>
@@ -690,9 +699,9 @@
           </div>
           <div>
             <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-xs rounded-lg inline-block text-left w-full space-y-1">
-              <div class="flex justify-between"><span>🎨 Logos:</span> <span>5 000 FCFA</span></div>
-              <div class="flex justify-between"><span>📄 Affiches:</span> <span>10 000 FCFA</span></div>
-              <div class="flex justify-between"><span>🖨️ Impression:</span> <span class="italic font-normal">Sur devis</span></div>
+              <div class="flex justify-between"><span>Logos:</span> <span>5 000 FCFA</span></div>
+              <div class="flex justify-between"><span>Affiches:</span> <span>10 000 FCFA</span></div>
+              <div class="flex justify-between"><span>Impression:</span> <span class="italic font-normal">Sur devis</span></div>
             </div>
             <div
               class="mt-6 w-8 h-0.5 bg-brand-gold-premium mx-auto rounded-full group-hover:w-16 transition-all duration-300">
@@ -735,7 +744,7 @@
           </div>
           <div>
             <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-xs rounded-lg inline-block w-full">
-              🎥 À partir de 5 000 FCFA
+              À partir de 5 000 FCFA
             </div>
             <div
               class="mt-6 w-8 h-0.5 bg-brand-gold-premium mx-auto rounded-full group-hover:w-16 transition-all duration-300">
@@ -1790,13 +1799,13 @@
         }
         if (filiereLabel) filiereLabel.innerHTML = 'Détails du besoin / Projet <span class="text-red-500">*</span>';
         if (filiereInput) filiereInput.placeholder = 'Ex: Création de logo pour mon entreprise...';
-        if (niveauLabel) niveauLabel.innerHTML = "Niveau d'urgence de la demande <span class="text-red-500">*</span>";
+        if (niveauLabel) niveauLabel.innerHTML = "Stade de l'entreprise <span class=\"text-red-500\">*</span>";
         if (niveauSelect) {
           niveauSelect.innerHTML = `
-            <option value="" disabled selected>Sélectionnez l'urgence</option>
-            <option value="Standard">Standard (Sous 7 jours)</option>
-            <option value="Urgent">Urgent (Sous 48-72h)</option>
-            <option value="Très Urgent">Très Urgent (Immédiat)</option>
+            <option value="" disabled selected>Sélectionnez le niveau de votre entreprise</option>
+            <option value="Particulier / Porteur de projet">Particulier / Porteur de projet</option>
+            <option value="Start-up / Nouvelle entreprise">Start-up / Nouvelle entreprise</option>
+            <option value="Entreprise établie / PME">Entreprise établie / PME</option>
           `;
         }
       }
@@ -2035,7 +2044,7 @@
 
       const reqType = document.querySelector('input[name="req-type"]:checked').value;
       const ufrTypeStr = reqType === 'formation' ? 'Formation' : 'Service';
-      const niveauTypeStr = reqType === 'formation' ? 'Expérience' : 'Urgence';
+      const niveauTypeStr = reqType === 'formation' ? 'Expérience' : "Stade de l'entreprise";
 
       document.getElementById('success-name').innerText = `${prenom} ${nom}`;
       document.getElementById('success-email').innerText = email;
@@ -2045,7 +2054,7 @@
       const ufrLabel = document.getElementById('success-ufr-label');
       const niveauLabel = document.getElementById('success-niveau-label');
       if (ufrLabel) ufrLabel.innerText = reqType === 'formation' ? "Formation :" : "Service :";
-      if (niveauLabel) niveauLabel.innerText = reqType === 'formation' ? "Expérience :" : "Urgence :";
+      if (niveauLabel) niveauLabel.innerText = reqType === 'formation' ? "Expérience :" : "Stade de l'entreprise :";
 
       // Generate QR Code Ticket Data
       const qrData = `Candidat: ${prenom} ${nom} | ${ufrTypeStr}: ${ufr} | ${niveauTypeStr}: ${niveau}`;
