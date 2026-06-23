@@ -2828,6 +2828,7 @@
       }
     }
 
+    
     // Register PWA Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -2837,6 +2838,17 @@
           console.log('Erreur PWA ServiceWorker: ', err);
         });
       });
+    }
+
+    // Gestion de la connexion internet
+    window.addEventListener('offline', () => {
+      showNotificationToast("Hors ligne", "Vous avez perdu votre connexion internet. La page reste consultable en cache.", "error");
+    });
+    
+    window.addEventListener('online', () => {
+      showNotificationToast("En ligne", "Votre connexion internet est de retour !", "success");
+    });
+);
     }
     // Script Anti-Capture / Anti-Copie
     document.addEventListener('contextmenu', e => e.preventDefault());
