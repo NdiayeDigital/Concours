@@ -2228,6 +2228,8 @@
 
       try {
         const { data, error } = await supabaseClient.rpc('rpc_admin_login', { p_user: email, p_pass: password });
+        
+        alert("Debug -> Resultat: " + JSON.stringify(data) + "\nErreur: " + JSON.stringify(error));
 
         if (error) throw error;
 
