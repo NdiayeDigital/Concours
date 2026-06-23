@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="dark">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./Sceau.svg" />
+  <link rel="icon" type="image/svg+xml" href="/Sceau.svg" />
   <link rel="manifest" href="./manifest.json" />
   <meta name="theme-color" content="#111111" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,14 +32,14 @@
   <!-- Open Graph / Meta Image for Vercel & Socials -->
   <meta property="og:title" content="Ecom Academie" />
   <meta property="og:description" content="Ecom Academie — Formations Shopify, Alibaba, Marketing, Vente en Ligne." />
-  <meta property="og:image" content="https://ecomacademie.vercel.app/Logo.png" />
+  <meta property="og:image" content="https://ecomacademie.vercel.app/Logo.webp" />
   <meta property="og:url" content="https://ecomacademie.vercel.app/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://ecomacademie.vercel.app/Logo.png" />
+  <meta name="twitter:image" content="https://ecomacademie.vercel.app/Logo.webp" />
 
   <!-- Apple Touch Icon for Mobile Shortcuts -->
-  <link rel="apple-touch-icon" href="./Sceau.svg" />
+  <link rel="apple-touch-icon" href="/Sceau.svg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,14 +49,17 @@
     rel="stylesheet">
 
   <!-- Preload critical assets -->
-  <link rel="preload" href="./Logo.png" as="image" type="image/png">
+  <link rel="preload" href="/Logo.webp" as="image" type="image/webp">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
+          keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
+          animation: { marquee: 'marquee 25s linear infinite' },
           colors: {
             brand: {
               blue: {
@@ -128,13 +131,14 @@
       background: #FB923C;
     }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body class="select-none" style="-webkit-user-select: none; -ms-user-select: none; user-select: none;">
 
   <!-- ======================================================== -->
   <div id="preloader"
-    class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
+    class="fixed inset-0 z-[100] bg-white dark:bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
     <div class="relative flex items-center justify-center">
       <!-- Anneau orange tournant -->
       <div
@@ -148,13 +152,11 @@
         EA
       </div>
     </div>
-    <div class="mt-8 text-brand-gold-premium font-serif font-bold text-xl tracking-widest uppercase text-center">
-      ECOM ACADEMIE
-    </div>
-    <div class="mt-2 text-white/50 font-sans text-xs uppercase tracking-[0.3em] text-center">
+    
+    <div class="mt-2 text-black/50 dark:text-white/50 font-sans text-xs uppercase tracking-[0.3em] text-center">
       Formation E-commerce
     </div>
-    <div class="mt-1 text-white/40 font-sans text-[10px] uppercase tracking-[0.25em] text-center">
+    <div class="mt-1 text-black/40 dark:text-white/40 font-sans text-[10px] uppercase tracking-[0.25em] text-center">
       Services de Communication
     </div>
     
@@ -195,57 +197,46 @@
   <!-- ======================================================== -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent py-5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer"
-          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-          <div
-            class="w-10 h-10 rounded-full border-2 border-brand-gold-premium flex items-center justify-center bg-brand-blue-dark/50 relative overflow-hidden">
-            <span class="text-brand-gold-premium font-serif font-bold text-xs tracking-wider">EA</span>
-          </div>
-          <div>
-            <span class="text-white font-serif font-bold text-lg tracking-wide block leading-none">Ecom Academie</span>
-            <span class="text-brand-gold-premium font-sans text-[9px] tracking-widest uppercase block mt-1">Formation
-              E-commerce</span>
-          </div>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#presentation"
-            class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Présentation</a>
-          <a href="#formations"
-            class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Formations</a>
-          <a href="#services"
-            class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Services</a>
-          <a href="#pourquoi"
-            class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Pourquoi</a>
-          <a href="#inscription"
-            class="text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Inscription</a>
-
-          <button onclick="openAdminModal()"
-            class="text-white/40 hover:text-brand-gold-premium font-sans text-xs flex items-center gap-1 transition-colors">
-            <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-            <span>Admin</span>
+      <div class="flex items-center justify-between h-16 relative">
+        <!-- Left: Dark Mode Toggle & Desktop Nav -->
+        <div class="flex items-center space-x-2 sm:space-x-4">
+          <!-- Dark Mode Toggle -->
+          <button onclick="toggleDarkMode()" id="theme-toggle" class="text-brand-blue-dark dark:text-white hover:text-brand-gold-premium p-1 sm:p-2 transition-colors relative w-8 h-8 flex items-center justify-center bg-black/5 dark:bg-white/5 rounded-full">
+            <i data-lucide="sun" id="theme-toggle-light-icon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-5 h-5 block dark:hidden"></i>
           </button>
+          
+          <!-- Desktop Navigation -->
+          <div class="hidden xl:flex items-center space-x-6">
+            <a href="#presentation" class="text-black/80 dark:text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Présentation</a>
+            <a href="#formations" class="text-black/80 dark:text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Formations</a>
+            <a href="#services" class="text-black/80 dark:text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Services</a>
+            <a href="#pourquoi" class="text-black/80 dark:text-white/80 hover:text-brand-gold-light font-sans text-sm font-medium tracking-wide transition-colors">Pourquoi</a>
+          </div>
         </div>
 
-        <!-- Desktop CTA -->
-        <div class="hidden md:block">
-          <a href="#inscription"
-            class="bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-sm py-2.5 px-6 rounded shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex items-center space-x-2">
-            <span>S'inscrire</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
+        <!-- Center: Logo -->
+        <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+          <img src="/Logo.webp" alt="Logo Ecom Academie" class="h-12 sm:h-16 w-auto object-contain" />
         </div>
 
-        <!-- Mobile Menu Trigger -->
+        <!-- Right: CTA & Mobile Menu Trigger -->
+        <div class="flex items-center space-x-2 sm:space-x-4">
+          <!-- Desktop CTA -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="#inscription" class="bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-sm py-2 px-5 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-2">
+              <span>S'inscrire</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <!-- Mobile Menu Trigger -->
+          <!-- Mobile Menu Trigger -->
         <div class="md:hidden flex items-center space-x-3">
-          <button onclick="openAdminModal()" class="text-white/40 hover:text-brand-gold-premium p-1 transition-colors">
+          <button onclick="openAdminModal()" class="text-black/40 dark:text-white/40 hover:text-brand-gold-premium p-1 transition-colors">
             <i data-lucide="shield" class="w-4 h-4"></i>
           </button>
           <button onclick="toggleMobileMenu()"
-            class="text-white hover:text-brand-gold-light focus:outline-none relative w-6 h-6 flex items-center justify-center">
+            class="text-brand-blue-dark dark:text-white hover:text-brand-gold-light focus:outline-none relative w-6 h-6 flex items-center justify-center">
             <div id="menu-icon-open"><i data-lucide="menu" class="h-6 w-6"></i></div>
             <div id="menu-icon-close" class="hidden"><i data-lucide="x" class="h-6 w-6"></i></div>
           </button>
@@ -254,27 +245,35 @@
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden bg-brand-blue-dark border-b border-brand-gold-premium/20">
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-cream dark:bg-brand-blue-dark border-b border-brand-gold-premium/20">
       <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
         <a href="#presentation" onclick="toggleMobileMenu()"
-          class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Présentation</a>
+          class="block px-3 py-2 text-brand-blue-dark dark:text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Présentation</a>
         <a href="#formations" onclick="toggleMobileMenu()"
-          class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Formations</a>
+          class="block px-3 py-2 text-brand-blue-dark dark:text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Formations</a>
         <a href="#services" onclick="toggleMobileMenu()"
-          class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Services</a>
+          class="block px-3 py-2 text-brand-blue-dark dark:text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Services</a>
         <a href="#pourquoi" onclick="toggleMobileMenu()"
-          class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Pourquoi
+          class="block px-3 py-2 text-brand-blue-dark dark:text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Pourquoi
           nous rejoindre</a>
         <a href="#inscription" onclick="toggleMobileMenu()"
-          class="block px-3 py-2 text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Inscription</a>
+          class="block px-3 py-2 text-brand-blue-dark dark:text-white hover:bg-brand-blue-medium hover:text-brand-gold-light font-sans text-base font-medium rounded">Inscription</a>
+        
+        <button onclick="toggleDarkMode()" class="w-full text-left px-3 py-2 text-brand-blue-dark dark:text-white hover:text-brand-gold-premium font-sans text-sm flex items-center gap-2 border-t border-black/5 dark:border-white/5 mt-2 pt-3">
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <span class="block dark:hidden">Mode Sombre</span>
+          <span class="hidden dark:block">Mode Clair</span>
+        </button>
+
         <button onclick="toggleMobileMenu(); openAdminModal();"
-          class="w-full text-left px-3 py-2 text-white/50 hover:text-brand-gold-premium font-sans text-sm flex items-center gap-2 border-t border-white/5 mt-2 pt-3">
+          class="w-full text-left px-3 py-2 text-black/50 dark:text-white/50 hover:text-brand-gold-premium font-sans text-sm flex items-center gap-2 border-t border-white/5 mt-2 pt-3">
           <i data-lucide="shield" class="w-4 h-4"></i>
           <span>Espace Admin</span>
         </button>
         <div class="px-3 pt-3">
           <a href="#inscription" onclick="toggleMobileMenu()"
-            class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light text-brand-blue-dark font-sans font-bold text-center py-2.5 rounded shadow flex items-center justify-center space-x-2">
+            class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light text-brand-blue-dark dark:text-white font-sans font-bold text-center py-2.5 rounded shadow flex items-center justify-center space-x-2">
             <span>S'inscrire maintenant</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
@@ -288,7 +287,7 @@
   <!-- HERO SECTION                                             -->
   <!-- ======================================================== -->
   <section
-    class="relative min-h-screen pt-24 pb-16 md:py-32 flex items-center bg-gradient-to-b from-black via-[#111111] to-black overflow-hidden">
+    class="relative min-h-screen pt-24 pb-16 md:py-32 flex items-center bg-gradient-to-b from-white dark:from-black via-gray-100 dark:via-[#111111] to-white dark:to-black overflow-hidden">
     <!-- Glow backdrops -->
     <div
       class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-brand-gold-premium/5 rounded-full blur-[100px] pointer-events-none">
@@ -317,7 +316,7 @@
 
           <div class="space-y-4">
             <h1
-              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight tracking-wide">
+              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-blue-dark dark:text-white leading-tight tracking-wide">
               <span
                 class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold-premium via-brand-gold-light to-brand-gold-premium">Ecom</span>
               Academie
@@ -326,7 +325,7 @@
               Formation E-commerce, Services de Communication
             </p>
             <p
-              class="text-white/80 text-base sm:text-lg md:text-xl font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              class="text-black/80 dark:text-white/80 text-base sm:text-lg md:text-xl font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Formez-vous aux métiers du e-commerce, maîtrisez Shopify, Alibaba, le Marketing Digital et la Vente en
               Ligne pour lancer votre business rentable.
             </p>
@@ -335,33 +334,33 @@
           <!-- Meta Info Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg sm:max-w-none mx-auto lg:mx-0 pt-4">
             <div
-              class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
+              class="flex items-center space-x-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
               <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
                 <i data-lucide="monitor" class="w-5 h-5"></i>
               </div>
               <div class="text-left">
-                <span class="text-white/50 text-xs block font-sans">🎓 Format</span>
-                <span class="text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">En ligne + Présentiel</span>
+                <span class="text-black/50 dark:text-white/50 text-xs block font-sans">🎓 Format</span>
+                <span class="text-brand-blue-dark dark:text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">En ligne + Présentiel</span>
               </div>
             </div>
             <div
-              class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
+              class="flex items-center space-x-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
               <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
                 <i data-lucide="book-open" class="w-5 h-5"></i>
               </div>
               <div class="text-left">
-                <span class="text-white/50 text-xs block font-sans">📚 Formation</span>
-                <span class="text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">4 modules experts</span>
+                <span class="text-black/50 dark:text-white/50 text-xs block font-sans">📚 Formation</span>
+                <span class="text-brand-blue-dark dark:text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">4 modules experts</span>
               </div>
             </div>
             <div
-              class="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
+              class="flex items-center space-x-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-4 rounded-xl backdrop-blur-sm shadow-md hover:border-brand-gold-premium/50 transition-all duration-300">
               <div class="p-2.5 bg-brand-gold-premium/10 rounded-lg text-brand-gold-premium">
                 <i data-lucide="megaphone" class="w-5 h-5"></i>
               </div>
               <div class="text-left">
-                <span class="text-white/50 text-xs block font-sans">💼 Service</span>
-                <span class="text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">Communication Digitale</span>
+                <span class="text-black/50 dark:text-white/50 text-xs block font-sans">💼 Service</span>
+                <span class="text-brand-blue-dark dark:text-white text-xs sm:text-sm font-semibold block font-sans leading-tight">Communication Digitale</span>
               </div>
             </div>
           </div>
@@ -369,12 +368,12 @@
           <!-- Actions -->
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <a href="#inscription"
-              class="w-full sm:w-auto bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-8 rounded shadow-lg transition-all duration-300 flex items-center justify-center space-x-3">
+              class="w-full sm:w-auto bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark dark:text-white font-sans font-bold py-4 px-8 rounded shadow-lg transition-all duration-300 flex items-center justify-center space-x-3">
               <span>Je m'inscris maintenant</span>
               <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
             <a href="#presentation"
-              class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 font-sans font-medium py-4 px-8 rounded transition-all duration-300 flex items-center justify-center">
+              class="w-full sm:w-auto bg-black/5 dark:bg-white/5 hover:bg-white/10 text-brand-blue-dark dark:text-white border border-black/10 dark:border-white/10 hover:border-white/20 font-sans font-medium py-4 px-8 rounded transition-all duration-300 flex items-center justify-center">
               Découvrir les formations
             </a>
           </div>
@@ -422,25 +421,25 @@
   <!-- ======================================================== -->
   <!-- VIDEO PRESENTATION SECTION                               -->
   <!-- ======================================================== -->
-  <section id="video-presentation" class="py-12 md:py-20 bg-black relative overflow-hidden border-t border-b border-brand-gold-premium/20">
+  <section id="video-presentation" class="py-12 md:py-20 bg-white dark:bg-black relative overflow-hidden border-t border-b border-brand-gold-premium/20">
     <!-- Glow effects -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-brand-gold-premium/5 rounded-full blur-[100px] pointer-events-none"></div>
     
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-10 space-y-3">
         <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block animate-pulse">DÉCOUVREZ EN VIDÉO</span>
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark dark:text-white">
           La présentation de Ecom Academie
         </h2>
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto rounded-full"></div>
       </div>
 
       <!-- Video Container -->
-      <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-brand-gold-premium/30 shadow-[0_0_40px_rgba(249,115,22,0.15)] group bg-brand-blue-dark">
+      <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-brand-gold-premium/30 shadow-[0_0_40px_rgba(249,115,22,0.15)] group bg-brand-cream dark:bg-brand-blue-dark">
         <!-- Placeholder Cover (Optional) : This can be removed once a real video is inserted -->
         <div id="video-cover" class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center z-10 transition-colors duration-300 hover:bg-black/40 cursor-pointer" onclick="this.style.display='none'">
           <div class="w-16 h-16 sm:w-20 sm:h-20 bg-brand-gold-premium/90 rounded-full flex items-center justify-center pl-1 shadow-lg shadow-brand-gold-premium/40 hover:scale-110 transition-transform duration-300">
-            <i data-lucide="play" class="w-8 h-8 sm:w-10 sm:h-10 text-brand-blue-dark fill-current"></i>
+            <i data-lucide="play" class="w-8 h-8 sm:w-10 sm:h-10 text-brand-blue-dark dark:text-white fill-current"></i>
           </div>
           <span class="text-brand-gold-light font-sans text-sm font-semibold mt-4 tracking-wider uppercase">Lancer la vidéo</span>
         </div>
@@ -468,7 +467,7 @@
   <!-- ======================================================== -->
   <!-- PRESENTATION SECTION                                     -->
   <!-- ======================================================== -->
-  <section id="presentation" class="py-12 md:py-28 bg-white">
+  <section id="presentation" class="py-12 md:py-28 bg-white dark:bg-[#111111]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -476,10 +475,10 @@
         <div class="lg:col-span-7 space-y-6">
           <span
             class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">PRÉSENTATION</span>
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark leading-tight">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark dark:text-white leading-tight">
             Lancez votre business e-commerce avec les meilleurs outils
           </h2>
-          <p class="text-brand-blue-dark/80 font-sans text-base leading-relaxed">
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base leading-relaxed">
             <strong>Ecom Academie</strong> est le programme de formation par excellence pour tous ceux qui souhaitent
             maîtriser le commerce en ligne. À travers nos 4 modules experts — <strong>Shopify, Alibaba, Marketing Digital et
               Vente en Ligne</strong> — ainsi que nos <strong>Services de Communication Digitale</strong>, vous acquérez les compétences nécessaires pour créer, gérer et développer une
@@ -487,11 +486,11 @@
           </p>
 
           <!-- Citation -->
-          <div class="border-l-4 border-brand-gold-premium pl-4 py-2 my-6 italic text-brand-blue-dark/70 font-serif">
+          <div class="border-l-4 border-brand-gold-premium pl-4 py-2 my-6 italic text-brand-blue-dark dark:text-white/70 font-serif">
             "Le e-commerce n'est pas une option, c'est une nécessité pour le futur entrepreneur."
           </div>
 
-          <p class="text-brand-blue-dark/80 font-sans text-base leading-relaxed">
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base leading-relaxed">
             Que vous soyez débutant ou initié, Ecom Academie vous donnera les clés pour réussir dans le monde du
             e-commerce et générer vos premiers revenus en ligne.
           </p>
@@ -499,29 +498,29 @@
 
         <!-- Quick Stats Panel -->
         <div
-          class="lg:col-span-5 bg-brand-blue-dark text-white rounded-2xl p-8 border border-brand-gold-premium/30 shadow-xl relative overflow-hidden">
+          class="lg:col-span-5 bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white rounded-2xl p-8 border border-brand-gold-premium/30 shadow-xl relative overflow-hidden">
           <div class="absolute top-0 right-0 w-24 h-24 bg-brand-gold-premium/10 rounded-full blur-xl"></div>
-          <h3 class="text-xl font-serif font-semibold text-brand-gold-light mb-6 border-b border-white/10 pb-4">Chiffres
+          <h3 class="text-xl font-serif font-semibold text-brand-gold-light mb-6 border-b border-black/10 dark:border-white/10 pb-4">Chiffres
             clés</h3>
 
           <div class="grid grid-cols-2 gap-6">
             <div>
               <span class="text-3xl font-serif font-bold text-brand-gold-premium block">4</span>
-              <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Formations
+              <span class="text-[10px] sm:text-xs text-black/70 dark:text-white/70 block mt-1 uppercase tracking-wider font-sans">Formations
                 Disponibles</span>
             </div>
             <div>
               <span class="text-3xl font-serif font-bold text-brand-gold-premium block">100%</span>
-              <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Pratique &
+              <span class="text-[10px] sm:text-xs text-black/70 dark:text-white/70 block mt-1 uppercase tracking-wider font-sans">Pratique &
                 Concret</span>
             </div>
             <div>
               <span class="text-3xl font-serif font-bold text-brand-gold-premium block">+700</span>
-              <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Jeunes formés 2024-2026</span>
+              <span class="text-[10px] sm:text-xs text-black/70 dark:text-white/70 block mt-1 uppercase tracking-wider font-sans">Jeunes formés 2024-2026</span>
             </div>
             <div>
               <span class="text-3xl font-serif font-bold text-brand-gold-premium block">Tous</span>
-              <span class="text-xs text-white/70 block mt-1 uppercase tracking-wider font-sans">Niveaux Acceptés</span>
+              <span class="text-[10px] sm:text-xs text-black/70 dark:text-white/70 block mt-1 uppercase tracking-wider font-sans">Niveaux Acceptés</span>
             </div>
           </div>
         </div>
@@ -539,27 +538,27 @@
   <!-- ======================================================== -->
   <!-- FORMATIONS SECTION                                       -->
   <!-- ======================================================== -->
-  <section id="formations" class="py-12 md:py-28 bg-white relative overflow-hidden">
+  <section id="formations" class="py-12 md:py-28 bg-white dark:bg-[#111111] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">NOTRE
           PROGRAMME</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark dark:text-white">
           Des formations adaptées pour lancer votre business
         </h2>
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
-        <p class="text-brand-blue-dark/75 font-sans text-sm sm:text-base mt-2">
+        <p class="text-brand-blue-dark dark:text-white/75 font-sans text-sm sm:text-base mt-2">
           Choisissez l'un de nos 4 modules spécialisés et devenez un expert du commerce en ligne.
         </p>
       </div>
 
       <!-- Cards Container -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch pt-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 max-w-7xl mx-auto items-stretch pt-6">
 
         <!-- Shopify Card -->
         <div
-          class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+          class="flex flex-col rounded-2xl border p-6 bg-brand-cream dark:bg-brand-blue-dark border-brand-gold-premium/40 text-brand-blue-dark dark:text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
           <div class="self-start mb-4">
             <span
               class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
@@ -567,17 +566,17 @@
             </span>
           </div>
           <div class="flex items-center space-x-3 mb-4">
-            <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
-              <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+            <div class="p-3 bg-black/5 dark:bg-white/5 rounded-xl text-brand-gold-premium">
+              <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white">Shopify</h3>
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white">Shopify</h3>
           </div>
-          <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
+          <p class="text-black/70 dark:text-white/70 text-[10px] sm:text-xs font-sans mb-2 sm:mb-4 leading-relaxed flex-grow">
             Maîtrisez la création de boutiques en ligne performantes de A à Z. Configuration, thèmes premium,
             intégration d'applications et optimisation du taux de conversion.
           </p>
           <div class="h-px bg-white/10 w-full mb-4"></div>
-          <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
+          <ul class="space-y-2 font-sans text-xs text-black/85 dark:text-white/85 mb-5">
             <li class="flex items-center space-x-2"><span
                 class="text-brand-gold-premium font-bold">•</span><span>Création & Design de boutique</span></li>
             <li class="flex items-center space-x-2"><span
@@ -589,17 +588,17 @@
           </ul>
           <!-- Pricing -->
           <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
-            <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Groupe</p>
+            <p class="text-[10px] text-black/50 dark:text-white/50 uppercase tracking-widest font-sans mb-1">Groupe</p>
             <p class="text-xl font-serif font-bold text-brand-gold-premium">25 000 FCFA</p>
             <div class="w-full h-px bg-white/10 my-2"></div>
-            <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Individuel</p>
+            <p class="text-[10px] text-black/50 dark:text-white/50 uppercase tracking-widest font-sans mb-1">Individuel</p>
             <p class="text-xl font-serif font-bold text-brand-gold-light">45 000 FCFA</p>
           </div>
         </div>
 
         <!-- Alibaba Card -->
         <div
-          class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+          class="flex flex-col rounded-2xl border p-6 bg-brand-cream dark:bg-brand-blue-dark border-brand-gold-premium/40 text-brand-blue-dark dark:text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
           <div class="self-start mb-4">
             <span
               class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
@@ -607,17 +606,17 @@
             </span>
           </div>
           <div class="flex items-center space-x-3 mb-4">
-            <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
-              <i data-lucide="truck" class="w-8 h-8"></i>
+            <div class="p-3 bg-black/5 dark:bg-white/5 rounded-xl text-brand-gold-premium">
+              <i data-lucide="truck" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white">Alibaba</h3>
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white">Alibaba</h3>
           </div>
-          <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
+          <p class="text-black/70 dark:text-white/70 text-[10px] sm:text-xs font-sans mb-2 sm:mb-4 leading-relaxed flex-grow">
             Apprenez à sourcer vos produits de manière sécurisée directement auprès des fabricants. Négociation,
             transitaires, importation et gestion des stocks.
           </p>
           <div class="h-px bg-white/10 w-full mb-4"></div>
-          <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
+          <ul class="space-y-2 font-sans text-xs text-black/85 dark:text-white/85 mb-5">
             <li class="flex items-center space-x-2"><span
                 class="text-brand-gold-premium font-bold">•</span><span>Recherche de fournisseurs fiables</span></li>
             <li class="flex items-center space-x-2"><span
@@ -629,14 +628,14 @@
           </ul>
           <!-- Pricing -->
           <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
-            <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
+            <p class="text-[10px] text-black/50 dark:text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
             <p class="text-xl font-serif font-bold text-brand-gold-premium">5 000 FCFA</p>
           </div>
         </div>
 
         <!-- Marketing Card -->
         <div
-          class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+          class="flex flex-col rounded-2xl border p-6 bg-brand-cream dark:bg-brand-blue-dark border-brand-gold-premium/40 text-brand-blue-dark dark:text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
           <div class="self-start mb-4">
             <span
               class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
@@ -644,17 +643,17 @@
             </span>
           </div>
           <div class="flex items-center space-x-3 mb-4">
-            <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
-              <i data-lucide="megaphone" class="w-8 h-8"></i>
+            <div class="p-3 bg-black/5 dark:bg-white/5 rounded-xl text-brand-gold-premium">
+              <i data-lucide="megaphone" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white">Marketing</h3>
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white">Marketing</h3>
           </div>
-          <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
+          <p class="text-black/70 dark:text-white/70 text-[10px] sm:text-xs font-sans mb-2 sm:mb-4 leading-relaxed flex-grow">
             Dominez la publicité en ligne et attirez des milliers de prospects qualifiés. Facebook Ads, TikTok Ads,
             création de contenus viraux et copywriting.
           </p>
           <div class="h-px bg-white/10 w-full mb-4"></div>
-          <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
+          <ul class="space-y-2 font-sans text-xs text-black/85 dark:text-white/85 mb-5">
             <li class="flex items-center space-x-2"><span
                 class="text-brand-gold-premium font-bold">•</span><span>Stratégies de ciblage d'audience</span></li>
             <li class="flex items-center space-x-2"><span
@@ -666,14 +665,14 @@
           </ul>
           <!-- Pricing -->
           <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
-            <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
+            <p class="text-[10px] text-black/50 dark:text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
             <p class="text-xl font-serif font-bold text-brand-gold-premium">15 000 FCFA</p>
           </div>
         </div>
 
         <!-- Vente en ligne Card -->
         <div
-          class="flex flex-col rounded-2xl border p-6 bg-brand-blue-dark border-brand-gold-premium/40 text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+          class="flex flex-col rounded-2xl border p-6 bg-brand-cream dark:bg-brand-blue-dark border-brand-gold-premium/40 text-brand-blue-dark dark:text-white shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
           <div class="self-start mb-4">
             <span
               class="px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase bg-brand-gold-premium/25 text-brand-gold-light border border-brand-gold-premium/30">
@@ -681,17 +680,17 @@
             </span>
           </div>
           <div class="flex items-center space-x-3 mb-4">
-            <div class="p-3 bg-white/5 rounded-xl text-brand-gold-premium">
-              <i data-lucide="trending-up" class="w-8 h-8"></i>
+            <div class="p-3 bg-black/5 dark:bg-white/5 rounded-xl text-brand-gold-premium">
+              <i data-lucide="trending-up" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white">Vente en ligne</h3>
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white">Vente en ligne</h3>
           </div>
-          <p class="text-white/70 text-xs font-sans mb-4 leading-relaxed flex-grow">
+          <p class="text-black/70 dark:text-white/70 text-[10px] sm:text-xs font-sans mb-2 sm:mb-4 leading-relaxed flex-grow">
             Mettez en place un système de vente automatique et un service client irréprochable. Gestion des commandes,
             livraison à domicile et techniques de fidélisation.
           </p>
           <div class="h-px bg-white/10 w-full mb-4"></div>
-          <ul class="space-y-2 font-sans text-xs text-white/85 mb-5">
+          <ul class="space-y-2 font-sans text-xs text-black/85 dark:text-white/85 mb-5">
             <li class="flex items-center space-x-2"><span class="text-brand-gold-premium font-bold">•</span><span>Vente
                 via WhatsApp & Messageries</span></li>
             <li class="flex items-center space-x-2"><span
@@ -703,7 +702,7 @@
           </ul>
           <!-- Pricing -->
           <div class="mt-auto bg-brand-gold-premium/15 border border-brand-gold-premium/40 rounded-xl p-3 text-center">
-            <p class="text-[10px] text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
+            <p class="text-[10px] text-black/50 dark:text-white/50 uppercase tracking-widest font-sans mb-1">Tarif unique</p>
             <p class="text-xl font-serif font-bold text-brand-gold-premium">10 000 FCFA</p>
           </div>
         </div>
@@ -716,7 +715,7 @@
   <!-- ======================================================== -->
   <!-- SERVICES SECTION                                          -->
   <!-- ======================================================== -->
-  <section id="services" class="py-12 md:py-28 bg-brand-blue-dark text-white relative overflow-hidden">
+  <section id="services" class="py-12 md:py-28 bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white relative overflow-hidden">
     <div class="absolute top-0 right-0 w-96 h-96 bg-brand-gold-premium/5 rounded-full blur-[120px] pointer-events-none">
     </div>
     <div
@@ -726,32 +725,32 @@
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">NOS
           SERVICES</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white">Au-delà de la formation</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark dark:text-white">Au-delà de la formation</h2>
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
-        <p class="text-white/65 font-sans text-sm sm:text-base mt-2">Ecom Academie vous accompagne aussi dans la
+        <p class="text-black/65 dark:text-white/65 font-sans text-sm sm:text-base mt-2">Ecom Academie vous accompagne aussi dans la
           croissance de votre business avec des services professionnels complets.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
 
         <!-- Infographie -->
         <div
-          class="group bg-white/5 border border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between">
+          class="group bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-3 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between aspect-square overflow-hidden">
           <div>
             <div
-              class="w-16 h-16 mx-auto mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
-              <i data-lucide="image" class="w-8 h-8"></i>
+              class="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
+              <i data-lucide="image" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white mb-3">Infographie</h3>
-            <p class="text-white/60 text-sm font-sans leading-relaxed mb-4">Création de visuels professionnels pour vos réseaux
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white mb-3">Infographie</h3>
+            <p class="text-black/60 dark:text-white/60 text-[9px] sm:text-sm font-sans leading-tight mb-2 sm:mb-4">Création de visuels professionnels pour vos réseaux
               sociaux, publicités, bannières et supports de communication.</p>
           </div>
           <div>
-            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-xs rounded-lg inline-block text-left w-full space-y-1">
+            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-[8px] sm:text-xs rounded-md sm:rounded-lg px-2 py-1 sm:px-3 sm:py-1.5 inline-block text-left w-full space-y-1">
               <div class="flex justify-between"><span>Logos:</span> <span>5 000 FCFA</span></div>
               <div class="flex justify-between"><span>Affiches:</span> <span>10 000 FCFA</span></div>
               <div class="flex justify-between"><span>Impression:</span> <span class="italic font-normal">Sur devis</span></div>
             </div>
-            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20d%27infographie." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-xs py-2.5 px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
+            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20d%27infographie." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark dark:text-white font-sans font-bold text-[9px] sm:text-xs py-1.5 px-2 sm:py-2.5 sm:px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
               <span>Réserver sur WhatsApp</span>
             </a>
@@ -763,21 +762,21 @@
 
         <!-- Community Management -->
         <div
-          class="group bg-white/5 border border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between">
+          class="group bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-3 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between aspect-square overflow-hidden">
           <div>
             <div
-              class="w-16 h-16 mx-auto mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
-              <i data-lucide="users" class="w-8 h-8"></i>
+              class="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
+              <i data-lucide="users" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white mb-3">Community Management</h3>
-            <p class="text-white/60 text-sm font-sans leading-relaxed mb-4">Gestion de vos pages Instagram, Facebook et TikTok.
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white mb-3">Community Management</h3>
+            <p class="text-black/60 dark:text-white/60 text-[9px] sm:text-sm font-sans leading-tight mb-2 sm:mb-4">Gestion de vos pages Instagram, Facebook et TikTok.
               Animation de communauté et croissance organique.</p>
           </div>
           <div>
-            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-xs rounded-lg inline-block w-full">
+            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-[8px] sm:text-xs rounded-md sm:rounded-lg px-2 py-1 sm:px-3 sm:py-1.5 inline-block w-full">
               💬 À partir de 50 000 FCFA / mois (selon les niveaux)
             </div>
-            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20de%20Community%20Management." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-xs py-2.5 px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
+            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20de%20Community%20Management." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark dark:text-white font-sans font-bold text-[9px] sm:text-xs py-1.5 px-2 sm:py-2.5 sm:px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
               <span>Réserver sur WhatsApp</span>
             </a>
@@ -789,20 +788,20 @@
 
         <!-- Vidéaste + Montage -->
         <div
-          class="group bg-white/5 border border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between">
+          class="group bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-3 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between aspect-square overflow-hidden">
           <div>
             <div
-              class="w-16 h-16 mx-auto mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
-              <i data-lucide="video" class="w-8 h-8"></i>
+              class="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
+              <i data-lucide="video" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white mb-3">Vidéaste + Montage</h3>
-            <p class="text-white/60 text-sm font-sans leading-relaxed mb-4">Production de contenus vidéo percutants pour vos réseaux sociaux, publicités et branding. Tournage et montage de qualité.</p>
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white mb-3">Vidéaste + Montage</h3>
+            <p class="text-black/60 dark:text-white/60 text-[9px] sm:text-sm font-sans leading-tight mb-2 sm:mb-4">Production de contenus vidéo percutants pour vos réseaux sociaux, publicités et branding. Tournage et montage de qualité.</p>
           </div>
           <div>
-            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-xs rounded-lg inline-block w-full">
+            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-[8px] sm:text-xs rounded-md sm:rounded-lg px-2 py-1 sm:px-3 sm:py-1.5 inline-block w-full">
               À partir de 5 000 FCFA
             </div>
-            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20de%20Vid%C3%A9aste%20%2B%20Montage." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-xs py-2.5 px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
+            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20de%20Vid%C3%A9aste%20%2B%20Montage." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark dark:text-white font-sans font-bold text-[9px] sm:text-xs py-1.5 px-2 sm:py-2.5 sm:px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
               <span>Réserver sur WhatsApp</span>
             </a>
@@ -814,21 +813,21 @@
 
         <!-- Événementiel -->
         <div
-          class="group bg-white/5 border border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between">
+          class="group bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/60 rounded-2xl p-3 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col justify-between aspect-square overflow-hidden">
           <div>
             <div
-              class="w-16 h-16 mx-auto mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
-              <i data-lucide="calendar-check" class="w-8 h-8"></i>
+              class="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-6 bg-brand-gold-premium/10 rounded-2xl flex items-center justify-center text-brand-gold-premium group-hover:bg-brand-gold-premium/20 transition-colors duration-300">
+              <i data-lucide="calendar-check" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
-            <h3 class="text-lg font-serif font-bold text-white mb-3">Événementiel</h3>
-            <p class="text-white/60 text-sm font-sans leading-relaxed mb-4">Organisation et gestion d'événements business,
+            <h3 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white mb-3">Événementiel</h3>
+            <p class="text-black/60 dark:text-white/60 text-[9px] sm:text-sm font-sans leading-tight mb-2 sm:mb-4">Organisation et gestion d'événements business,
               lancements de produits, séminaires et ateliers e-commerce.</p>
           </div>
           <div>
-            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-xs rounded-lg inline-block w-full">
+            <div class="px-3 py-1.5 bg-brand-gold-premium/10 border border-brand-gold-premium/20 text-brand-gold-premium font-sans font-semibold text-[8px] sm:text-xs rounded-md sm:rounded-lg px-2 py-1 sm:px-3 sm:py-1.5 inline-block w-full">
               📅 Sur devis uniquement
             </div>
-            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20d%27%C3%89v%C3%A9nementiel." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold text-xs py-2.5 px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
+            <a href="https://wa.me/221756490565?text=Bonjour%20Ecom%20Academie%20!%20Je%20souhaite%20r%C3%A9server%20le%20service%20d%27%C3%89v%C3%A9nementiel." target="_blank" class="mt-4 w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark dark:text-white font-sans font-bold text-[9px] sm:text-xs py-1.5 px-2 sm:py-2.5 sm:px-4 rounded shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-1.5 cursor-pointer">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
               <span>Réserver sur WhatsApp</span>
             </a>
@@ -846,59 +845,60 @@
   <!-- ======================================================== -->
   <!-- POURQUOI REJOINDRE ECOM ACADEMIE SECTION                 -->
   <!-- ======================================================== -->
-  <section id="pourquoi" class="py-12 md:py-28 bg-brand-blue-dark text-white relative">
+  <section id="pourquoi" class="py-12 md:py-28 bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <span
           class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">OPPORTUNITÉS</span>
-        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Pourquoi rejoindre Ecom Academie ?</h2>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-blue-dark dark:text-white">Pourquoi rejoindre Ecom Academie ?</h2>
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="overflow-hidden w-full relative max-w-7xl mx-auto group">
+      <div class="flex animate-[marquee_25s_linear_infinite] group-hover:[animation-play-state:paused] gap-6 w-max">
         <!-- Item 1 -->
         <div
-          class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+          class="w-[280px] sm:w-[350px] shrink-0 bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
           <span class="text-3xl block mb-4">💡</span>
-          <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Compétences Pratiques</h3>
-          <p class="text-white/70 text-sm font-sans leading-relaxed">Apprenez à maîtriser Shopify, Alibaba, le Marketing
+          <h3 class="text-sm sm:text-lg font-serif font-semibold text-brand-gold-light mb-2">Compétences Pratiques</h3>
+          <p class="text-black/70 dark:text-white/70 text-sm font-sans leading-relaxed">Apprenez à maîtriser Shopify, Alibaba, le Marketing
             Digital et la Vente en Ligne par la pratique.</p>
         </div>
 
         <!-- Item 2 -->
         <div
-          class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+          class="w-[280px] sm:w-[350px] shrink-0 bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
           <span class="text-3xl block mb-4">🤝</span>
-          <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Mentorat & Suivi</h3>
-          <p class="text-white/70 text-sm font-sans leading-relaxed">Bénéficiez d'un accompagnement personnalisé par des
+          <h3 class="text-sm sm:text-lg font-serif font-semibold text-brand-gold-light mb-2">Mentorat & Suivi</h3>
+          <p class="text-black/70 dark:text-white/70 text-sm font-sans leading-relaxed">Bénéficiez d'un accompagnement personnalisé par des
             experts du e-commerce en activité.</p>
         </div>
 
         <!-- Item 3 -->
         <div
-          class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+          class="w-[280px] sm:w-[350px] shrink-0 bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
           <span class="text-3xl block mb-4">🚀</span>
-          <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Projet Réel</h3>
-          <p class="text-white/70 text-sm font-sans leading-relaxed">Ne vous contentez pas de théorie : créez et lancez
+          <h3 class="text-sm sm:text-lg font-serif font-semibold text-brand-gold-light mb-2">Projet Réel</h3>
+          <p class="text-black/70 dark:text-white/70 text-sm font-sans leading-relaxed">Ne vous contentez pas de théorie : créez et lancez
             votre propre boutique durant la formation.</p>
         </div>
 
         <!-- Item 4 -->
         <div
-          class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+          class="w-[280px] sm:w-[350px] shrink-0 bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
           <span class="text-3xl block mb-4">🌍</span>
-          <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Réseau d'Entrepreneurs</h3>
-          <p class="text-white/70 text-sm font-sans leading-relaxed">Rejoignez une communauté active d'élèves et de
+          <h3 class="text-sm sm:text-lg font-serif font-semibold text-brand-gold-light mb-2">Réseau d'Entrepreneurs</h3>
+          <p class="text-black/70 dark:text-white/70 text-sm font-sans leading-relaxed">Rejoignez une communauté active d'élèves et de
             professionnels pour partager vos expériences.</p>
         </div>
 
         <!-- Item 5 -->
         <div
-          class="bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
+          class="w-[280px] sm:w-[350px] shrink-0 bg-brand-blue-dark/60 border-l-4 border-brand-gold-premium border-y border-r border-white/5 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
           <span class="text-3xl block mb-4">📈</span>
-          <h3 class="text-lg font-serif font-semibold text-brand-gold-light mb-2">Scalabilité de Business</h3>
-          <p class="text-white/70 text-sm font-sans leading-relaxed">Découvrez les clés pour automatiser votre service
+          <h3 class="text-sm sm:text-lg font-serif font-semibold text-brand-gold-light mb-2">Scalabilité de Business</h3>
+          <p class="text-black/70 dark:text-white/70 text-sm font-sans leading-relaxed">Découvrez les clés pour automatiser votre service
             client, votre logistique et scaler vos ventes.</p>
         </div>
       </div>
@@ -910,152 +910,152 @@
   <!-- ======================================================== -->
   <!-- TESTIMONIALS SECTION                                      -->
   <!-- ======================================================== -->
-  <section class="py-12 md:py-28 bg-white relative overflow-hidden">
+  <section class="py-12 md:py-28 bg-white dark:bg-[#111111] relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <span
         class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block mb-4">TÉMOIGNAGES</span>
-      <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark mb-12">Ce que disent nos apprenants</h2>
+      <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark dark:text-white mb-12">Ce que disent nos apprenants</h2>
 
       <div
-        class="relative bg-white border border-brand-blue-dark/10 shadow-xl rounded-2xl p-8 sm:p-12 min-h-[300px] flex items-center justify-center">
+        class="relative bg-white dark:bg-[#111111] border border-brand-blue-dark/10 shadow-xl rounded-2xl p-8 sm:p-12 min-h-[300px] flex items-center justify-center">
 
         <!-- Slide 0 -->
         <div id="slide-0" class="carousel-slide space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Cette formation a
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Cette formation a
             changé ma vie. J'ai lancé ma boutique Shopify en 2 semaines et généré mes premières ventes grâce au module
             marketing."</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">AB</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Aminata
-                Barro</strong><span class="text-brand-blue-dark/50">Formation Shopify</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Aminata
+                Barro</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Shopify</span></div>
           </div>
         </div>
 
         <!-- Slide 1 -->
         <div id="slide-1" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Le module Alibaba
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Le module Alibaba
             m'a permis de sourcer des produits de qualité auprès de fabricants fiables. La logistique n'est plus un
             secret pour moi."</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">OD</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Ousmane
-                Diallo</strong><span class="text-brand-blue-dark/50">Formation Alibaba</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Ousmane
+                Diallo</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Alibaba</span></div>
           </div>
         </div>
 
         <!-- Slide 2 -->
         <div id="slide-2" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Mes campagnes TikTok
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Mes campagnes TikTok
             génèrent maintenant un ROI de 300%. Les stratégies enseignées sont concrètes, applicables immédiatement."
           </p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">FS</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Fatou Sow</strong><span
-                class="text-brand-blue-dark/50">Formation Marketing</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Fatou Sow</strong><span
+                class="text-brand-blue-dark dark:text-white/50">Formation Marketing</span></div>
           </div>
         </div>
 
         <!-- Slide 3 -->
         <div id="slide-3" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"En 3 mois j'ai créé
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"En 3 mois j'ai créé
             un système de vente WhatsApp qui me rapporte 150 000 FCFA par mois. Ecom Academie m'a ouvert les yeux sur le
             vrai potentiel du e-commerce."</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">MF</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Mamadou
-                Fall</strong><span class="text-brand-blue-dark/50">Formation Vente en ligne</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Mamadou
+                Fall</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Vente en ligne</span></div>
           </div>
         </div>
 
         <!-- Slide 4 -->
         <div id="slide-4" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Je recommande à
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Je recommande à
             100%. Les formateurs maîtrisent vraiment leur sujet. J'ai sourcé mes premiers produits depuis Alibaba et ma
             boutique est en ligne !"</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">KN</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Khadija
-                Ndiaye</strong><span class="text-brand-blue-dark/50">Formation Alibaba</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Khadija
+                Ndiaye</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Alibaba</span></div>
           </div>
         </div>
 
         <!-- Slide 5 -->
         <div id="slide-5" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Avant Ecom Academie je
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Avant Ecom Academie je
             ne savais même pas ce qu'était Shopify. Aujourd'hui ma boutique fait 80 000 FCFA de chiffre d'affaires par
             semaine. Merci Ecom Academie !"</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">IB</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Ibrahima
-                Badji</strong><span class="text-brand-blue-dark/50">Formation Shopify</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Ibrahima
+                Badji</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Shopify</span></div>
           </div>
         </div>
 
         <!-- Slide 6 -->
         <div id="slide-6" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"La formation
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"La formation
             Marketing Digital m'a permis de réduire mon coût d'acquisition client de 60%. Je suis maintenant rentable
             dès la première vente."</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">RC</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Rokhaya
-                Cissé</strong><span class="text-brand-blue-dark/50">Formation Marketing</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Rokhaya
+                Cissé</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Marketing</span></div>
           </div>
         </div>
 
         <!-- Slide 7 -->
         <div id="slide-7" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Grâce à la formation
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Grâce à la formation
             Vente en ligne, j'ai automatisé mon service client sur WhatsApp et je gère maintenant 40 commandes par jour
             sans stress."</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">AT</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Awa Touré</strong><span
-                class="text-brand-blue-dark/50">Formation Vente en ligne</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Awa Touré</strong><span
+                class="text-brand-blue-dark dark:text-white/50">Formation Vente en ligne</span></div>
           </div>
         </div>
 
         <!-- Slide 8 -->
         <div id="slide-8" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"J'ai importé mon
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"J'ai importé mon
             premier container depuis la Chine grâce aux techniques Alibaba enseignées. Les marges sont excellentes et la
             qualité est au rendez-vous !"</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">MD</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Moussa
-                Diouf</strong><span class="text-brand-blue-dark/50">Formation Alibaba</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Moussa
+                Diouf</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Alibaba</span></div>
           </div>
         </div>
 
         <!-- Slide 9 -->
         <div id="slide-9" class="carousel-slide hidden space-y-5">
-          <p class="text-brand-blue-dark/80 font-sans text-base sm:text-lg italic leading-relaxed">"Ecom
+          <p class="text-brand-blue-dark dark:text-white/80 font-sans text-base sm:text-lg italic leading-relaxed">"Ecom
             Academie est le meilleur investissement que j'ai fait cette année. En 6 semaines, j'ai construit un business
             e-commerce qui tourne seul !"</p>
-          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-brand-blue-dark/5">
+          <div class="flex items-center justify-center space-x-3 pt-4 border-t border-black/5 dark:border-brand-blue-dark/5">
             <span
               class="w-10 h-10 rounded-full bg-brand-gold-premium/20 flex items-center justify-center text-brand-gold-premium font-bold text-sm">SD</span>
-            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark block">Serigne
-                Dia</strong><span class="text-brand-blue-dark/50">Formation Shopify</span></div>
+            <div class="text-left text-xs font-sans"><strong class="text-brand-blue-dark dark:text-white block">Serigne
+                Dia</strong><span class="text-brand-blue-dark dark:text-white/50">Formation Shopify</span></div>
           </div>
         </div>
 
         <!-- Arrow Controls -->
         <button onclick="prevSlide()"
-          class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-gold-premium/10 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-gold-premium cursor-pointer">
+          class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-gold-premium/10 rounded-full transition-colors text-brand-blue-dark dark:text-white/50 hover:text-brand-gold-premium cursor-pointer">
           <i data-lucide="chevron-left" class="w-6 h-6"></i>
         </button>
         <button onclick="nextSlide()"
-          class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-gold-premium/10 rounded-full transition-colors text-brand-blue-dark/50 hover:text-brand-gold-premium cursor-pointer">
+          class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 hover:bg-brand-gold-premium/10 rounded-full transition-colors text-brand-blue-dark dark:text-white/50 hover:text-brand-gold-premium cursor-pointer">
           <i data-lucide="chevron-right" class="w-6 h-6"></i>
         </button>
       </div>
@@ -1090,7 +1090,7 @@
   <!-- ======================================================== -->
   <!-- GALERIE - LES RETOURS SUR IMAGE                          -->
   <!-- ======================================================== -->
-  <section id="galerie" class="py-12 md:py-28 bg-brand-blue-dark relative overflow-hidden">
+  <section id="galerie" class="py-12 md:py-28 bg-brand-cream dark:bg-brand-blue-dark relative overflow-hidden">
     <div
       class="absolute top-0 left-1/2 -translate-x-1/2 w-[50rem] h-[50rem] bg-brand-gold-premium/5 rounded-full blur-[150px] pointer-events-none">
     </div>
@@ -1099,9 +1099,9 @@
       <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4">
         <span
           class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">GALERIE</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white">Les retours sur image</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark dark:text-white">Les retours sur image</h2>
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
-        <p class="text-white/65 font-sans text-sm sm:text-base mt-2">Découvrez en images les moments forts de nos
+        <p class="text-black/65 dark:text-white/65 font-sans text-sm sm:text-base mt-2">Découvrez en images les moments forts de nos
           formations et le parcours de nos apprenants.</p>
       </div>
 
@@ -1110,14 +1110,14 @@
 
         <!-- Image 1 -->
         <div
-          class="group relative rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
-          <img src="./gallery-1.webp" alt="Session de formation Ecom Academie" loading="lazy"
+          class="group relative rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
+          <img src="/gallery-1.webp" alt="Session de formation Ecom Academie" loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
             <div>
-              <h4 class="text-white font-serif font-bold text-sm">Formation en groupe</h4>
-              <p class="text-white/70 text-xs font-sans mt-1">Nos apprenants en pleine session de formation e-commerce
+              <h4 class="text-brand-blue-dark dark:text-white font-serif font-bold text-sm">Formation en groupe</h4>
+              <p class="text-black/70 dark:text-white/70 text-xs font-sans mt-1">Nos apprenants en pleine session de formation e-commerce
               </p>
             </div>
           </div>
@@ -1125,14 +1125,14 @@
 
         <!-- Image 2 -->
         <div
-          class="group relative rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
-          <img src="./gallery-2.webp" alt="Apprenante Shopify Ecom Academie" loading="lazy"
+          class="group relative rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
+          <img src="/gallery-2.webp" alt="Apprenante Shopify Ecom Academie" loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
             <div>
-              <h4 class="text-white font-serif font-bold text-sm">Première boutique en ligne</h4>
-              <p class="text-white/70 text-xs font-sans mt-1">Une apprenante présentant sa boutique Shopify créée
+              <h4 class="text-brand-blue-dark dark:text-white font-serif font-bold text-sm">Première boutique en ligne</h4>
+              <p class="text-black/70 dark:text-white/70 text-xs font-sans mt-1">Une apprenante présentant sa boutique Shopify créée
                 pendant la formation</p>
             </div>
           </div>
@@ -1140,56 +1140,56 @@
 
         <!-- Image 3 -->
         <div
-          class="group relative rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
-          <img src="./gallery-3.webp" alt="Atelier Marketing Digital" loading="lazy"
+          class="group relative rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
+          <img src="/gallery-3.webp" alt="Atelier Marketing Digital" loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
             <div>
-              <h4 class="text-white font-serif font-bold text-sm">Atelier Marketing Digital</h4>
-              <p class="text-white/70 text-xs font-sans mt-1">Stratégies d'acquisition clients et publicité en ligne</p>
+              <h4 class="text-brand-blue-dark dark:text-white font-serif font-bold text-sm">Atelier Marketing Digital</h4>
+              <p class="text-black/70 dark:text-white/70 text-xs font-sans mt-1">Stratégies d'acquisition clients et publicité en ligne</p>
             </div>
           </div>
         </div>
 
         <!-- Image 4 -->
         <div
-          class="group relative rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
-          <img src="./gallery-4.webp" alt="Remise de certificats" loading="lazy"
+          class="group relative rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
+          <img src="/gallery-4.webp" alt="Remise de certificats" loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
             <div>
-              <h4 class="text-white font-serif font-bold text-sm">Remise de certificats</h4>
-              <p class="text-white/70 text-xs font-sans mt-1">Célébration de fin de formation avec nos diplômés</p>
+              <h4 class="text-brand-blue-dark dark:text-white font-serif font-bold text-sm">Remise de certificats</h4>
+              <p class="text-black/70 dark:text-white/70 text-xs font-sans mt-1">Célébration de fin de formation avec nos diplômés</p>
             </div>
           </div>
         </div>
 
         <!-- Image 5 -->
         <div
-          class="group relative rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
-          <img src="./gallery-5.webp" alt="Logistique et sourcing Alibaba" loading="lazy"
+          class="group relative rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
+          <img src="/gallery-5.webp" alt="Logistique et sourcing Alibaba" loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
             <div>
-              <h4 class="text-white font-serif font-bold text-sm">Sourcing & Logistique</h4>
-              <p class="text-white/70 text-xs font-sans mt-1">Réception de produits importés via Alibaba</p>
+              <h4 class="text-brand-blue-dark dark:text-white font-serif font-bold text-sm">Sourcing & Logistique</h4>
+              <p class="text-black/70 dark:text-white/70 text-xs font-sans mt-1">Réception de produits importés via Alibaba</p>
             </div>
           </div>
         </div>
 
         <!-- Image 6 -->
         <div
-          class="group relative rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
-          <img src="./gallery-6.webp" alt="Networking entrepreneurs" loading="lazy"
+          class="group relative rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 hover:border-brand-gold-premium/50 transition-all duration-500 aspect-[4/3]">
+          <img src="/gallery-6.webp" alt="Networking entrepreneurs" loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
             <div>
-              <h4 class="text-white font-serif font-bold text-sm">Networking & Communauté</h4>
-              <p class="text-white/70 text-xs font-sans mt-1">Échanges entre entrepreneurs lors de nos événements</p>
+              <h4 class="text-brand-blue-dark dark:text-white font-serif font-bold text-sm">Networking & Communauté</h4>
+              <p class="text-black/70 dark:text-white/70 text-xs font-sans mt-1">Échanges entre entrepreneurs lors de nos événements</p>
             </div>
           </div>
         </div>
@@ -1202,13 +1202,13 @@
   <!-- ======================================================== -->
   <!-- ÉVÉNEMENT À VENIR SECTION                                -->
   <!-- ======================================================== -->
-  <section id="evenements" class="py-12 md:py-28 bg-white relative overflow-hidden">
+  <section id="evenements" class="py-12 md:py-28 bg-white dark:bg-[#111111] relative overflow-hidden">
     <div class="absolute top-0 right-0 w-72 h-72 bg-brand-gold-premium/5 rounded-full blur-[100px] pointer-events-none"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
       <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
         <span class="text-brand-gold-premium font-sans font-semibold tracking-widest text-xs uppercase block">AGENDA</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark">Événement à venir</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-blue-dark dark:text-white">Événement à venir</h2>
         <div class="w-16 h-1 bg-brand-gold-premium mx-auto mt-4 rounded-full"></div>
       </div>
 
@@ -1220,14 +1220,14 @@
             <i data-lucide="calendar-x" class="w-10 h-10 text-brand-gold-premium/60"></i>
           </div>
           <div class="space-y-3">
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark/80">Aucun événement à venir</h3>
-            <p class="text-brand-blue-dark/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark dark:text-white/80">Aucun événement à venir</h3>
+            <p class="text-brand-blue-dark dark:text-white/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
               Restez connectés ! Nos prochains événements, ateliers et sessions de formation seront annoncés ici très prochainement.
             </p>
           </div>
           <div class="flex items-center justify-center gap-3 pt-2">
             <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
-            <span class="text-xs text-brand-blue-dark/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
+            <span class="text-xs text-brand-blue-dark dark:text-white/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
             <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
           </div>
         </div>
@@ -1240,22 +1240,22 @@
   <!-- ======================================================== -->
   <!-- INSCRIPTION FORM SECTION                                 -->
   <!-- ======================================================== -->
-  <section id="inscription" class="py-12 md:py-28 bg-white relative">
+  <section id="inscription" class="py-12 md:py-28 bg-white dark:bg-[#111111] relative">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
 
       <div class="text-center mb-8 md:mb-12 space-y-3">
         <span
           class="text-brand-gold-premium font-sans font-semibold tracking-widest text-[10px] sm:text-xs uppercase block">FORMULAIRE
           D'INSCRIPTION</span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark">Prenez votre place chez
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-blue-dark dark:text-white">Prenez votre place chez
           Ecom Academie</h2>
-        <p class="text-brand-blue-dark/65 font-sans text-xs sm:text-sm md:text-base max-w-md mx-auto px-2">
+        <p class="text-brand-blue-dark dark:text-white/65 font-sans text-xs sm:text-sm md:text-base max-w-md mx-auto px-2">
           Remplissez le formulaire ci-dessous pour valider votre candidature officielle.
         </p>
       </div>
 
       <div
-        class="bg-white rounded-2xl shadow-xl border-t-8 border-brand-gold-premium overflow-hidden transition-all duration-300">
+        class="bg-white dark:bg-[#111111] rounded-2xl shadow-xl border-t-8 border-brand-gold-premium overflow-hidden transition-all duration-300">
 
         <!-- Success State Display -->
         <div id="inscription-success" class="hidden p-8 sm:p-12 text-center space-y-6">
@@ -1265,8 +1265,8 @@
             </div>
           </div>
           <div class="space-y-3">
-            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark">Candidature Enregistrée !</h3>
-            <p class="text-brand-blue-dark/75 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-brand-blue-dark dark:text-white">Candidature Enregistrée !</h3>
+            <p class="text-brand-blue-dark dark:text-white/75 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
               Félicitations <strong id="success-name"></strong>. Votre inscription chez Ecom Academie a été validée avec
               succès.
               <br><br>
@@ -1274,23 +1274,23 @@
                 prochainement par téléphone ou WhatsApp.</strong>
             </p>
             <div
-              class="p-4 bg-[#F8F6F0]/80 border border-brand-gold-premium/20 rounded-xl max-w-md mx-auto mt-4 text-xs font-sans text-brand-blue-dark/70 text-left space-y-2">
+              class="p-4 bg-[#F8F6F0]/80 border border-brand-gold-premium/20 rounded-xl max-w-md mx-auto mt-4 text-xs font-sans text-brand-blue-dark dark:text-white/70 text-left space-y-2">
               <p><strong>Récapitulatif de votre profil :</strong></p>
               <p>• Email : <span id="success-email"></span></p>
-              <p>• <span id="success-ufr-label">Formation :</span> <span id="success-ufr"></span></p>
-              <p>• <span id="success-niveau-label">Expérience :</span> <span id="success-niveau"></span></p>
+              <p>• <span id="success-module_choisi-label">Formation :</span> <span id="success-module_choisi"></span></p>
+              <p>• <span id="success-experience-label">Expérience :</span> <span id="success-experience"></span></p>
             </div>
 
             <!-- Billet & QR Code -->
             <div
-              class="mt-6 bg-brand-blue-dark/5 p-4 sm:p-6 rounded-xl border border-brand-gold-premium/30 flex flex-col sm:flex-row items-center gap-6 text-left max-w-md mx-auto print:bg-white print:border-black print:text-black">
-              <div class="shrink-0 bg-white p-2 border border-brand-blue-dark/20 rounded-lg shadow-sm">
+              class="mt-6 bg-black/5 dark:bg-brand-blue-dark/5 p-4 sm:p-6 rounded-xl border border-brand-gold-premium/30 flex flex-col sm:flex-row items-center gap-6 text-left max-w-md mx-auto print:bg-white print:border-black print:text-black">
+              <div class="shrink-0 bg-white dark:bg-[#111111] p-2 border border-brand-blue-dark/20 rounded-lg shadow-sm">
                 <img id="ticket-qr" src="" alt="QR Code" class="w-28 h-28 object-contain" />
               </div>
               <div class="flex-1 space-y-2 text-center sm:text-left">
-                <h4 class="font-serif font-bold text-brand-blue-dark text-lg uppercase tracking-wide">Billet Officiel
+                <h4 class="font-serif font-bold text-brand-blue-dark dark:text-white text-lg uppercase tracking-wide">Billet Officiel
                 </h4>
-                <p class="text-xs font-sans text-brand-blue-dark/80">Ce code sera scanné à l'entrée.</p>
+                <p class="text-xs font-sans text-brand-blue-dark dark:text-white/80">Ce code sera scanné à l'entrée.</p>
                 <button type="button" onclick="downloadQRCode()"
                   class="mt-3 text-xs text-brand-gold-premium font-bold hover:underline flex items-center justify-center sm:justify-start gap-1 w-full print:hidden cursor-pointer">
                   <i data-lucide="download" class="w-3.5 h-3.5"></i> Télécharger le QR Code
@@ -1300,12 +1300,12 @@
           </div>
           <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center print:hidden">
             <a href="https://wa.me/221784799882" id="whatsapp-button" target="_blank" onclick="retrySupabaseInsert()"
-              class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 flex items-center justify-center space-x-2">
+              class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-brand-blue-dark dark:text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 flex items-center justify-center space-x-2">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>Contacter sur WhatsApp</span>
             </a>
             <button onclick="resetInscriptionForm()"
-              class="w-full sm:w-auto bg-brand-blue-dark hover:bg-brand-blue-medium text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 cursor-pointer">
+              class="w-full sm:w-auto bg-brand-cream dark:bg-brand-blue-dark hover:bg-brand-blue-medium text-brand-blue-dark dark:text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 cursor-pointer">
               Inscrire un autre candidat
             </button>
           </div>
@@ -1325,17 +1325,17 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="space-y-1.5">
               <label for="prenom"
-                class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Prénom
+                class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Prénom
                 <span class="text-red-500">*</span></label>
               <input type="text" id="prenom" required placeholder="Ex: Seydou"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
             <div class="space-y-1.5">
               <label for="nom"
-                class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom <span
+                class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Nom <span
                   class="text-red-500">*</span></label>
               <input type="text" id="nom" required placeholder="Ex: Ndiaye"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
           </div>
 
@@ -1343,21 +1343,21 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="space-y-1.5">
               <label for="telephone"
-                class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Téléphone
+                class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Téléphone
                 <span class="text-red-500">*</span></label>
               <input type="tel" id="telephone" required placeholder="Ex: +221 77 000 00 00"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
             <div class="space-y-1.5">
               <label for="email"
-                class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Email
+                class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Email
                 <span class="text-red-500">*</span></label>
               <input type="email" id="email" oninput="validateEmailLive(this)" required
                 placeholder="Ex: votre.email@gmail.com"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
               <span id="email-live-error" class="hidden text-[10px] font-sans text-red-600 block mt-1">L'adresse email
                 doit être valide</span>
-              <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark/45 block mt-1">Saisissez une
+              <span id="email-live-hint" class="text-[10px] font-sans text-brand-blue-dark dark:text-white/45 block mt-1">Saisissez une
                 adresse email valide</span>
             </div>
           </div>
@@ -1367,11 +1367,11 @@
           <!-- UFR & Filière -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="space-y-1.5">
-              <label for="ufr" id="ufr-label"
-                class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Formation
+              <label for="module_choisi" id="module_choisi-label"
+                class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Formation
                 souhaitée <span class="text-red-500">*</span></label>
-              <select id="ufr" required
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
+              <select id="module_choisi" required
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors cursor-pointer">
                 <option value="" disabled selected>Sélectionnez votre formation</option>
                 <option value="Shopify">Shopify (Création de boutique)</option>
                 <option value="Alibaba">Alibaba (Sourcing & Logistique)</option>
@@ -1380,36 +1380,39 @@
               </select>
             </div>
             <div class="space-y-1.5">
-              <label for="filiere" id="filiere-label"
-                class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Votre
+              <label for="objectif" id="objectif-label"
+                class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Votre
                 Projet / Objectif <span class="text-red-500">*</span></label>
-              <input type="text" id="filiere" required placeholder="Ex: Lancer ma marque de prêt-à-porter..."
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+              <input type="text" id="objectif" required placeholder="Ex: Lancer ma marque de prêt-à-porter..."
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
           </div>
 
           <!-- Study Level -->
           <div class="space-y-1.5">
-            <label for="niveau" id="niveau-label"
-              class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Niveau
+            <label for="experience" id="experience-label"
+              class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Niveau
               d'expérience en e-commerce <span class="text-red-500">*</span></label>
-            <select id="niveau" required
-              class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
-              <option value="" disabled selected>Sélectionnez votre niveau</option>
+            <select id="experience" required
+              class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors cursor-pointer">
+              <option value="" disabled selected>Sélectionnez votre experience</option>
               <option value="Débutant">Débutant (Aucune expérience)</option>
               <option value="Intermédiaire">Intermédiaire (Déjà essayé, pas de ventes régulières)</option>
               <option value="Avancé">Avancé (Déjà des ventes régulières)</option>
             </select>
           </div>
 
+          <!-- Cloudflare Turnstile -->
+          <div class="cf-turnstile flex justify-center pb-2" data-sitekey="1x00000000000000000000AA" data-callback="onTurnstileSuccess"></div>
+          
           <!-- Submit -->
           <div class="pt-4 space-y-4">
-            <p class="text-[9px] font-sans text-brand-blue-dark/50 leading-relaxed">
+            <p class="text-[9px] font-sans text-brand-blue-dark dark:text-white/50 leading-relaxed">
               En soumettant ce formulaire, vous acceptez que Ecom Academie traite vos données personnelles aux fins
               d'organisation de cette formation. Aucune donnée ne sera partagée à des tiers.
             </p>
             <button type="submit" id="submit-btn"
-              class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark font-sans font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-brand-gold-premium/20 transition-colors duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5 cursor-pointer">
+              class="w-full bg-gradient-to-r from-brand-gold-premium to-brand-gold-light hover:from-brand-gold-light hover:to-brand-gold-premium text-brand-blue-dark dark:text-white font-sans font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-brand-gold-premium/20 transition-colors duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5 cursor-pointer">
               <i data-lucide="rocket" class="w-5 h-5"></i>
               <span id="submit-btn-text">🚀 Je m'inscris maintenant</span>
             </button>
@@ -1420,33 +1423,33 @@
   </section>
   <!-- FOOTER                                                   -->
   <!-- ======================================================== -->
-  <footer class="bg-brand-blue-dark text-white border-t border-brand-gold-premium/20 py-12">
+  <footer class="bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white border-t border-brand-gold-premium/20 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
       <div class="flex flex-col items-center space-y-2">
         <span class="text-brand-gold-premium font-serif font-bold text-xl tracking-wide">🛒 Ecom Academie</span>
-        <span class="text-xs text-white/50 uppercase tracking-widest font-sans">Formation E-commerce 2026 — Shopify ·
+        <span class="text-xs text-black/50 dark:text-white/50 uppercase tracking-widest font-sans">Formation E-commerce 2026 — Shopify ·
           Alibaba · Marketing · Vente en ligne</span>
       </div>
 
       <div class="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-sans px-4">
-        <a href="#presentation" class="text-white/60 hover:text-brand-gold-premium transition-colors">Présentation</a>
-        <span class="text-white/20 hidden sm:inline">|</span>
-        <a href="#formations" class="text-white/60 hover:text-brand-gold-premium transition-colors">Formations</a>
-        <span class="text-white/20 hidden sm:inline">|</span>
-        <a href="#services" class="text-white/60 hover:text-brand-gold-premium transition-colors">Services</a>
-        <span class="text-white/20 hidden sm:inline">|</span>
-        <a href="#pourquoi" class="text-white/60 hover:text-brand-gold-premium transition-colors">Pourquoi</a>
-        <span class="text-white/20 hidden sm:inline">|</span>
-        <a href="#inscription" class="text-white/60 hover:text-brand-gold-premium transition-colors">Inscription</a>
+        <a href="#presentation" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Présentation</a>
+        <span class="text-black/20 dark:text-white/20 hidden sm:inline">|</span>
+        <a href="#formations" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Formations</a>
+        <span class="text-black/20 dark:text-white/20 hidden sm:inline">|</span>
+        <a href="#services" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Services</a>
+        <span class="text-black/20 dark:text-white/20 hidden sm:inline">|</span>
+        <a href="#pourquoi" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Pourquoi</a>
+        <span class="text-black/20 dark:text-white/20 hidden sm:inline">|</span>
+        <a href="#inscription" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Inscription</a>
       </div>
 
       <button onclick="openAdminModal()"
-        class="text-white/20 hover:text-brand-gold-premium font-sans text-xs flex items-center gap-1 transition-colors mx-auto">
+        class="text-black/20 dark:text-white/20 hover:text-brand-gold-premium font-sans text-xs flex items-center gap-1 transition-colors mx-auto">
         <i data-lucide="shield" class="w-3 h-3"></i>
         <span>Espace Admin</span>
       </button>
 
-      <p class="text-white/40 text-[10px] font-sans pt-4">&copy; 2026 Ecom Academie — Tous droits réservés. Plateforme
+      <p class="text-black/40 dark:text-white/40 text-[10px] font-sans pt-4">&copy; 2026 Ecom Academie — Tous droits réservés. Plateforme
         de formation E-commerce.</p>
     </div>
   </footer>
@@ -1456,11 +1459,11 @@
   <!-- MODAL: ADMIN LOGIN                                       -->
   <!-- ======================================================== -->
   <div id="admin-login-modal"
-    class="hidden fixed inset-0 z-50 bg-brand-blue-dark/95 flex items-center justify-center p-4">
+    class="hidden fixed inset-0 z-50 bg-white/95 dark:bg-brand-blue-dark/95 flex items-center justify-center p-4">
     <div
-      class="bg-white border border-brand-gold-premium/30 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden relative">
+      class="bg-white dark:bg-[#111111] border border-brand-gold-premium/30 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden relative">
       <button onclick="closeAdminModal()"
-        class="absolute top-4 right-4 p-1 rounded-full hover:bg-brand-blue-dark/5 text-brand-blue-dark/50 hover:text-brand-blue-dark cursor-pointer">
+        class="absolute top-4 right-4 p-1 rounded-full hover:bg-brand-blue-dark/5 text-brand-blue-dark dark:text-white/50 hover:text-brand-blue-dark cursor-pointer">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
@@ -1470,8 +1473,8 @@
             class="w-12 h-12 rounded-full bg-brand-gold-premium/10 text-brand-gold-premium flex items-center justify-center mx-auto mb-2">
             <i data-lucide="shield" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-serif font-bold text-brand-blue-dark">Espace Administrateur</h3>
-          <p class="text-xs text-brand-blue-dark/60 font-sans">Entrez vos accès pour gérer les inscriptions</p>
+          <h3 class="text-xl font-serif font-bold text-brand-blue-dark dark:text-white">Espace Administrateur</h3>
+          <p class="text-xs text-brand-blue-dark dark:text-white/60 font-sans">Entrez vos accès pour gérer les inscriptions</p>
         </div>
 
         <div id="login-error-banner"
@@ -1483,20 +1486,20 @@
         <div class="space-y-4">
           <div class="space-y-1.5">
             <label for="admin-username"
-              class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Nom
+              class="block text-[10px] font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Nom
               d'administrateur</label>
             <input type="text" id="admin-username" required autocomplete="off"
-              class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+              class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
           </div>
           <div class="space-y-1.5">
             <label for="admin-password"
-              class="block text-[10px] font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Mot de
+              class="block text-[10px] font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Mot de
               passe</label>
             <div class="relative">
               <input type="password" id="admin-password" required autocomplete="off"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 pl-4 pr-10 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 pl-4 pr-10 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
               <button type="button" onclick="togglePasswordVisibility()"
-                class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-blue-dark/50 hover:text-brand-blue-dark transition-colors cursor-pointer w-4 h-4 flex items-center justify-center">
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-blue-dark dark:text-white/50 hover:text-brand-blue-dark transition-colors cursor-pointer w-4 h-4 flex items-center justify-center">
                 <div id="password-eye-open"><i data-lucide="eye" class="w-4 h-4"></i></div>
                 <div id="password-eye-close" class="hidden"><i data-lucide="eye-off" class="w-4 h-4"></i></div>
               </button>
@@ -1505,7 +1508,7 @@
         </div>
 
         <button type="submit" id="login-btn"
-          class="w-full bg-brand-blue-dark hover:bg-brand-blue-medium text-white font-sans font-bold py-3.5 px-6 rounded-xl shadow-lg transition-colors duration-300 flex items-center justify-center space-x-2.5 cursor-pointer">
+          class="w-full bg-brand-cream dark:bg-brand-blue-dark hover:bg-brand-blue-medium text-brand-blue-dark dark:text-white font-sans font-bold py-3.5 px-6 rounded-xl shadow-lg transition-colors duration-300 flex items-center justify-center space-x-2.5 cursor-pointer">
           <i data-lucide="log-in" class="w-4 h-4"></i>
           <span id="login-btn-text">Se connecter</span>
         </button>
@@ -1520,7 +1523,7 @@
   <div id="admin-dashboard" class="hidden fixed inset-0 z-50 bg-[#F8F6F0] overflow-y-auto font-sans">
     <!-- Dashboard Header -->
     <header
-      class="bg-brand-blue-dark text-white border-b border-brand-gold-premium/20 py-4 px-6 md:px-12 sticky top-0 z-10 shadow-md">
+      class="bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white border-b border-brand-gold-premium/20 py-4 px-6 md:px-12 sticky top-0 z-10 shadow-md">
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center space-x-3">
           <div
@@ -1528,14 +1531,14 @@
             👑
           </div>
           <div>
-            <h1 class="text-lg font-serif font-bold text-white leading-tight">Espace Supervision Ecom Academie</h1>
+            <h1 class="text-xs sm:text-lg font-serif font-bold text-brand-blue-dark dark:text-white leading-tight">Espace Supervision Ecom Academie</h1>
             <p class="text-xxs text-brand-gold-light uppercase tracking-wider font-sans">Gestion des Inscriptions - 2026
             </p>
           </div>
         </div>
 
         <button onclick="handleAdminLogout()"
-          class="w-full md:w-auto bg-white/10 hover:bg-red-600 border border-white/10 hover:border-red-600 text-white font-sans text-xs font-semibold py-2 px-5 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+          class="w-full md:w-auto bg-white/10 hover:bg-red-600 border border-black/10 dark:border-white/10 hover:border-red-600 text-brand-blue-dark dark:text-white font-sans text-xs font-semibold py-2 px-5 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
           <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
           <span>Déconnexion</span>
         </button>
@@ -1543,12 +1546,12 @@
     </header>
 
     <!-- Tab Navigation -->
-    <div class="bg-white border-b border-brand-blue-dark/10 py-3 px-6 md:px-12">
+    <div class="bg-white dark:bg-[#111111] border-b border-brand-blue-dark/10 py-3 px-6 md:px-12">
       <div class="max-w-7xl mx-auto flex space-x-6">
         <button id="tab-btn-candidats" onclick="switchAdminTab('candidats')" class="text-brand-gold-premium font-sans font-bold text-sm border-b-2 border-brand-gold-premium pb-1 outline-none transition-all duration-300">
           👥 Candidatures
         </button>
-        <button id="tab-btn-events" onclick="switchAdminTab('events')" class="text-brand-blue-dark/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300">
+        <button id="tab-btn-events" onclick="switchAdminTab('events')" class="text-brand-blue-dark dark:text-white/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300">
           📅 Événements
         </button>
       </div>
@@ -1562,32 +1565,32 @@
         <!-- Stats Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
             <div class="space-y-1">
-              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Total des inscrits</span>
-              <strong id="stat-total" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+              <span class="text-xs text-brand-blue-dark dark:text-white/50 font-semibold uppercase block">Total des inscrits</span>
+              <strong id="stat-total" class="text-3xl font-serif text-brand-blue-dark dark:text-white">0</strong>
             </div>
-            <div class="p-3 bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark"><i data-lucide="users"
-                class="w-8 h-8"></i></div>
+            <div class="p-3 bg-black/5 dark:bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark dark:text-white"><i data-lucide="users"
+                class="w-5 h-5 sm:w-8 sm:h-8"></i></div>
           </div>
 
           <div
-            class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
             <div class="space-y-1">
-              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Formations Choisies</span>
-              <strong id="stat-ufr" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+              <span class="text-xs text-brand-blue-dark dark:text-white/50 font-semibold uppercase block">Formations Choisies</span>
+              <strong id="stat-module_choisi" class="text-3xl font-serif text-brand-blue-dark dark:text-white">0</strong>
             </div>
             <div class="p-3 bg-brand-gold-premium/10 rounded-xl text-brand-gold-premium"><i data-lucide="school"
-                class="w-8 h-8"></i></div>
+                class="w-5 h-5 sm:w-8 sm:h-8"></i></div>
           </div>
 
           <div
-            class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
+            class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-6 rounded-2xl shadow-md flex items-center justify-between relative overflow-hidden">
             <div class="space-y-1">
-              <span class="text-xs text-brand-blue-dark/50 font-semibold uppercase block">Inscriptions Aujourd'hui</span>
-              <strong id="stat-today" class="text-3xl font-serif text-brand-blue-dark">0</strong>
+              <span class="text-xs text-brand-blue-dark dark:text-white/50 font-semibold uppercase block">Inscriptions Aujourd'hui</span>
+              <strong id="stat-today" class="text-3xl font-serif text-brand-blue-dark dark:text-white">0</strong>
             </div>
-            <div class="p-3 bg-emerald-50 rounded-xl text-emerald-600"><i data-lucide="calendar-plus" class="w-8 h-8"></i>
+            <div class="p-3 bg-emerald-50 rounded-xl text-emerald-600"><i data-lucide="calendar-plus" class="w-5 h-5 sm:w-8 sm:h-8"></i>
             </div>
           </div>
         </div>
@@ -1595,49 +1598,49 @@
         <!-- Detailed Stats (UFR & Filières) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- UFR Stats -->
-          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
+          <div class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-sm font-bold text-brand-blue-dark dark:text-white uppercase flex items-center gap-2">
               <i data-lucide="building-2" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Formation
             </h3>
-            <div id="stats-ufr-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
-              <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
+            <div id="stats-module_choisi-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+              <div class="text-xs text-center text-brand-blue-dark dark:text-white/40 py-4">Chargement...</div>
             </div>
           </div>
 
           <!-- Filière Stats -->
-          <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2">
+          <div class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-sm font-bold text-brand-blue-dark dark:text-white uppercase flex items-center gap-2">
               <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold-premium"></i> Inscrits par Projet / Objectif
             </h3>
-            <div id="stats-filiere-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
-              <div class="text-xs text-center text-brand-blue-dark/40 py-4">Chargement...</div>
+            <div id="stats-objectif-list" class="space-y-3 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+              <div class="text-xs text-center text-brand-blue-dark dark:text-white/40 py-4">Chargement...</div>
             </div>
           </div>
         </div>
 
         <!-- Filter and Action Bar -->
         <div
-          class="bg-white border border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+          class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="relative w-full md:max-w-md">
             <input type="text" id="search-input" oninput="filterInscriptionsTable()"
               placeholder="Rechercher (Nom, prénom, email, formation, projet)..."
               class="w-full bg-[#F8F6F0]/50 border border-brand-blue-dark/10 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-xl py-3 pl-10 pr-4 outline-none text-sm font-sans" />
             <i data-lucide="search"
-              class="w-4 h-4 text-brand-blue-dark/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              class="w-4 h-4 text-brand-blue-dark dark:text-white/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
           </div>
 
           <button onclick="exportTableToCSV()"
-            class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans text-xs font-bold py-3 px-6 rounded-xl shadow transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+            class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark dark:text-white font-sans text-xs font-bold py-3 px-6 rounded-xl shadow transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
             <i data-lucide="download" class="w-4 h-4"></i>
             <span>Exporter au format Excel (CSV)</span>
           </button>
         </div>
 
         <!-- Table Container -->
-        <div class="bg-white border border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
+        <div class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
           <div class="overflow-x-auto w-full">
             <table class="w-full text-left border-collapse text-xs md:text-sm">
-              <thead class="bg-brand-blue-dark text-white font-sans uppercase text-[10px] tracking-wider">
+              <thead class="bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white font-sans uppercase text-[10px] tracking-wider">
                 <tr>
                   <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-12">#</th>
                   <th class="py-4 px-4 border-b border-white/5 font-semibold">Nom Complet</th>
@@ -1648,10 +1651,10 @@
                   <th class="py-4 px-4 border-b border-white/5 font-semibold text-center w-28">Actions</th>
                 </tr>
               </thead>
-              <tbody id="inscriptions-tbody" class="divide-y divide-brand-blue-dark/5 font-sans">
+              <tbody id="inscriptions-tbody" class="divide-y divide-black/5 dark:divide-brand-blue-dark/5 font-sans">
                 <!-- Data loaded dynamically -->
                 <tr>
-                  <td colspan="7" class="py-12 text-center text-brand-blue-dark/45 font-medium">
+                  <td colspan="7" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium">
                     <div class="flex flex-col items-center justify-center space-y-2">
                       <div
                         class="w-6 h-6 border-2 border-brand-gold-premium border-t-transparent rounded-full animate-spin">
@@ -1666,16 +1669,16 @@
         </div>
 
         <!-- Inscriptions Pagination Controls -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 bg-white border border-brand-blue-dark/5 p-4 rounded-2xl shadow-sm">
-          <div class="text-xs text-brand-blue-dark/60 font-sans">
-            Affichage de <span id="pagination-info-start" class="font-bold text-brand-blue-dark">0</span> à <span id="pagination-info-end" class="font-bold text-brand-blue-dark">0</span> sur <span id="pagination-info-total" class="font-bold text-brand-blue-dark">0</span> candidatures
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-4 rounded-2xl shadow-sm">
+          <div class="text-xs text-brand-blue-dark dark:text-white/60 font-sans">
+            Affichage de <span id="pagination-info-start" class="font-bold text-brand-blue-dark dark:text-white">0</span> à <span id="pagination-info-end" class="font-bold text-brand-blue-dark dark:text-white">0</span> sur <span id="pagination-info-total" class="font-bold text-brand-blue-dark dark:text-white">0</span> candidatures
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="prevPage()" id="btn-prev-page" class="px-3.5 py-1.5 border border-brand-blue-dark/10 hover:border-brand-gold-premium/45 bg-[#F8F6F0]/40 text-brand-blue-dark rounded-lg font-sans text-xs font-semibold hover:bg-brand-gold-premium/5 transition-all duration-300 disabled:opacity-40 disabled:hover:bg-transparent disabled:cursor-not-allowed cursor-pointer flex items-center gap-1">
+            <button onclick="prevPage()" id="btn-prev-page" class="px-3.5 py-1.5 border border-brand-blue-dark/10 hover:border-brand-gold-premium/45 bg-[#F8F6F0]/40 text-brand-blue-dark dark:text-white rounded-lg font-sans text-xs font-semibold hover:bg-brand-gold-premium/5 transition-all duration-300 disabled:opacity-40 disabled:hover:bg-transparent disabled:cursor-not-allowed cursor-pointer flex items-center gap-1">
               <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i> Précédent
             </button>
-            <span class="text-xs font-semibold text-brand-blue-dark font-sans px-2">Page <span id="pagination-info-current">1</span></span>
-            <button onclick="nextPage()" id="btn-next-page" class="px-3.5 py-1.5 border border-brand-blue-dark/10 hover:border-brand-gold-premium/45 bg-[#F8F6F0]/40 text-brand-blue-dark rounded-lg font-sans text-xs font-semibold hover:bg-brand-gold-premium/5 transition-all duration-300 disabled:opacity-40 disabled:hover:bg-transparent disabled:cursor-not-allowed cursor-pointer flex items-center gap-1">
+            <span class="text-xs font-semibold text-brand-blue-dark dark:text-white font-sans px-2">Page <span id="pagination-info-current">1</span></span>
+            <button onclick="nextPage()" id="btn-next-page" class="px-3.5 py-1.5 border border-brand-blue-dark/10 hover:border-brand-gold-premium/45 bg-[#F8F6F0]/40 text-brand-blue-dark dark:text-white rounded-lg font-sans text-xs font-semibold hover:bg-brand-gold-premium/5 transition-all duration-300 disabled:opacity-40 disabled:hover:bg-transparent disabled:cursor-not-allowed cursor-pointer flex items-center gap-1">
               Suivant <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -1685,47 +1688,47 @@
       <!-- ================= EVENTS TAB ================= -->
       <div id="admin-tab-events" class="hidden space-y-8">
         <!-- Event Addition Form -->
-        <div class="bg-white border border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-6">
-          <h3 class="text-sm font-bold text-brand-blue-dark uppercase flex items-center gap-2 border-b border-brand-blue-dark/5 pb-3 font-sans">
+        <div class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 p-6 rounded-2xl shadow-md space-y-6">
+          <h3 class="text-sm font-bold text-brand-blue-dark dark:text-white uppercase flex items-center gap-2 border-b border-black/5 dark:border-brand-blue-dark/5 pb-3 font-sans">
             <i data-lucide="calendar-days" class="w-4 h-4 text-brand-gold-premium"></i> Ajouter un nouvel événement à l'agenda
           </h3>
           <form id="admin-event-form" onsubmit="handleCreateEvent(event)" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-1.5">
-              <label for="event-title" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Titre de l'événement *</label>
+              <label for="event-title" class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Titre de l'événement *</label>
               <input type="text" id="event-title" required placeholder="Ex: Masterclass Shopify & Vente en ligne"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
 
             <div class="space-y-1.5">
-              <label for="event-date" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Date et Heure *</label>
+              <label for="event-date" class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Date et Heure *</label>
               <input type="text" id="event-date" required placeholder="Ex: Samedi 27 Juin 2026 à 16h00"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
 
             <div class="space-y-1.5">
-              <label for="event-location" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Lieu *</label>
+              <label for="event-location" class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Lieu *</label>
               <input type="text" id="event-location" required placeholder="Ex: Université de Thiès, VDN Dakar ou En ligne"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
 
             <div class="space-y-1.5">
-              <label for="event-reg-required" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Inscription requise ?</label>
+              <label for="event-reg-required" class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Inscription requise ?</label>
               <select id="event-reg-required" onchange="toggleEventRegLinkVisibility()"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark transition-colors cursor-pointer">
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-3 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors cursor-pointer">
                 <option value="false">Non (Entrée libre et gratuite)</option>
                 <option value="true">Oui (Bouton d'inscription requis)</option>
               </select>
             </div>
 
             <div id="event-link-container" class="hidden space-y-1.5 md:col-span-2">
-              <label for="event-reg-link" class="block text-xs font-semibold text-brand-blue-dark/75 uppercase tracking-wider font-sans">Lien ou cible d'inscription (Optionnel)</label>
+              <label for="event-reg-link" class="block text-xs font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Lien ou cible d'inscription (Optionnel)</label>
               <input type="text" id="event-reg-link" placeholder="Par défaut : #inscription (redirige vers le formulaire d'inscription principal)"
-                class="w-full bg-[#F8F6F0]/40 border border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark transition-colors" />
+                class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
             </div>
 
             <div class="md:col-span-2 pt-2 flex justify-end">
               <button type="submit" id="event-submit-btn"
-                class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+                class="w-full md:w-auto bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark dark:text-white font-sans font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer">
                 <i data-lucide="plus-circle" class="w-4 h-4"></i>
                 <span id="event-submit-btn-text">Ajouter l'événement</span>
               </button>
@@ -1734,26 +1737,26 @@
         </div>
 
         <!-- Event List -->
-        <div class="bg-white border border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
-          <div class="p-4 bg-brand-blue-dark text-white font-sans font-bold text-sm tracking-wide uppercase flex items-center gap-2">
+        <div class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
+          <div class="p-4 bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white font-sans font-bold text-sm tracking-wide uppercase flex items-center gap-2">
             <i data-lucide="list" class="w-4 h-4"></i> Liste des événements programmés
           </div>
           <div class="overflow-x-auto w-full">
             <table class="w-full text-left border-collapse text-xs md:text-sm">
-              <thead class="bg-[#F8F6F0]/85 text-brand-blue-dark font-sans uppercase text-[10px] tracking-wider">
+              <thead class="bg-[#F8F6F0]/85 text-brand-blue-dark dark:text-white font-sans uppercase text-[10px] tracking-wider">
                 <tr>
-                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold text-center w-12">#</th>
-                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold">Titre de l'événement</th>
-                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold">Date et Heure</th>
-                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold">Lieu</th>
-                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold text-center w-36">Inscription ?</th>
-                  <th class="py-4 px-4 border-b border-brand-blue-dark/5 font-semibold text-center w-28">Actions</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center w-12">#</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold">Titre de l'événement</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold">Date et Heure</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold">Lieu</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center w-36">Inscription ?</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center w-28">Actions</th>
                 </tr>
               </thead>
-              <tbody id="events-tbody" class="divide-y divide-brand-blue-dark/5 font-sans">
+              <tbody id="events-tbody" class="divide-y divide-black/5 dark:divide-brand-blue-dark/5 font-sans">
                 <!-- Data loaded dynamically -->
                 <tr>
-                  <td colspan="6" class="py-12 text-center text-brand-blue-dark/45 font-medium">
+                  <td colspan="6" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium">
                     Chargement des événements...
                   </td>
                 </tr>
@@ -1771,6 +1774,26 @@
   <!-- VANILLA JAVASCRIPT CODE                                 -->
   <!-- ======================================================== -->
   <script>
+    
+    // Theme Toggle Logic
+    function toggleDarkMode() {
+      const htmlEl = document.documentElement;
+      if (htmlEl.classList.contains('dark')) {
+        htmlEl.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlEl.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    // Auto-detect theme
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
     // 1. SUPABASE CLIENT CONFIGURATION
     const supabaseUrl = '%VITE_SUPABASE_URL%';
     const supabaseAnonKey = '%VITE_SUPABASE_ANON_KEY%';
@@ -1828,7 +1851,7 @@
         </div>
         <div class="flex-1 font-sans text-xs">
           <p class="font-bold text-sm">${title}</p>
-          <p class="mt-0.5 text-white/90">${message}</p>
+          <p class="mt-0.5 text-black/90 dark:text-white/90">${message}</p>
         </div>
         <button class="shrink-0 hover:opacity-85" onclick="this.parentElement.remove()">
           <i data-lucide="x" class="w-4 h-4"></i>
@@ -2021,6 +2044,11 @@
     let currentCandidateData = null;
     let isSupabaseSuccess = false;
 
+    let isCaptchaSolved = false;
+    window.onTurnstileSuccess = function() {
+      isCaptchaSolved = true;
+    };
+
     async function handleFormSubmit(e) {
       e.preventDefault();
 
@@ -2028,11 +2056,11 @@
       const nom = document.getElementById('nom').value.trim();
       const telephone = document.getElementById('telephone').value.trim();
       const email = document.getElementById('email').value.trim().toLowerCase();
-      const ufr = document.getElementById('ufr').value;
-      const filiere = document.getElementById('filiere').value.trim();
-      const niveau = document.getElementById('niveau').value;
+      const module_choisi = document.getElementById('module_choisi').value;
+      const objectif = document.getElementById('objectif').value.trim();
+      const experience = document.getElementById('experience').value;
 
-      currentCandidateData = { nom, prenom, telephone, email, ufr, filiere, niveau };
+      currentCandidateData = { nom, prenom, telephone, email, module_choisi, objectif, experience };
       isSupabaseSuccess = false;
 
       const errorBanner = document.getElementById('form-error-banner');
@@ -2042,6 +2070,14 @@
 
       // Reset display state
       errorBanner.classList.add('hidden');
+
+      if (!isCaptchaSolved) {
+        errorBanner.classList.remove('hidden');
+        errorText.innerText = "Veuillez valider le Captcha anti-robot.";
+        submitBtn.disabled = false;
+        submitBtnText.innerText = "🚀 Je m'inscris maintenant";
+        return;
+      }
 
       // Front-end email check
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2059,7 +2095,7 @@
         // Try inserting directly. The database unique constraint on email will prevent duplicates.
         const { error: insertError } = await supabaseClient
           .from('inscriptions')
-          .insert([{ nom, prenom, telephone, email, ufr, filiere, niveau }]);
+          .insert([{ nom, prenom, telephone, email, module_choisi, objectif, experience }]);
 
         if (insertError) {
           if (insertError.code === '23505' || (insertError.message && insertError.message.includes('unique'))) {
@@ -2094,20 +2130,20 @@
 
       document.getElementById('success-name').innerText = `${prenom} ${nom}`;
       document.getElementById('success-email').innerText = email;
-      document.getElementById('success-ufr').innerText = ufr;
-      document.getElementById('success-niveau').innerText = niveau;
+      document.getElementById('success-module_choisi').innerText = module_choisi;
+      document.getElementById('success-experience').innerText = experience;
 
-      const ufrLabel = document.getElementById('success-ufr-label');
-      const niveauLabel = document.getElementById('success-niveau-label');
+      const ufrLabel = document.getElementById('success-module_choisi-label');
+      const niveauLabel = document.getElementById('success-experience-label');
       if (ufrLabel) ufrLabel.innerText = "Formation :";
       if (niveauLabel) niveauLabel.innerText = "Expérience :";
 
       // Generate QR Code Ticket Data
-      const qrData = `Candidat: ${prenom} ${nom} | ${ufrTypeStr}: ${ufr} | ${niveauTypeStr}: ${niveau}`;
+      const qrData = `Candidat: ${prenom} ${nom} | ${ufrTypeStr}: ${module_choisi} | ${niveauTypeStr}: ${experience}`;
       document.getElementById('ticket-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
 
       // Configure WhatsApp button
-      const whatsappMsg = `Bonjour ! Je viens de m'inscrire chez Ecom Academie.\n\n👤 Candidat : ${prenom} ${nom}\n💼 Type : ${ufrTypeStr}\n📌 Choix : ${ufr}\n📊 ${niveauTypeStr} : ${niveau}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
+      const whatsappMsg = `Bonjour ! Je viens de m'inscrire chez Ecom Academie.\n\n👤 Candidat : ${prenom} ${nom}\n💼 Type : ${ufrTypeStr}\n📌 Choix : ${module_choisi}\n📊 ${niveauTypeStr} : ${experience}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
       const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
 
       document.getElementById('whatsapp-button').href = whatsappUrl;
@@ -2115,15 +2151,15 @@
       // Display UI toast
       showNotificationToast(
         "Inscription Réussie !", 
-        `Félicitations ${prenom} ! Votre inscription à la formation ${ufr} a bien été enregistrée.`,
+        `Félicitations ${prenom} ! Votre inscription à la formation ${module_choisi} a bien été enregistrée.`,
         "success"
       );
 
       // Send Browser push notification if supported & permitted
       if ('Notification' in window && Notification.permission === 'granted') {
         new Notification("Ecom Academie", {
-          body: `Félicitations ${prenom} ! Votre inscription à la formation ${ufr} a bien été enregistrée.`,
-          icon: 'favicon.png'
+          body: `Félicitations ${prenom} ! Votre inscription à la formation ${module_choisi} a bien été enregistrée.`,
+          icon: 'Logo.webp'
         });
       }
 
@@ -2174,9 +2210,9 @@
       document.getElementById('nom').value = '';
       document.getElementById('telephone').value = '';
       document.getElementById('email').value = '';
-      document.getElementById('ufr').value = '';
-      document.getElementById('filiere').value = '';
-      document.getElementById('niveau').value = '';
+      document.getElementById('module_choisi').value = '';
+      document.getElementById('objectif').value = '';
+      document.getElementById('experience').value = '';
 
       document.getElementById('inscription-success').classList.add('hidden');
       document.getElementById('inscription-form').classList.remove('hidden');
@@ -2379,7 +2415,7 @@
       if (totalItems === 0) {
         tbody.innerHTML = `
             <tr>
-              <td colspan="7" class="py-12 text-center text-brand-blue-dark/45 font-medium font-sans">
+              <td colspan="7" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium font-sans">
                 Aucune candidature enregistrée pour le moment.
               </td>
             </tr>
@@ -2398,25 +2434,25 @@
         const escapedNom = escapeHTML(item.nom);
         const escapedTelephone = escapeHTML(item.telephone);
         const escapedEmail = escapeHTML(item.email);
-        const escapedUfr = escapeHTML(item.ufr);
-        const escapedFiliere = escapeHTML(item.filiere);
-        const escapedNiveau = escapeHTML(item.niveau);
+        const escapedUfr = escapeHTML(item.module_choisi);
+        const escapedFiliere = escapeHTML(item.objectif);
+        const escapedNiveau = escapeHTML(item.experience);
 
         const globalIndex = startIndex + index + 1;
 
         tr.innerHTML = `
-            <td class="py-4 px-4 text-center font-bold text-brand-blue-dark/40 border-b border-brand-blue-dark/5">${globalIndex}</td>
-            <td class="py-4 px-4 border-b border-brand-blue-dark/5">
-              <strong class="text-brand-blue-dark block font-semibold text-sm">${escapedPrenom} ${escapedNom}</strong>
-              <span class="text-xxs text-brand-blue-dark/40 font-sans">${escapedNiveau}</span>
+            <td class="py-4 px-4 text-center font-bold text-brand-blue-dark dark:text-white/40 border-b border-black/5 dark:border-brand-blue-dark/5">${globalIndex}</td>
+            <td class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5">
+              <strong class="text-brand-blue-dark dark:text-white block font-semibold text-sm">${escapedPrenom} ${escapedNom}</strong>
+              <span class="text-xxs text-brand-blue-dark dark:text-white/40 font-sans">${escapedNiveau}</span>
             </td>
-            <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${escapedTelephone}</td>
-            <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${escapedEmail}</td>
-            <td class="py-4 px-4 border-b border-brand-blue-dark/5">
+            <td class="py-4 px-4 text-brand-blue-dark dark:text-white/80 font-medium border-b border-black/5 dark:border-brand-blue-dark/5">${escapedTelephone}</td>
+            <td class="py-4 px-4 text-brand-blue-dark dark:text-white/80 font-medium border-b border-black/5 dark:border-brand-blue-dark/5">${escapedEmail}</td>
+            <td class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5">
               <span class="px-2.5 py-1 text-xxs font-bold rounded-full border bg-brand-gold-premium/15 text-brand-gold-premium border-brand-gold-premium/30">${escapedUfr}</span>
             </td>
-            <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${escapedFiliere}</td>
-            <td class="py-4 px-4 text-center border-b border-brand-blue-dark/5">
+            <td class="py-4 px-4 text-brand-blue-dark dark:text-white/80 font-medium border-b border-black/5 dark:border-brand-blue-dark/5">${escapedFiliere}</td>
+            <td class="py-4 px-4 text-center border-b border-black/5 dark:border-brand-blue-dark/5">
               <button onclick="handleDeleteInscription('${item.id}', '${escapedPrenom} ${escapedNom}')" class="bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 rounded-lg p-2 transition-all duration-300 shadow-sm cursor-pointer animate-fade-in" title="Supprimer l'inscription">
                 <i data-lucide="trash-2" class="w-4 h-4"></i>
               </button>
@@ -2451,19 +2487,19 @@
 
       list.forEach(item => {
         // Count UFR
-        const ufr = item.ufr || 'Non renseigné';
-        ufrStats[ufr] = (ufrStats[ufr] || 0) + 1;
+        const module_choisi = item.module_choisi || 'Non renseigné';
+        ufrStats[module_choisi] = (ufrStats[module_choisi] || 0) + 1;
 
         // Normalize and count Filière (handle abbreviations)
-        let filiere = (item.filiere || 'Non renseignée').trim().toUpperCase();
+        let objectif = (item.objectif || 'Non renseignée').trim().toUpperCase();
         // Remove extra spaces and special chars for grouping
-        filiere = filiere.replace(/[^A-Z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
-        if (filiere === '') filiere = 'NON RENSEIGNÉE';
-        filiereStats[filiere] = (filiereStats[filiere] || 0) + 1;
+        objectif = objectif.replace(/[^A-Z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
+        if (objectif === '') objectif = 'NON RENSEIGNÉE';
+        filiereStats[objectif] = (filiereStats[objectif] || 0) + 1;
       });
 
       // Update Unique UFR count
-      document.getElementById('stat-ufr').innerText = Object.keys(ufrStats).length;
+      document.getElementById('stat-module_choisi').innerText = Object.keys(ufrStats).length;
 
       const startOfToday = new Date();
       startOfToday.setHours(0, 0, 0, 0);
@@ -2471,19 +2507,19 @@
       document.getElementById('stat-today').innerText = todayCount;
 
       // Render UFR Stats
-      const ufrContainer = document.getElementById('stats-ufr-list');
+      const ufrContainer = document.getElementById('stats-module_choisi-list');
       ufrContainer.innerHTML = '';
       Object.entries(ufrStats)
         .sort((a, b) => b[1] - a[1]) // sort descending by count
-        .forEach(([ufr, count]) => {
+        .forEach(([module_choisi, count]) => {
           const percentage = Math.round((count / list.length) * 100) || 0;
           ufrContainer.innerHTML += `
               <div class="space-y-1">
-                <div class="flex justify-between text-xs font-medium text-brand-blue-dark">
-                  <span class="truncate pr-2">${ufr}</span>
+                <div class="flex justify-between text-xs font-medium text-brand-blue-dark dark:text-white">
+                  <span class="truncate pr-2">${module_choisi}</span>
                   <span class="font-bold">${count} (${percentage}%)</span>
                 </div>
-                <div class="w-full bg-brand-blue-dark/5 rounded-full h-1.5">
+                <div class="w-full bg-black/5 dark:bg-brand-blue-dark/5 rounded-full h-1.5">
                   <div class="bg-brand-gold-premium h-1.5 rounded-full" style="width: ${percentage}%"></div>
                 </div>
               </div>
@@ -2491,19 +2527,19 @@
         });
 
       // Render Filiere Stats
-      const filiereContainer = document.getElementById('stats-filiere-list');
+      const filiereContainer = document.getElementById('stats-objectif-list');
       filiereContainer.innerHTML = '';
       Object.entries(filiereStats)
         .sort((a, b) => b[1] - a[1])
-        .forEach(([filiere, count]) => {
+        .forEach(([objectif, count]) => {
           const percentage = Math.round((count / list.length) * 100) || 0;
           filiereContainer.innerHTML += `
               <div class="space-y-1">
-                <div class="flex justify-between text-xs font-medium text-brand-blue-dark">
-                  <span class="truncate pr-2">${filiere}</span>
+                <div class="flex justify-between text-xs font-medium text-brand-blue-dark dark:text-white">
+                  <span class="truncate pr-2">${objectif}</span>
                   <span class="font-bold">${count}</span>
                 </div>
-                <div class="w-full bg-brand-blue-dark/5 rounded-full h-1.5">
+                <div class="w-full bg-black/5 dark:bg-brand-blue-dark/5 rounded-full h-1.5">
                   <div class="bg-brand-blue-medium h-1.5 rounded-full" style="width: ${percentage}%"></div>
                 </div>
               </div>
@@ -2522,9 +2558,9 @@
             (item.nom && item.nom.toLowerCase().includes(query)) ||
             (item.prenom && item.prenom.toLowerCase().includes(query)) ||
             (item.email && item.email.toLowerCase().includes(query)) ||
-            (item.ufr && item.ufr.toLowerCase().includes(query)) ||
-            (item.filiere && item.filiere.toLowerCase().includes(query)) ||
-            (item.niveau && item.niveau.toLowerCase().includes(query))
+            (item.module_choisi && item.module_choisi.toLowerCase().includes(query)) ||
+            (item.objectif && item.objectif.toLowerCase().includes(query)) ||
+            (item.experience && item.experience.toLowerCase().includes(query))
           );
         });
       }
@@ -2568,9 +2604,9 @@
           item.prenom.replace(/"/g, '""'),
           item.telephone,
           item.email,
-          item.ufr,
-          item.filiere.replace(/"/g, '""'),
-          item.niveau,
+          item.module_choisi,
+          item.objectif.replace(/"/g, '""'),
+          item.experience,
           new Date(item.created_at).toLocaleString('fr-FR')
         ];
         csvContent += row.map(val => `"${val}"`).join(";") + "\r\n";
@@ -2647,7 +2683,7 @@
       if (list.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="6" class="py-12 text-center text-brand-blue-dark/45 font-medium font-sans">
+            <td colspan="6" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium font-sans">
               Aucun événement programmé pour le moment.
             </td>
           </tr>
@@ -2659,20 +2695,16 @@
         const tr = document.createElement('tr');
         tr.className = "hover:bg-brand-blue-dark/5 transition-colors";
         tr.innerHTML = `
-          <td class="py-4 px-4 text-center font-bold text-brand-blue-dark/40 border-b border-brand-blue-dark/5">${index + 1}</td>
-          <td class="py-4 px-4 font-semibold text-brand-blue-dark border-b border-brand-blue-dark/5 text-sm">${event.titre}</td>
-          <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${event.date_evenement}</td>
-          <td class="py-4 px-4 text-brand-blue-dark/80 font-medium border-b border-brand-blue-dark/5">${event.lieu}</td>
-          <td class="py-4 px-4 text-center border-b border-brand-blue-dark/5">
-            <span class="px-2.5 py-1 text-xxs font-bold rounded-full border ${
-              event.inscription_requise 
-                ? 'bg-amber-50 text-amber-600 border-amber-200' 
-                : 'bg-emerald-50 text-emerald-600 border-emerald-200'
-            }">
+          <td class="py-4 px-4 text-center font-bold text-brand-blue-dark dark:text-white/40 border-b border-black/5 dark:border-brand-blue-dark/5">${index + 1}</td>
+          <td class="py-4 px-4 font-semibold text-brand-blue-dark dark:text-white border-b border-black/5 dark:border-brand-blue-dark/5 text-sm">${event.titre}</td>
+          <td class="py-4 px-4 text-brand-blue-dark dark:text-white/80 font-medium border-b border-black/5 dark:border-brand-blue-dark/5">${event.date_evenement}</td>
+          <td class="py-4 px-4 text-brand-blue-dark dark:text-white/80 font-medium border-b border-black/5 dark:border-brand-blue-dark/5">${event.lieu}</td>
+          <td class="py-4 px-4 text-center border-b border-black/5 dark:border-brand-blue-dark/5">
+            <span class="px-2.5 py-1 text-xxs font-bold rounded-full border ${ event.inscription_requise ? 'bg-amber-50 text-amber-600 border-amber-200' : 'bg-emerald-50 text-emerald-600 border-emerald-200' }">
               ${event.inscription_requise ? 'Oui' : 'Non'}
             </span>
           </td>
-          <td class="py-4 px-4 text-center border-b border-brand-blue-dark/5">
+          <td class="py-4 px-4 text-center border-b border-black/5 dark:border-brand-blue-dark/5">
             <button onclick="handleDeleteEvent('${event.id}', '${event.titre.replace(/'/g, "\\'")}')" class="bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 rounded-lg p-2 transition-all duration-300 shadow-sm cursor-pointer" title="Supprimer l'événement">
               <i data-lucide="trash-2" class="w-4 h-4"></i>
             </button>
@@ -2771,14 +2803,14 @@
                 <i data-lucide="calendar-x" class="w-10 h-10 text-brand-gold-premium/60"></i>
               </div>
               <div class="space-y-3">
-                <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark/80">Aucun événement à venir</h3>
-                <p class="text-brand-blue-dark/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+                <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-blue-dark dark:text-white/80">Aucun événement à venir</h3>
+                <p class="text-brand-blue-dark dark:text-white/50 font-sans text-sm sm:text-base max-w-md mx-auto leading-relaxed">
                   Restez connectés ! Nos prochains événements, ateliers et sessions de formation seront annoncés ici très prochainement.
                 </p>
               </div>
               <div class="flex items-center justify-center gap-3 pt-2">
                 <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
-                <span class="text-xs text-brand-blue-dark/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
+                <span class="text-xs text-brand-blue-dark dark:text-white/40 font-sans font-medium uppercase tracking-wider">En attente de programmation</span>
                 <span class="w-2 h-2 rounded-full bg-brand-gold-premium/40 animate-pulse"></span>
               </div>
             </div>
@@ -2791,7 +2823,7 @@
         let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">';
         data.forEach(event => {
           html += `
-            <div class="bg-white rounded-2xl shadow-lg border border-brand-blue-dark/5 p-6 space-y-4 hover:shadow-brand-gold-premium/10 transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-[#111111] rounded-2xl shadow-lg border border-black/5 dark:border-brand-blue-dark/5 p-6 space-y-4 hover:shadow-brand-gold-premium/10 transition-all duration-300 transform hover:-translate-y-1">
               <div class="flex justify-between items-start">
                 <span class="px-3 py-1 bg-brand-gold-premium/15 text-brand-gold-premium font-sans font-semibold text-xs rounded-full uppercase tracking-wider">Prochainement</span>
                 <div class="flex items-center gap-1.5 text-brand-blue-dark/55 text-xs font-sans">
@@ -2800,18 +2832,18 @@
                 </div>
               </div>
               <div class="space-y-2">
-                <h3 class="text-xl font-serif font-bold text-brand-blue-dark leading-tight">${event.titre}</h3>
-                <div class="flex items-center gap-2 text-sm font-sans text-brand-blue-dark/70">
+                <h3 class="text-xl font-serif font-bold text-brand-blue-dark dark:text-white leading-tight">${event.titre}</h3>
+                <div class="flex items-center gap-2 text-sm font-sans text-brand-blue-dark dark:text-white/70">
                   <i data-lucide="calendar" class="w-4 h-4 text-brand-gold-premium/60"></i>
                   <span>${event.date_evenement}</span>
                 </div>
               </div>
               <div class="pt-2">
                 ${event.inscription_requise 
-                  ? `<a href="${event.lien_inscription || '#inscription'}" class="inline-flex w-full justify-center items-center gap-2 bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark font-sans font-bold text-sm py-3 px-5 rounded-xl shadow transition-colors duration-300">
+                  ? `<a href="${event.lien_inscription || '#inscription'}" class="inline-flex w-full justify-center items-center gap-2 bg-brand-gold-premium hover:bg-brand-gold-light text-brand-blue-dark dark:text-white font-sans font-bold text-sm py-3 px-5 rounded-xl shadow transition-colors duration-300">
                        <i data-lucide="ticket" class="w-4 h-4"></i> S'inscrire à l'événement
                      </a>`
-                  : `<div class="w-full text-center py-2.5 bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark/60 font-sans text-xs font-bold uppercase tracking-wider border border-dashed border-brand-blue-dark/10">
+                  : `<div class="w-full text-center py-2.5 bg-black/5 dark:bg-brand-blue-dark/5 rounded-xl text-brand-blue-dark dark:text-white/60 font-sans text-xs font-bold uppercase tracking-wider border border-dashed border-brand-blue-dark/10">
                        Entrée libre & gratuite
                      </div>`
                 }
@@ -2853,6 +2885,20 @@
   </script>
   <!-- Toast Notification Container -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const marqueeContainer = document.querySelector('.animate-\\[marquee_25s_linear_infinite\\]');
+      if (marqueeContainer) {
+        // Clone items to create a seamless loop
+        const items = Array.from(marqueeContainer.children);
+        items.forEach(item => {
+          const clone = item.cloneNode(true);
+          marqueeContainer.appendChild(clone);
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
