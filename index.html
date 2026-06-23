@@ -1275,7 +1275,7 @@
             </div>
           </div>
           <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center print:hidden">
-            <a href="https://wa.me/221784799882" id="whatsapp-button" target="_blank" onclick="retrySupabaseInsert()"
+            <a href="https://wa.me/221756490565" id="whatsapp-button" target="_blank" onclick="retrySupabaseInsert()"
               class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-brand-blue-dark dark:text-white font-sans text-sm font-semibold py-3 px-6 rounded-lg shadow transition-all duration-300 flex items-center justify-center space-x-2">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>Contacter sur WhatsApp</span>
@@ -1394,20 +1394,6 @@
             </button>
           </div>
         </form>
-      </div>
-    </div>
-  </section>
-  <!-- FOOTER                                                   -->
-  <!-- ======================================================== -->
-  <footer class="bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white border-t border-brand-gold-premium/20 py-12">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center space-y-6">
-      <div class="flex flex-col items-center space-y-2">
-        <span class="text-brand-gold-premium font-serif font-bold text-xl tracking-wide">🛒 Ecom Academie</span>
-        <span class="text-xs text-black/50 dark:text-white/50 uppercase tracking-widest font-sans">Formation E-commerce 2026 — Shopify ·
-          Alibaba · Marketing · Vente en ligne</span>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-sans px-4">
         <a href="#presentation" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Présentation</a>
         <span class="text-black/20 dark:text-white/20 hidden sm:inline">|</span>
         <a href="#formations" class="text-black/60 dark:text-white/60 hover:text-brand-gold-premium transition-colors">Formations</a>
@@ -1771,8 +1757,8 @@
     }
 
     // 1. SUPABASE CLIENT CONFIGURATION
-    const supabaseUrl = '%VITE_SUPABASE_URL%';
-    const supabaseAnonKey = '%VITE_SUPABASE_ANON_KEY%';
+    const supabaseUrl = 'https://tzqtdznmybjffgqcajdp.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6cXRkem5teWJqZmZncWNhamRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODUwMDYsImV4cCI6MjA5Njk2MTAwNn0.BAi7J_EF7OKjBO58snUlRjzgRCOntDwulH4y6IPVOvg';
 
     let supabaseClient = {
       from: () => ({ select: async () => ({ data: [], error: null }), insert: async () => ({ data: null, error: null }) }),
@@ -2127,7 +2113,7 @@
 
       // Configure WhatsApp button
       const whatsappMsg = `Bonjour ! Je viens de m'inscrire chez Ecom Academie.\n\n👤 Candidat : ${prenom} ${nom}\n💼 Type : ${ufrTypeStr}\n📌 Choix : ${module_choisi}\n📊 ${niveauTypeStr} : ${experience}\n📞 Contact : ${telephone}\n📧 Email : ${email}`;
-      const whatsappUrl = `https://wa.me/221784799882?text=${encodeURIComponent(whatsappMsg)}`;
+      const whatsappUrl = `https://wa.me/221756490565?text=${encodeURIComponent(whatsappMsg)}`;
 
       document.getElementById('whatsapp-button').href = whatsappUrl;
 
