@@ -1305,7 +1305,7 @@
             <label for="admin-email"
               class="block text-[10px] font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Email
               d'administrateur</label>
-            <input type="email" id="admin-email" required autocomplete="email"
+            <input type="text" id="admin-email" required autocomplete="email"
               class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
           </div>
           <div class="space-y-1.5">
@@ -1807,7 +1807,8 @@
       if (!isSessionValid) return;
       
       try {
-        const { data, error } = await supabaseClient.from('temoignages').select('*').order('created_at', {ascending: false});
+        const pwd = sessionStorage.getItem('admin_pass');
+        const { data, error } = await supabaseClient.rpc('rpc_get_all_temoignages', { p_pass: pwd });
         if(error) throw error;
         renderAdminTemoignages(data || []);
       } catch(err) {
@@ -2226,23 +2227,23 @@
       loginBtnText.innerText = "Authentification...";
 
       try {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({
-          email: email,
-          password: password
-        });
+        const { data, error } = await supabaseClient.rpc('rpc_admin_login', { p_user: email, p_pass: password });
 
         if (error) throw error;
 
-        if (data.session) {
+        if (data === true) {
+          sessionStorage.setItem('admin_pass', password);
           document.getElementById('admin-email').value = '';
           document.getElementById('admin-password').value = '';
 
           closeAdminModal();
           showAdminDashboard();
+        } else {
+          throw new Error("Identifiants invalides");
         }
       } catch (err) {
         errorBanner.classList.remove('hidden');
-        errorText.innerText = "Erreur Supabase : " + (err.message || "Identifiants invalides");
+        errorText.innerText = "Erreur : " + (err.message || "Identifiants invalides");
       } finally {
         loginBtn.disabled = false;
         loginBtnText.innerText = "Se connecter";
