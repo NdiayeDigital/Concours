@@ -1985,40 +1985,6 @@
       const timerInterval = setInterval(updateTimer, 1000);
     }
 
-    // 5. TESTIMONIALS CAROUSEL
-    function showSlide(index) {
-      currentActiveSlide = index;
-      for (let i = 0; i < 10; i++) {
-        const slide = document.getElementById(`slide-${i}`);
-        const dot = document.getElementById(`dot-${i}`);
-        if (i === index) {
-          slide.classList.remove('hidden');
-          dot.classList.remove('bg-brand-blue-dark/20');
-          dot.classList.add('bg-brand-gold-premium');
-        } else {
-          slide.classList.add('hidden');
-          dot.classList.remove('bg-brand-gold-premium');
-          dot.classList.add('bg-brand-blue-dark/20');
-        }
-      }
-    }
-
-    function nextSlide() {
-      let next = currentActiveSlide + 1;
-      if (next >= 10) next = 0;
-      showSlide(next);
-    }
-
-    function prevSlide() {
-      let prev = currentActiveSlide - 1;
-      if (prev < 0) prev = 9;
-      showSlide(prev);
-    }
-
-    function goToSlide(index) {
-      showSlide(index);
-    }
-
     // 6. INSCRIPTION FORM VALIDATION & SUBMISSION
     function validateEmailLive(input) {
       const val = input.value.trim().toLowerCase();
