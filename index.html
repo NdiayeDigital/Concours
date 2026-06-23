@@ -2276,7 +2276,7 @@
         }
       } catch (err) {
         errorBanner.classList.remove('hidden');
-        errorText.innerText = "Identifiants invalides ou problème de connexion.";
+        errorText.innerText = "Erreur Supabase : " + (err.message || "Identifiants invalides");
       } finally {
         loginBtn.disabled = false;
         loginBtnText.innerText = "Se connecter";
