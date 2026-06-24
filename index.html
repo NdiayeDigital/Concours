@@ -230,14 +230,14 @@
           </div>
           <!-- Mobile Menu Trigger -->
           <!-- Mobile Menu Trigger -->
-        <div class="md:hidden flex items-center space-x-3">
-          <button onclick="openAdminModal()" class="text-black/40 dark:text-white/40 hover:text-brand-gold-premium p-1 transition-colors">
+        <div class="md:hidden flex items-center space-x-3 relative z-50">
+          <button onclick="openAdminModal()" class="text-black/40 dark:text-white/40 hover:text-brand-gold-premium p-2 transition-colors bg-black/5 dark:bg-white/5 rounded-full">
             <i data-lucide="shield" class="w-4 h-4"></i>
           </button>
           <button onclick="toggleMobileMenu()"
-            class="text-brand-blue-dark dark:text-white hover:text-brand-gold-light focus:outline-none relative w-6 h-6 flex items-center justify-center">
-            <div id="menu-icon-open"><i data-lucide="menu" class="h-6 w-6"></i></div>
-            <div id="menu-icon-close" class="hidden"><i data-lucide="x" class="h-6 w-6"></i></div>
+            class="text-brand-blue-dark dark:text-white hover:text-brand-gold-premium focus:outline-none relative w-10 h-10 flex items-center justify-center bg-black/5 dark:bg-white/5 rounded-full transition-colors cursor-pointer">
+            <div id="menu-icon-open"><i data-lucide="menu" class="w-6 h-6"></i></div>
+            <div id="menu-icon-close" class="hidden"><i data-lucide="x" class="w-6 h-6"></i></div>
           </button>
         </div>
       </div>
