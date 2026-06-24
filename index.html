@@ -1429,6 +1429,9 @@
         <button id="tab-btn-events" onclick="switchAdminTab('events')" class="text-brand-blue-dark dark:text-white/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300">
           📅 Événements
         </button>
+        <button id="tab-btn-temoignages" onclick="switchAdminTab('temoignages')" class="text-brand-blue-dark dark:text-white/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300">
+          💬 Témoignages
+        </button>
       </div>
     </div>
 
@@ -1633,6 +1636,37 @@
                 <tr>
                   <td colspan="6" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium">
                     Chargement des événements...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TEMOIGNAGES TAB ================= -->
+      <div id="admin-tab-temoignages" class="hidden space-y-8">
+        <div class="bg-white dark:bg-[#111111] border border-black/5 dark:border-brand-blue-dark/5 rounded-2xl shadow-md overflow-hidden">
+          <div class="p-4 bg-brand-cream dark:bg-brand-blue-dark text-brand-blue-dark dark:text-white font-sans font-bold text-sm tracking-wide uppercase flex items-center gap-2">
+            <i data-lucide="message-square" class="w-4 h-4"></i> Liste des Témoignages
+          </div>
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+              <thead class="bg-[#F8F6F0]/85 text-brand-blue-dark dark:text-white font-sans uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center w-12">#</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold">Profil</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold">Message</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center">Note</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center">Statut</th>
+                  <th class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5 font-semibold text-center w-36">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="temoignages-tbody" class="divide-y divide-black/5 dark:divide-brand-blue-dark/5 font-sans">
+                <!-- Data loaded dynamically -->
+                <tr>
+                  <td colspan="6" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium">
+                    Chargement des témoignages...
                   </td>
                 </tr>
               </tbody>
@@ -2672,7 +2706,6 @@
                 btn.className = "text-brand-gold-premium font-sans font-bold text-sm border-b-2 border-brand-gold-premium pb-1 outline-none transition-all duration-300";
                 pane.classList.remove('hidden');
                 if(t === 'events') fetchEventsData();
-      fetchAdminTemoignages();
                 if(t === 'temoignages') fetchAdminTemoignages();
             } else {
                 btn.className = "text-brand-blue-dark/60 hover:text-brand-blue-dark font-sans font-medium text-sm pb-1 outline-none transition-all duration-300";
@@ -2902,7 +2935,150 @@
       }
     }
 
-    
+    // ========================================================
+    // GESTION DES TEMOIGNAGES (ADMIN & PUBLIC)
+    // ========================================================
+    let globalTemoignages = [];
+
+    async function fetchAdminTemoignages() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('temoignages')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw new Error(error.message);
+
+        globalTemoignages = data || [];
+        renderAdminTemoignagesTable(globalTemoignages);
+      } catch (err) {
+        console.error("Error fetching admin temoignages:", err);
+      }
+    }
+
+    function renderAdminTemoignagesTable(list) {
+      const tbody = document.getElementById('temoignages-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (list.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-12 text-center text-brand-blue-dark dark:text-white/45 font-medium font-sans">
+              Aucun témoignage enregistré pour le moment.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      list.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-brand-blue-dark/5 transition-colors";
+        
+        let statusBadge = '';
+        if (item.statut === 'approuve') {
+          statusBadge = '<span class="px-2.5 py-1 text-xxs font-bold rounded-full border bg-emerald-50 text-emerald-600 border-emerald-200">Approuvé</span>';
+        } else if (item.statut === 'rejete') {
+          statusBadge = '<span class="px-2.5 py-1 text-xxs font-bold rounded-full border bg-red-50 text-red-600 border-red-200">Rejeté</span>';
+        } else {
+          statusBadge = '<span class="px-2.5 py-1 text-xxs font-bold rounded-full border bg-amber-50 text-amber-600 border-amber-200">En attente</span>';
+        }
+
+        tr.innerHTML = `
+          <td class="py-4 px-4 text-center font-bold text-brand-blue-dark dark:text-white/40 border-b border-black/5 dark:border-brand-blue-dark/5">${index + 1}</td>
+          <td class="py-4 px-4 border-b border-black/5 dark:border-brand-blue-dark/5">
+            <strong class="text-brand-blue-dark dark:text-white block font-semibold text-sm">${escapeHTML(item.nom_complet)}</strong>
+            <span class="text-xxs text-brand-blue-dark dark:text-white/40 font-sans">${escapeHTML(item.profession)}</span>
+          </td>
+          <td class="py-4 px-4 text-brand-blue-dark dark:text-white/80 font-medium text-xs border-b border-black/5 dark:border-brand-blue-dark/5 max-w-xs truncate" title="${escapeHTML(item.message)}">
+            ${escapeHTML(item.message)}
+          </td>
+          <td class="py-4 px-4 text-center font-bold text-brand-gold-premium border-b border-black/5 dark:border-brand-blue-dark/5">${item.note}/5</td>
+          <td class="py-4 px-4 text-center border-b border-black/5 dark:border-brand-blue-dark/5">${statusBadge}</td>
+          <td class="py-4 px-4 text-center border-b border-black/5 dark:border-brand-blue-dark/5 space-x-1">
+            <button onclick="handleApproveTemoignage('${item.id}')" class="bg-emerald-50 hover:bg-emerald-600 text-emerald-600 hover:text-white border border-emerald-200 hover:border-emerald-600 rounded-lg p-1.5 transition-all duration-300 shadow-sm cursor-pointer" title="Approuver">
+              <i data-lucide="check" class="w-4 h-4"></i>
+            </button>
+            <button onclick="handleRejectTemoignage('${item.id}')" class="bg-amber-50 hover:bg-amber-600 text-amber-600 hover:text-white border border-amber-200 hover:border-amber-600 rounded-lg p-1.5 transition-all duration-300 shadow-sm cursor-pointer" title="Rejeter">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <button onclick="handleDeleteTemoignage('${item.id}', '${escapeHTML(item.nom_complet.replace(/'/g, "\\'"))}')" class="bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 rounded-lg p-1.5 transition-all duration-300 shadow-sm cursor-pointer" title="Supprimer">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    async function handleApproveTemoignage(id) {
+      const isSessionValid = await checkSessionTimeout();
+      if (!isSessionValid) return;
+
+      try {
+        const { error } = await supabaseClient
+          .from('temoignages')
+          .update({ statut: 'approuve' })
+          .eq('id', id);
+
+        if (error) throw error;
+        showNotificationToast("Succès", "Le témoignage a été approuvé.");
+        fetchAdminTemoignages();
+        fetchPublicTestimonials();
+      } catch (err) {
+        console.error("Error approving temoignage:", err);
+        showNotificationToast("Erreur", "Impossible d'approuver le témoignage.", "error");
+      }
+    }
+
+    async function handleRejectTemoignage(id) {
+      const isSessionValid = await checkSessionTimeout();
+      if (!isSessionValid) return;
+
+      try {
+        const { error } = await supabaseClient
+          .from('temoignages')
+          .update({ statut: 'rejete' })
+          .eq('id', id);
+
+        if (error) throw error;
+        showNotificationToast("Succès", "Le témoignage a été rejeté.");
+        fetchAdminTemoignages();
+        fetchPublicTestimonials();
+      } catch (err) {
+        console.error("Error rejecting temoignage:", err);
+        showNotificationToast("Erreur", "Impossible de rejeter le témoignage.", "error");
+      }
+    }
+
+    async function handleDeleteTemoignage(id, nom) {
+      if (!confirm(\`Voulez-vous vraiment supprimer le témoignage de "\${nom}" ?\`)) return;
+
+      const isSessionValid = await checkSessionTimeout();
+      if (!isSessionValid) return;
+
+      try {
+        const { error } = await supabaseClient
+          .from('temoignages')
+          .delete()
+          .eq('id', id);
+
+        if (error) throw error;
+        showNotificationToast("Succès", "Témoignage supprimé !");
+        fetchAdminTemoignages();
+        fetchPublicTestimonials();
+      } catch (err) {
+        console.error("Error deleting temoignage:", err);
+        showNotificationToast("Erreur", "Impossible de supprimer ce témoignage.", "error");
+      }
+    }
+
+    async function fetchPublicTestimonials() {
+      // Pour l'instant on laisse vide s'il n'y a pas de conteneur
+    }
+
     // Register PWA Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -2922,8 +3098,7 @@
     window.addEventListener('online', () => {
       showNotificationToast("En ligne", "Votre connexion internet est de retour !", "success");
     });
-);
-    }
+
     // Script Anti-Capture / Anti-Copie
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
