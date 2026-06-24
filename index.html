@@ -1710,14 +1710,17 @@
       
       try {
         const { error } = await supabaseClient.from('temoignages').insert([{
-          prenom, nom, role_statut: role, message, note
+          prenom, nom, role_statut: role, message, note, statut_validation: 'approuve'
         }]);
         if(error) throw error;
         
-        showNotificationToast("Succès", "Merci ! Votre témoignage est en cours de modération.", "success");
+        showNotificationToast("Succès", "Merci ! Votre témoignage est en ligne.", "success");
         document.getElementById('testimonial-modal').classList.add('hidden');
         document.getElementById('testimonial-modal').classList.remove('flex');
         document.getElementById('testimonial-form').reset();
+        
+        // Rafraîchir les témoignages publics immédiatement
+        fetchPublicTestimonials();
       } catch(err) {
         console.error(err);
         showNotificationToast("Erreur", "Impossible d'envoyer votre témoignage.", "error");
@@ -1732,6 +1735,16 @@
         const { data, error } = await supabaseClient.from('temoignages').select('*').eq('statut_validation', 'approuve').order('created_at', {ascending: false});
         if(error) throw error;
         globalTestimonials = data || [];
+        
+        // S'il n'y a aucun témoignage approuvé dans la base, on affiche des avis par défaut (les anciens avis)
+        if (globalTestimonials.length === 0) {
+          globalTestimonials = [
+            { prenom: "Aïssatou", nom: "Diop", note: 5, message: "Excellente formation ! J'ai pu lancer ma boutique sur Shopify en moins d'un mois grâce à l'accompagnement d'Ecom Academie.", role_statut: "Étudiante", created_at: new Date().toISOString() },
+            { prenom: "Mamadou", nom: "Sow", note: 5, message: "Les modules sur Alibaba et le sourcing m'ont fait gagner un temps précieux. Une vraie mine d'or !", role_statut: "Entrepreneur", created_at: new Date().toISOString() },
+            { prenom: "Fatou", nom: "Ndiaye", note: 5, message: "Le formateur est très pédagogue. Même sans base en informatique, j'ai tout compris et j'ai fait mes premières ventes !", role_statut: "Commerçante", created_at: new Date().toISOString() }
+          ];
+        }
+        
         renderTestimonialsCarousel();
       } catch(err) {
         console.error("Testimonials fetch err:", err);
