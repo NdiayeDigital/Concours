@@ -59,7 +59,7 @@
       theme: {
         extend: {
           keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-          animation: { marquee: 'marquee 25s linear infinite' },
+          animation: { marquee: 'marquee 50s linear infinite' },
           colors: {
             brand: {
               blue: {
@@ -701,7 +701,7 @@
         <p class="text-black/65 dark:text-white/65 font-sans text-sm sm:text-base mt-2">Ecom Academie vous accompagne aussi dans la
           croissance de votre business avec des services professionnels complets.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:max-w-4xl xl:max-w-7xl mx-auto">
 
         <!-- Infographie -->
         <div
@@ -827,7 +827,7 @@
       </div>
 
       <div class="overflow-hidden w-full relative max-w-7xl mx-auto group">
-      <div class="flex animate-[marquee_35s_linear_infinite] group-hover:[animation-play-state:paused] gap-6 w-max">
+      <div class="flex animate-[marquee_50s_linear_infinite] group-hover:[animation-play-state:paused] gap-6 w-max">
         <!-- Item 1 -->
         <div
           class="w-[300px] sm:w-[380px] shrink-0 bg-brand-cream dark:bg-brand-blue-dark border border-brand-gold-premium/40 p-6 rounded-r-xl shadow-md hover:bg-brand-blue-medium/20 transition-all duration-300">
@@ -1302,10 +1302,9 @@
 
         <div class="space-y-4">
           <div class="space-y-1.5">
-            <label for="admin-email"
-              class="block text-[10px] font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Email
-              d'administrateur</label>
-            <input type="text" id="admin-email" required autocomplete="email"
+            <label for="admin-username"
+              class="block text-[10px] font-semibold text-brand-blue-dark dark:text-white/75 uppercase tracking-wider font-sans">Nom d'utilisateur</label>
+            <input type="text" id="admin-username" required autocomplete="username"
               class="w-full bg-[#F8F6F0]/40 border border-black/15 dark:border-brand-blue-dark/15 focus:border-brand-gold-premium focus:ring-1 focus:ring-brand-gold-premium rounded-lg py-3 px-4 outline-none font-sans text-sm text-brand-blue-dark dark:text-white transition-colors" />
           </div>
           <div class="space-y-1.5">
@@ -2215,7 +2214,7 @@
     async function handleAdminLogin(e) {
       e.preventDefault();
 
-      const email = document.getElementById('admin-email').value.trim();
+      const username = document.getElementById('admin-username').value.trim();
       const password = document.getElementById('admin-password').value.trim();
       const loginBtn = document.getElementById('login-btn');
       const loginBtnText = document.getElementById('login-btn-text');
@@ -2227,15 +2226,13 @@
       loginBtnText.innerText = "Authentification...";
 
       try {
-        const { data, error } = await supabaseClient.rpc('rpc_admin_login', { p_user: email, p_pass: password });
-        
-        alert("Debug -> Resultat: " + JSON.stringify(data) + "\nErreur: " + JSON.stringify(error));
+        const { data, error } = await supabaseClient.rpc('rpc_admin_login', { p_user: username, p_pass: password });
 
         if (error) throw error;
 
         if (data === true) {
           sessionStorage.setItem('admin_pass', password);
-          document.getElementById('admin-email').value = '';
+          document.getElementById('admin-username').value = '';
           document.getElementById('admin-password').value = '';
 
           closeAdminModal();
@@ -2871,7 +2868,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const marqueeContainer = document.querySelector('.animate-\\[marquee_25s_linear_infinite\\]');
+      const marqueeContainer = document.querySelector('.animate-\\[marquee_50s_linear_infinite\\]');
       if (marqueeContainer) {
         // Clone items to create a seamless loop
         const items = Array.from(marqueeContainer.children);
