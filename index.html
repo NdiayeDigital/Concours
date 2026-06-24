@@ -1921,7 +1921,8 @@
     
     async function updateTemoignageStatus(id, newStatus) {
       try {
-        const {error} = await supabaseClient.from('temoignages').update({statut_validation: newStatus}).eq('id', id);
+        const pwd = sessionStorage.getItem('admin_pass');
+        const {error} = await supabaseClient.rpc('rpc_update_temoignage', { p_pass: pwd, p_id: id, p_statut: newStatus });
         if(error) throw error;
         showNotificationToast("Succès", "Statut mis à jour.");
         fetchAdminTemoignages();
@@ -1933,7 +1934,8 @@
     async function deleteTemoignage(id) {
       if(!confirm("Supprimer ce témoignage ?")) return;
       try {
-        const {error} = await supabaseClient.from('temoignages').delete().eq('id', id);
+        const pwd = sessionStorage.getItem('admin_pass');
+        const {error} = await supabaseClient.rpc('rpc_delete_temoignage', { p_pass: pwd, p_id: id });
         if(error) throw error;
         showNotificationToast("Succès", "Témoignage supprimé.");
         fetchAdminTemoignages();
@@ -2304,6 +2306,7 @@
 
         if (data === true) {
           sessionStorage.setItem('admin_pass', password);
+          sessionStorage.setItem('admin_login_time', Date.now().toString());
           document.getElementById('admin-username').value = '';
           document.getElementById('admin-password').value = '';
 
@@ -2337,6 +2340,7 @@
         handleAdminLogout();
         throw new Error('Session expirée.');
       }
+      return true;
     }
 
      function showAdminDashboard() {
@@ -2394,10 +2398,9 @@
       if (!isSessionValid) return;
 
       try {
+        const adminPass = sessionStorage.getItem('admin_pass');
         const { data, error } = await supabaseClient
-          .from('inscriptions')
-          .select('*')
-          .order('created_at', { ascending: false });
+          .rpc('rpc_get_inscriptions', { p_pass: adminPass });
 
         if (error) throw error;
 
@@ -2603,10 +2606,9 @@
       if (!check) return;
 
       try {
-        const { error } = await supabaseClient
-          .from('inscriptions')
-          .delete()
-          .eq('id', id);
+        const adminPass = sessionStorage.getItem('admin_pass');
+        const { data, error } = await supabaseClient
+          .rpc('rpc_delete_inscription', { p_pass: adminPass, p_id: id });
 
         if (error) throw error;
         
